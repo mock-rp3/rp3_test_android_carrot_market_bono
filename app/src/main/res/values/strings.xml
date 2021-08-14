@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">CarrotMarket</string>
+
+    <!-- Naming Rules -->
+    <!-- 도메인명_컴포넌트함축어_용도(=목적) -->
+    <string name="main_btm_nav_1_title">홈</string>
+    <string name="main_btm_nav_2_title">동네생활</string>
+    <string name="main_btm_nav_3_title">내 근처</string>
+    <string name="main_btm_nav_4_title">채팅</string>
+    <string name="main_btm_nav_5_title">나의 당근</string>
+
+</resources>
