@@ -9,4 +9,17 @@
     <string name="main_btm_nav_4_title">채팅</string>
     <string name="main_btm_nav_5_title">나의 당근</string>
 
+    <!-- login_start -->
+    <string name="login_start_txt_main">우리 동네 중고 직거래 당근마켓</string>
+    <string name="login_start_txt_sub">당근마켓은 동네 직거래 마켓이에요.\n 내 동네를 설정하고 시작해보세요!</string>
+    <string name="login_start_btn_title">내 동네 설정하고 시작하기</string>
+
+
+    <!-- login_location -->
+    <string name="login_location_edit_hint">동명(읍, 면)으로 검색 (ex. 서초동)</string>
+    <string name="login_location_btn_title">현재위치로 찾기</string>
+
+    <!-- login_location_item -->
+    <string name="login_location_item_main">근처동네</string>
+    <string name="login_location_item_sub">서울 강동구 명일제1동</string>
 </resources>
