@@ -16,10 +16,17 @@
 
 
     <!-- login_location -->
-    <string name="login_location_edit_hint">동명(읍, 면)으로 검색 (ex. 서초동)</string>
+    <string name="login_location_edit_hint">내 동네 이름(동,읍,면)으로 검색</string>
     <string name="login_location_btn_title">현재위치로 찾기</string>
 
     <!-- login_location_item -->
     <string name="login_location_item_main">근처동네</string>
     <string name="login_location_item_sub">서울 강동구 명일제1동</string>
+
+    <!-- login_main -->
+    <string name="login_main_top_txt">전화번호 인증</string>
+    <string name="login_main_cert_txt">당근마켓은 휴대폰 번호로 가입해요. 번호는 안전하게 보관되며 어디에도 공개되지 않아요.</string>
+    <string name="login_main_edt_id">아이디를 입력해주세요</string>
+    <string name="login_main_edt_pwd">비밀번호를 입력해주세요</string>
+    <string name="login_main_btn_login">로그인</string>
 </resources>

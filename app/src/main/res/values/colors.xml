@@ -12,4 +12,7 @@
     <color name="editTextHint">#FF8e8e92</color>
     <color name="editTextControl">#FFeaebee</color>
     <color name="listViewDividerColor">#FFefefef</color>
+    <color name="status_bar">#FFD4D3DA</color>
+    <color name="loginMainEdtBorder">#FFd1d3d7</color>
+    <color name="loginMainBtnBack">#FF4d5158</color>
 </resources>

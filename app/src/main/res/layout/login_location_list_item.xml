@@ -3,28 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingHorizontal="20dp"
-    >
+    android:paddingHorizontal="20dp">
 
 
     <TextView
-        android:paddingVertical="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/login_location_item_main"
+        android:paddingVertical="17dp"
+        android:id="@+id/around_sub"
         android:textSize="15sp"
-        android:background="@color/white"
-        />
-
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login_location_item_sub"
-        android:textColor="@color/black"/>
-
-
-
-
+        android:textColor="@color/black" />
 
 
 </LinearLayout>

@@ -3,9 +3,9 @@ package com.example.carrotmarket.src.login
 import android.os.Bundle
 import android.view.View
 import com.example.carrotmarket.config.BaseActivity
-import com.example.carrotmarket.databinding.ActivityLoginStartBinding
+import com.example.carrotmarket.databinding.ActivityLoginMainBinding
 
-class LoginStartActivity: BaseActivity<ActivityLoginStartBinding>(ActivityLoginStartBinding::inflate) {
+class LoginMainActivity : BaseActivity<ActivityLoginMainBinding>(ActivityLoginMainBinding::inflate) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
