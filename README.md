@@ -1,15 +1,15 @@
 # 📌 1주차 목표 작업 범위
-> _2021/08/14 ~ 2021/08/17_
-- [x] 로그인 화면 _( 08/14 )  → **( 08/16 ✅ )**_
-- [x] 회원가입 화면 _( 08/14 ) → **( 08/16 ✅ )**_
-- [x] 홈 화면 _( 08/15 ) → **( 08/16 ✅ )**_
+> _2021/08/14 ~ 2021/08/17_ 
+- [x] 로그인 화면 _( 08/14 )  → **( 08/16 )**_
+- [x] 회원가입 화면 _( 08/14 ) → **( 08/16 )**_
+- [x] 홈 화면 _( 08/15 ) → **( 08/16 )**_
 - [ ] 스플래쉬 화면
-- [x] 뼈대 레이아웃 구성(네비게이션 탭 등) _( 08/14 ) → **( 08/16 ✅ )**_
+- [x] 뼈대 레이아웃 구성(네비게이션 탭 등) _( 08/14 ) → **( 08/16 )**_
 - [ ] 이미지 리소스 구하기 
 - [ ] 자동 로그인 구현 
 > API
 - [ ] Open API로 도로명 주소 가져오기
-- [x] 회원가입 API 연동 _**( 08/16 ✅ )**_
+- [x] 회원가입 API 연동 _**( 08/16 )**_
 - [ ] 로그인 API 연동
 
 <br />
@@ -36,7 +36,11 @@
 - 뼈대 레이아웃 디테일 구성 **( 100% ✔)**
 - 이미지 리소스 구하기
 
-## 2021년 08월 17일 ☁
+## 2021년 08월 17일 ☁ [1차 피드백]
+> [피드백 이전]
+- 
+> [피드백 이후]
+- 
 
 <br />
 
@@ -58,19 +62,44 @@
   - **해결 🙆🏻‍♀️ |**  A 액티비티에서 intent로 id/pw값을 넘겨주고 B 액티비티에서 최종 회원가입을 성공시킨다. >> 서버 측에서 적어준 vaildation 처리는 어떻게 되는건지 싶었지만 클라에서도 회원가입이 안되는 로직이 만들어 적용해야 되기 때문에 상관없을 것 같다.
 
 ### 4. Fragment에서 RecyclerView 사용하기
-  - **문제 🤦🏻‍♀ |**  Activity(RecyclerView)와 Adapter를 연결해줄 때, Activity에서는 LoginLocationActivity.kt에서 작성했던 것처럼 this를 사용하여서 Fragment에서도 동일하게 코드를 작성해주었더니 this에서 빨간줄이 발생했다.
+  - **문제 🤦🏻‍♀ |**  Activity(RecyclerView)와 Adapter를 연결해줄 때, LoginLocationActivity.kt에서 작성했던 것처럼 this를 context에 넘겨주는데, Fragment에서도 동일하게 코드를 작성해주었더니 thist에 빨간 줄이 발생하였다.
    ``` 
   [Activity] LoginLocationActivity.kt
    
         loginLocationAdapter = LoginLocationAdapter(this, locationArrayList)
         binding.loginLocationRvAround.adapter = loginLocationAdapter
    ```
-  - **뻘짓 🙅🏻‍♀️ |**  [1] this를 어떻게든 사용하기 위해 @를 사용해보았다.   [2] 자바에서 처럼 getActivity를 사용해보았다.    [3] Activity ()를 사용해보았다.
-  - **원인 💁🏻‍♀️ |**  이 부분을 액티비티에 작성할 경우 getActivity() 를 this로 작성할 수 있는데 이 클래스는 Fragment를 상속받으므로 해당 Fragment를 관리하는 Activity를 리턴하는 함수(getActivity())를 매개변수로 넘겨야 한다. 
-  - **해결 🙆🏻‍♀️ |** 코틀린의 경우 Activity를 를 이용하여 부모 액티비티의 context 값을 가져와 사용할 수 있다. null 값의 예외처리를 보장하려면 requireActivity() 를 사용해야하므로, requireActivity() 사용이 권장된다고 한다. (requireContext()도 해봤더니 됐다!)  //DividerItemDecoration에서 this 값에도 사용하였다. 
+  - **뻘짓 🙅🏻‍♀️ |**  [1] this를 어떻게든 사용하기 위해 @를 사용해보았다.   [2] 자바에서 처럼 getActivity를 사용해보았다.    [3] Activity()를 사용해보았다.
+  - **원인 💁🏻‍♀️ |**  이 부분을 Activity에 작성할 경우 getActivity()를 this로 작성할 수 있는데, 이 클래스는 Fragment를 상속받으므로 해당 Fragment를 관리하는 Activity를 리턴하는 함수(getActivity())를 매개변수로 넘겨야 한다. 
+  - **해결 🙆🏻‍♀️ |** 코틀린의 경우 Activity를 를 이용하여 부모 액티비티의 context 값을 가져와 사용할 수 있다. null 값의 예외처리를 보장하려면 requireActivity() 를 사용해야하므로, **requireActivity()** 사용이 권장된다고 한다. (requireContext()도 해봤는데 됐다!)  //DividerItemDecoration에서 this 값에도 사용하였다. 
    ```
    [Fragment] HomeFragment.kt
    
         homeAdapter = HomeAdapter(requireActivity(), productArrayList)
         binding.homeRv.adapter = homeAdapter
    ```
+### 5. Floating Action Button Icon Color
+  - **문제 🤦🏻‍♀ |** Floating Action Button의 Icon Color가 변경되지 않고 검정색으로 적용되있다.
+  - **원인 💁🏻‍♀️ |** 자동완성에서도 android로 해주는데 왜 이러는지 모르겠음 //v23 이후 설계 지원 라이브러리의 경우 app 이라고 한다.
+  - **뻘짓 🙅🏻‍♀️ |**  [1] android:Tint (x)
+  - **해결 🙆🏻‍♀️ |** app:Tint="@color/white"로 해결 !
+
+
+### 6. View 위치와 카드뷰 elevation의 관계 !
+  - **문제 🤦🏻‍♀ |** Floating Action Button를 누르면 배경이 투명한 검정색이 되도록 하고 싶어서 View를 넣어줬는데, 전체를 덮는게 아니라 이미지나 탑바의 border 같은 거랑 특히 카드뷰가 View보다 앞에 나와있다. bringToFront()을 해주면 가장 앞으로 나온다길래 해주었는데, 카드뷰는 안 덮였다.
+  - **원인 💁🏻‍♀️ |** Android의 뷰에는 X 및 Y 속성 외에도 Z 속성이 있다. Z 값이 더 높은 뷰가 다른 뷰 위에 표시된다고 한다.
+  - **해결 🙆🏻‍♀️ |** 검색해도 모르겠어서 혹시나하고 카드뷰의 elevation 값을 조정 해보았더니..  
+```
+   <androidx.cardview.widget.CardView
+        ...
+      app:cardElevation="0dp"
+        ...
+   />
+```
+   
+ <br />
+ 
+# 📌 참고자료
+- [Fragment Context](https://hanyeop.tistory.com/239)
+- [Floation action button Animation](https://greimul.tistory.com/29)
+- [CardView Z 속성](https://developer.android.com/guide/topics/ui/look-and-feel)
