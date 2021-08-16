@@ -101,5 +101,5 @@
  
 # 📌 참고자료
 - [Fragment Context](https://hanyeop.tistory.com/239)
-- [Floation action button Animation](https://greimul.tistory.com/29)
+- [Floating action button Animation](https://greimul.tistory.com/29)
 - [CardView Z 속성](https://developer.android.com/guide/topics/ui/look-and-feel)
