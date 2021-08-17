@@ -6,17 +6,111 @@
     android:layout_height="match_parent"
     tools:context=".src.MainActivity">
 
+    <View
+        android:id="@+id/home_vi_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fabClickViewColor"
+        android:elevation="6dp"
+        android:visibility="gone" />
+
     <FrameLayout
         android:id="@+id/main_frm"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="?attr/actionBarSize" />
+        android:layout_marginBottom="?attr/actionBarSize"
+         />
+
+    <TextView
+        android:elevation="7dp"
+        android:id="@+id/home_txt_fab1_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:text="@string/home_fab_title_1"
+        android:textColor="@color/white"
+        android:textSize="13.5sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/home_fab_1"
+        app:layout_constraintRight_toLeftOf="@+id/home_fab_1"
+        app:layout_constraintTop_toTopOf="@+id/home_fab_1" />
+
+    <TextView
+        android:id="@+id/home_txt_fab2_info"
+        android:elevation="7dp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:text="@string/home_fab_title_2"
+        android:textColor="@color/white"
+        android:textSize="13.5sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/home_fab_2"
+        app:layout_constraintRight_toLeftOf="@+id/home_fab_2"
+        app:layout_constraintTop_toTopOf="@+id/home_fab_2" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/home_fab_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:backgroundTint="@color/mainColor"
+        android:src="@drawable/mm_icon"
+        android:visibility="invisible"
+        app:borderWidth="0dp"
+        app:elevation="7dp"
+
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@+id/home_fab_2"
+        app:layout_constraintEnd_toEndOf="@id/fabMain"
+        app:layout_constraintStart_toStartOf="@id/fabMain"
+        app:rippleColor="@color/white"
+        app:tint="@color/white" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/home_fab_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="9dp"
+        android:backgroundTint="@color/mainColor"
+        android:src="@drawable/pencil_icon"
+        android:visibility="invisible"
+        app:borderWidth="0dp"
+        app:elevation="7dp"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@+id/fabMain"
+        app:layout_constraintEnd_toEndOf="@id/fabMain"
+        app:layout_constraintStart_toStartOf="@id/fabMain"
+        app:rippleColor="@color/white"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:backgroundTint="@color/mainColor"
+        android:src="@drawable/bottom_floating_btn_icon"
+        app:borderWidth="0dp"
+        app:elevation="7dp"
+
+
+        app:layout_constraintBottom_toTopOf="@+id/main_btm_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="@color/white"
+        app:tint="@color/white" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/main_btm_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
+        app:elevation="5dp"
         app:itemBackground="@color/white"
         app:itemIconTint="@drawable/main_btm_nav_item_color"
         app:itemTextColor="@drawable/main_btm_nav_item_color"

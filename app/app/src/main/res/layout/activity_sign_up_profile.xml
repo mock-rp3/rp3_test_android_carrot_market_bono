@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/sign_up_vi_top"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/login_main_top_vi_border"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="@string/sign_up_top_txt"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/sign_up_vi_top"
+        app:layout_constraintLeft_toLeftOf="@+id/sign_up_vi_top"
+        app:layout_constraintTop_toTopOf="@+id/sign_up_vi_top" />
+
+    <ImageView
+        android:id="@+id/sign_up_img_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/profile"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_vi_top" />
+
+    <EditText
+        android:imeOptions="actionDone"
+        android:singleLine="true"
+        android:id="@+id/sign_up_edt_nick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/loginLocationEditText"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="15dp"
+        android:textCursorDrawable="@drawable/cursor"
+        android:background="@drawable/login_main_edt_round"
+        android:gravity="center"
+        android:hint="@string/sign_up_edt_nickname"
+        android:paddingVertical="9dp"
+        android:textSize="17sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_img_profile" />
+
+    <TextView
+        android:visibility="visible"
+        android:id="@+id/sign_up_txt_guide"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_edt_nick"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/sign_up_txt_guide"
+        android:textSize="14sp"/>
+
+    <View
+        android:background="@color/signUpNextBtnBack"
+        android:id="@+id/sign_up_btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:textSize="19sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/sign_up_btn_next"
+        app:layout_constraintBottom_toBottomOf="@+id/sign_up_btn_next"
+        app:layout_constraintLeft_toLeftOf="@+id/sign_up_btn_next"
+        app:layout_constraintRight_toRightOf="@+id/sign_up_btn_next"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="@string/sign_up_btn_title"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
