@@ -58,4 +58,29 @@
     <string name="home_item_price">15,000원</string>
     <string name="home_item_location_and_time"> · </string>
 
+    <!-- product_detail -->
+    <string name="product_detail_btm_price">7,000원</string>
+    <string name="product_detail_btm_price_info">가격제안불가</string>
+    <string name="product_detail_btm_btm_title">채팅으로 거래하기</string>
+    <string name="product_detail_user_name">병진마눌</string>
+    <string name="product_detail_user_location">하남시 망월동</string>
+    <string name="product_detail_user_tem_txt">매너온도</string>
+    <string name="product_detail_user_tem">44.4℃</string>
+    <string name="product_detail_product_name">이케아 유아 책상</string>
+    <string name="product_detail_cate">유아동</string>
+    <string name="product_detail_time">54초 전</string>
+    <string name="product_detail_contents">전체적으로 깨끗해요~~ 보시고 결정하셔도 돼요~</string>
+    <string name="product_detail_views_txt">조회</string>
+    <string name="product_detail_views">15</string>
+    <string name="product_detail_ad">책상 옮기기 무거우시죠? 명일제1동 근처 용달 보기</string>
+    <string name="product_detail_post_report">이 게시글 신고하기</string>
+    <string name="product_detail_user_other">님의 판매상품</string>
+    <string name="product_detail_user_other_more">더보기</string>
+    <string name="product_detail_user_other_name">스타벅스 랜턴</string>
+    <string name="product_detail_user_other_price">13,000원</string>
+
+
+
+
+
 </resources>

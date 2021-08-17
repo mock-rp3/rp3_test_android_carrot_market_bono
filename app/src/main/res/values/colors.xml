@@ -21,4 +21,6 @@
     <color name="homeCardBack">#FFf2f3f6</color>
     <color name="homeItemLocationAndTime">#FF878b93</color>
     <color name="fabClickViewColor">#B3000000</color>
+    <color name="productDetailAd">#FFedf7fa</color>
+    <color name="productDetailAdTxt">#FF3b84b2</color>
 </resources>

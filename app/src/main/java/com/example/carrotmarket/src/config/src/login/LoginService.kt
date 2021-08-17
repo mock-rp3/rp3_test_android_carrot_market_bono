@@ -12,8 +12,8 @@ class LoginService(val view: LoginActivityView) {
 
 
     fun tryPostLogin(postLoginRequest: PostLoginRequest){
-        val LoginRetrofitInterface = ApplicationClass.sRetrofit.create(LoginRetrofitInterface::class.java)
-        LoginRetrofitInterface.postLogin(postLoginRequest).enqueue(object  :
+        val loginRetrofitInterface = ApplicationClass.sRetrofit.create(LoginRetrofitInterface::class.java)
+        loginRetrofitInterface.postLogin(postLoginRequest).enqueue(object  :
         Callback<LoginResponse>{
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 view.onPostLoginSuccess(response.body() as LoginResponse)

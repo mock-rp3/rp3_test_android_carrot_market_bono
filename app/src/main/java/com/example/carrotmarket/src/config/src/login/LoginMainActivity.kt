@@ -34,13 +34,6 @@ class LoginMainActivity : BaseActivity<ActivityLoginMainBinding>(ActivityLoginMa
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-
-
-    }
-
-
     override fun onPostLoginSuccess(response: LoginResponse) {
         response.message?.let { showCustomToast(it) }
         intent = Intent(this, MainActivity::class.java)
