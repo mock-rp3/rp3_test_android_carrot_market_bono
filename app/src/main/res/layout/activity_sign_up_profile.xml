@@ -68,7 +68,7 @@
         android:textSize="14sp"/>
 
     <View
-        android:background="@color/signUpNextBtnBack"
+        android:background="@color/inactiveBtn"
         android:id="@+id/sign_up_btn_next"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"

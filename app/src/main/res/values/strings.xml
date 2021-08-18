@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">CarrotMarket</string>
 
+    <string name="test">test</string>
+
     <!-- Naming Rules -->
     <!-- 도메인명_컴포넌트함축어_용도(=목적) -->
     <string name="main_btm_nav_1_title">홈</string>
@@ -41,7 +43,11 @@
     <string name="sign_up_main_cert_txt">당근마켓은 휴대폰 번호로 가입해요. 번호는 안전하게 보관되며 어디에도 공개되지 않아요.</string>
     <string name="sign_up_main_edt_id">아이디를 입력해주세요</string>
     <string name="sign_up_main_edt_pwd">비밀번호를 입력해주세요</string>
-    <string name="sign_up_main_btn_login">회원가입</string>
+    <string name="sign_up_main_btn_login">비밀번호 입력하기</string>
+    <string name="sign_up_main_modi_txt">전화번호가 변경되었나요?</string>
+    <string name="sign_up_main_found_id">이메일로 계정찾기</string>
+    <string name="sign_up_main_warn">어떤 경우에도 타인에게 공유하지 마세요!</string>
+    <string name="sign_up_main_pw_confirm">비밀번호 확인</string>
 
     <!-- home_fragment -->
     <string name="home_cv_main_txt">따뜻한 거래를 시작해보세요!</string>
@@ -80,6 +86,27 @@
     <string name="product_detail_user_other_price">13,000원</string>
 
 
+
+    <!-- my_page -->
+    <string name="my_page_top">나의 당근</string>
+    <string name="my_page_user_hash">#1231231</string>
+    <string name="my_page_user_btn_title_profile">프로필 보기</string>
+    <string name="my_page_sale_list">판매내역</string>
+    <string name="my_page_pur_list">구매내역</string>
+    <string name="my_page_like_list">관심목록</string>
+    <string name="my_page_set_my_loca">내 동네 설정</string>
+    <string name="my_page_auth_my_loca">동네 인증하기</string>
+    <string name="my_page_keyword_noti">키워드 알림</string>
+    <string name="my_page_all">모아보기</string>
+    <string name="my_page_inter_cate">관심 카테고리 설정</string>
+    <string name="my_page_buzz_profile_make">버즈프로필 만들기</string>
+    <string name="my_page_write_loca">동네홍보 글</string>
+    <string name="my_page_ad_loca">지역광고</string>
+    <string name="my_page_invite_friend">친구초대</string>
+    <string name="my_page_share">당근마켓 공유</string>
+    <string name="my_page_noti">공지사항</string>
+    <string name="my_page_ask">자주 묻는 질문</string>
+    <string name="my_page_app_setting">앱 설정</string>
 
 
 

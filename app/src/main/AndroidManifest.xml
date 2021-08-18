@@ -28,6 +28,7 @@
         </activity>
         <activity android:name=".src.login.LoginMainActivity">
 
+
         </activity>
 
         <activity android:name=".src.users.SignUpProfileActivity">
@@ -35,7 +36,11 @@
         </activity>
 
         <activity android:name=".src.users.SignUpMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 
@@ -44,11 +49,7 @@
         </activity>
 
         <activity android:name=".src.config.src.product.ProductDetailActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
     </application>

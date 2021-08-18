@@ -6,11 +6,11 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:elevation="5dp"
-
         android:layout_width="match_parent"
+
         android:layout_height="?attr/actionBarSize"
         android:background="@null"
+        android:elevation="5dp"
         android:paddingHorizontal="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -18,36 +18,48 @@
 
         <ImageView
             android:id="@+id/detail_img_top_back"
-            android:layout_width="30dp"
+            android:layout_width="27dp"
             android:layout_height="0dp"
-            android:src="@drawable/login_location_back"
+            android:src="@drawable/left_arrow"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
 
         <ImageView
-            android:layout_width="30dp"
+            android:layout_width="27dp"
+
             android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
             android:src="@drawable/bottom_home_off"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/detail_img_top_back"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
 
         <ImageView
             android:id="@+id/detail_img_top_menu"
-            android:layout_width="30dp"
+
+            android:layout_width="27dp"
             android:layout_height="0dp"
-            android:src="@drawable/bottom_4_off"
+            android:paddingHorizontal="4dp"
+            android:src="@drawable/menu_d"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
 
         <ImageView
             android:layout_width="30dp"
+
             android:layout_height="0dp"
-            android:src="@drawable/bottom_5_off"
+            android:layout_marginRight="10dp"
+            android:paddingHorizontal="4dp"
+            android:src="@drawable/share"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/detail_img_top_menu"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -66,10 +78,30 @@
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/product_detail_vp2"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="290dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@id/product_detail_vp2"
+                app:layout_constraintTop_toTopOf="@id/product_detail_vp2"
+                app:layout_constraintLeft_toLeftOf="@id/product_detail_vp2"
+                app:layout_constraintRight_toRightOf="@id/product_detail_vp2"
+                android:background="@drawable/vp_gradient"/>
+
+            <LinearLayout
+                android:id="@+id/detail_ll_indicator"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/product_detail_vp2"
+                app:layout_constraintEnd_toEndOf="@id/product_detail_vp2"
+                app:layout_constraintStart_toStartOf="@id/product_detail_vp2"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/product_detail_cl_user_info"
@@ -83,13 +115,15 @@
 
                 <ImageView
                     android:id="@+id/detail_img_user_profile"
-                    android:layout_width="50dp"
+                    android:layout_width="40dp"
                     android:layout_height="0dp"
                     android:src="@drawable/bottom_4_off"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
+                    android:id="@+id/detail_ll_user_info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -105,7 +139,7 @@
                         android:text="@string/product_detail_user_name"
 
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -114,26 +148,30 @@
                         android:layout_gravity="center"
                         android:text="@string/product_detail_user_location"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        android:textSize="13.5sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/product_detail_ll_user_tem"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_marginRight="15dp"
+                    android:layout_marginRight="5dp"
                     android:orientation="vertical"
                     app:layout_constraintRight_toLeftOf="@+id/product_detail_img_user_tem_icon"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="@+id/detail_ll_user_info">
 
                     <TextView
+                        android:textColor="@color/userTemp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/product_detail_user_tem"
-                        android:textSize="23sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <ProgressBar
+                        android:progressTint="@color/userTemp"
+                        android:progress="44"
+                        android:progressBackgroundTint="@color/editTextHint"
                         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -145,23 +183,20 @@
 
                 <ImageView
                     android:id="@+id/product_detail_img_user_tem_icon"
-                    android:layout_width="wrap_content"
+                    android:layout_width="30dp"
                     android:layout_height="0dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="3dp"
-                    android:adjustViewBounds="true"
                     android:src="@drawable/user_tem_icon"
-                    app:layout_constraintDimensionRatio="1:0.48"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_ll_user_tem"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_ll_user_tem" />
 
                 <TextView
                     android:id="@+id/product_detail_txt_user_tem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
+                    android:layout_marginTop="1dp"
                     android:text="@string/product_detail_user_tem_txt"
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/product_detail_img_user_tem_icon" />
 
@@ -174,7 +209,7 @@
                 android:layout_height="0.5dp"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/mainColor"
+                android:background="@color/dividerColor"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_cl_user_info" />
@@ -194,20 +229,20 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="2dp"
                     android:text="@string/product_detail_product_name"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/product_detail_cate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/product_detail_cate"
@@ -235,7 +270,7 @@
                     android:layout_width="wrap_content"
 
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="15dp"
                     android:text="@string/product_detail_contents"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
@@ -267,7 +302,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="13dp"
-                    android:layout_marginBottom="25dp"
                     app:cardBackgroundColor="@color/productDetailAd"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="0dp"
@@ -283,16 +317,16 @@
                         android:paddingVertical="10dp"
                         android:text="@string/product_detail_ad"
                         android:textColor="@color/productDetailAdTxt"
-                        android:textSize="13sp"
+                        android:textSize="12.5sp"
                         android:textStyle="bold" />
                 </androidx.cardview.widget.CardView>
 
                 <View
+                    android:layout_marginTop="20dp"
                     android:id="@+id/product_detail_vi_gl2"
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/mainColor"
+                    android:background="@color/dividerColor"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/product_detail_cl_user_info" />
@@ -303,14 +337,14 @@
                     android:layout_marginVertical="20dp"
                     android:text="@string/product_detail_post_report"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <View
                     android:id="@+id/product_detail_vi_gl3"
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
-                    android:background="@color/mainColor"
+                    android:background="@color/dividerColor"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/product_detail_cl_user_info" />
@@ -356,6 +390,7 @@
                 android:id="@+id/product_detail_rv_others"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -371,7 +406,7 @@
         android:id="@+id/product_detail_cl_btm"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:elevation="3dp"
+        android:elevation="10dp"
         android:paddingHorizontal="20dp"
         android:paddingVertical="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -393,7 +428,7 @@
             android:layout_height="0dp"
             android:layout_marginVertical="10dp"
             android:layout_marginLeft="20dp"
-            android:background="@color/mainColor"
+            android:background="@color/dividerColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/detail_img_heart"
             app:layout_constraintTop_toTopOf="parent" />
