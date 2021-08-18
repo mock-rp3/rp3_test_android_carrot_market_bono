@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class PostSignUpRequest (
 
 
-    @SerializedName("userID") val userID: String,
+    @SerializedName("phoneNumber") val phoneNumber: String,
     @SerializedName("password") val password: String,
     @SerializedName("nickname") val nickname: String,
     @SerializedName("profileImageUrl") val profileImageUrl: String,

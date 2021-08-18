@@ -10,24 +10,24 @@ import com.example.carrotmarket.src.users.models.SignUpResponse
 
 class SignUpProfileActivity :
     BaseActivity<ActivitySignUpProfileBinding>(ActivitySignUpProfileBinding::inflate),
-UsersActivityView{
+    SignUpActivityView{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding.signUpBtnNext.setOnClickListener {
 
-            val userID=intent.getStringExtra("userID")
+            val phoneNumber=intent.getStringExtra("phoneNumber")
             val password =intent.getStringExtra("password")
             val nickname = binding.signUpEdtNick.text.toString()
             val profileImageUrl = binding.signUpImgProfile.toString()
 
             val postRequest = PostSignUpRequest(
-                userID = userID!!,
+                phoneNumber = phoneNumber!!,
                 password = password!!,
                 nickname = nickname,
                 profileImageUrl = "https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg")
-            UsersService(this).tryPostSignUp(postRequest)
+            SignUpService(this).tryPostSignUp(postRequest)
         }
 
     }

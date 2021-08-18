@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivitySignUpMainBinding
@@ -28,14 +29,15 @@ class SignUpMainActivity :
 
             //변화가 있을 때
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (binding.signUpMainEdtId.length() > 3) {
+
+                if (binding.signUpMainEdtId.length() > 9) {
                     binding.signUpMainBtnNext.setCardBackgroundColor(Color.parseColor("#4d5158"))
 
                     // 비밀번호 입력하기 버튼을 누르면
                     binding.signUpMainBtnNext.setOnClickListener {
                         binding.signUpMainMainLl.visibility = View.GONE
-                        binding.signUpMainTxtModi.visibility = View.INVISIBLE
-                        binding.signUpMainTxtFoundId.visibility = View.INVISIBLE
+                        binding.signUpMainTxtModi.visibility = View.GONE
+                        binding.signUpMainTxtFoundId.visibility = View.GONE
                         binding.signUpMainEdtPwd.visibility = View.VISIBLE
                         binding.signUpMainTxtWarn.visibility = View.VISIBLE
                         binding.signUpMainPwTimer.visibility = View.VISIBLE
@@ -61,18 +63,22 @@ class SignUpMainActivity :
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (binding.signUpMainEdtPwd.length() > 3) {
+                if (binding.signUpMainEdtPwd.length() > 0) {
                     binding.signUpBtnPwConfirm.setCardBackgroundColor(Color.parseColor("#FFee8548"))
-                } else if (binding.signUpMainEdtPwd.length() == 0) {
-                    binding.signUpBtnPwConfirm.setCardBackgroundColor(Color.parseColor("#FFdcdee2"))
+
 
                     binding.signUpBtnPwConfirm.setOnClickListener {
                         intent = Intent(this@SignUpMainActivity, SignUpProfileActivity::class.java)
-                        intent.putExtra("userID", binding.signUpMainEdtId.text.toString())
+                        intent.putExtra("phoneNumber", binding.signUpMainEdtId.text.toString())
                         intent.putExtra("password", binding.signUpMainEdtPwd.text.toString())
                         startActivity(intent)
                         finish()
                     }
+
+                } else if (binding.signUpMainEdtPwd.length() == 0) {
+                    binding.signUpBtnPwConfirm.setCardBackgroundColor(Color.parseColor("#FFdcdee2"))
+
+
                 }
             }
 

@@ -182,6 +182,8 @@
         app:layout_constraintTop_toBottomOf="@id/sign_up_main_edt_pwd" />
 
     <androidx.cardview.widget.CardView
+        android:duplicateParentState="true"
+
         android:visibility="invisible"
         android:id="@+id/sign_up_btn_pw_confirm"
         android:layout_width="match_parent"

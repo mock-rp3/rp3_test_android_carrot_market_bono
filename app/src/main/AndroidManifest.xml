@@ -36,11 +36,7 @@
         </activity>
 
         <activity android:name=".src.users.SignUpMainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
 
@@ -51,6 +47,14 @@
         <activity android:name=".src.config.src.product.ProductDetailActivity">
 
 
+        </activity>
+
+        <activity android:name=".src.config.src.product.ProductSaleListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

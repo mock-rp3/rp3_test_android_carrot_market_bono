@@ -113,14 +113,14 @@ class ProductDetailActivity :
             indicators[i] = ImageView(this)
             indicators[i]!!.setImageDrawable(ContextCompat.getDrawable(this,
                 R.drawable.detail_vp2_indicator_inactive))
-            indicators[i]!!.setLayoutParams(params)
+            indicators[i]!!.layoutParams = params
             binding.detailLlIndicator.addView(indicators[i])
         }
         setCurrentIndicator(0)
     }
 
     private fun setCurrentIndicator(position: Int) {
-        val childCount: Int =  binding.detailLlIndicator.getChildCount()
+        val childCount: Int =  binding.detailLlIndicator.childCount
         for (i in 0 until childCount) {
             val imageView: ImageView =  binding.detailLlIndicator.getChildAt(i) as ImageView
             if (i == position) {

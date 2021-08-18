@@ -41,7 +41,7 @@
     <!--sign_up_main -->
     <string name="sign_up_main_top_txt">회원가입</string>
     <string name="sign_up_main_cert_txt">당근마켓은 휴대폰 번호로 가입해요. 번호는 안전하게 보관되며 어디에도 공개되지 않아요.</string>
-    <string name="sign_up_main_edt_id">아이디를 입력해주세요</string>
+    <string name="sign_up_main_edt_id">휴대폰 번호를 입력해주세요</string>
     <string name="sign_up_main_edt_pwd">비밀번호를 입력해주세요</string>
     <string name="sign_up_main_btn_login">비밀번호 입력하기</string>
     <string name="sign_up_main_modi_txt">전화번호가 변경되었나요?</string>
@@ -107,7 +107,18 @@
     <string name="my_page_noti">공지사항</string>
     <string name="my_page_ask">자주 묻는 질문</string>
     <string name="my_page_app_setting">앱 설정</string>
-
+    <string name="my_page_user_name">혜원혜원</string>
+    <string name="my_page_user_location">명일제1동</string>
+    
+    
+    <!-- product_sale_list -->
+    <string name="product_sale_list_top">판매내역</string>
+    <string name="product_sale_list_ing">판매중</string>
+    <string name="product_sale_list_comp">거래완료</string>
+    <string name="product_sale_list_hide">숨김</string>
+    <string name="product_sale_list_fragment_ing">판매중인 게시글이 없어요</string>
+    <string name="product_sale_list_fragment_comp">거래완료 게시글이 없어요</string>
+    <string name="product_sale_list_fragment_hide">숨기기 한 게시글이 없어요</string>
 
 
 </resources>

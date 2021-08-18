@@ -7,6 +7,7 @@ import android.view.View
 import com.example.carrotmarket.R
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivityMainBinding
+import com.example.carrotmarket.src.config.src.users.MyPageFragment
 import com.example.carrotmarket.src.home.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -27,6 +28,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                     R.id.menu_main_btm_nav_1_on -> {
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.main_frm, HomeFragment())
+                            .commitAllowingStateLoss()
+                        return@OnNavigationItemSelectedListener true
+                    }
+                    R.id.menu_main_btm_nav_5_off -> {
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.main_frm, MyPageFragment())
                             .commitAllowingStateLoss()
                         return@OnNavigationItemSelectedListener true
                     }

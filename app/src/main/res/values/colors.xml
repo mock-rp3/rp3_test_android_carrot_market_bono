@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorAccent">#889dfe</color>
+    <color name="test">#FFefefef</color>
 
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
@@ -13,7 +14,7 @@
     <color name="mainColorEditHighLight">#66ee8548</color>
     <color name="editTextHint">#FF8e8e92</color>
     <color name="editTextControl">#FFeaebee</color>
-    <color name="dividerColor">#FFefefef</color>
+    <color name="dividerColor">#f2f3f6</color>
     <color name="status_bar">#FFD4D3DA</color>
     <color name="loginMainEdtBorder">#FFd1d3d7</color>
     <color name="loginMainBtnBack">#FF4d5158</color>

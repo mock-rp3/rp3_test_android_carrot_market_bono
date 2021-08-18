@@ -7,7 +7,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class UsersService(val view: UsersActivityView) {
+class SignUpService(val view: SignUpActivityView) {
 
 
     fun tryPostSignUp(postSignUpRequest: PostSignUpRequest) {
@@ -27,6 +27,8 @@ class UsersService(val view: UsersActivityView) {
             }
         })
     }
+
+
 
 
 }
