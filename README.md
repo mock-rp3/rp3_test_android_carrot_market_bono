@@ -119,6 +119,7 @@
 - 나의 당근페이지 구현
   - 나의 당근 페이지에 있는 목록들을 리사이클러뷰로 구현해야할지 아니면 그냥 Linear로 해줘야할지 모르겠어서 고민 해보기
 - 판매내역 구현
+  - TabLayout+Viewpager2 연결 성공
 - 상품 등록 구현
 
 
@@ -195,3 +196,4 @@
 - [CardView Z 속성](https://developer.android.com/guide/topics/ui/look-and-feel)
 - [Viewpager2 Indicator custom](https://android-dev.tistory.com/12)
 - [timer](https://magicalcode.tistory.com/49)
+- [TabLayout+Viewpager2](https://sys09270883.github.io/app/44/)
