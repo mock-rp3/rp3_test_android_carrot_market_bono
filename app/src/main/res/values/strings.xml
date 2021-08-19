@@ -2,6 +2,7 @@
     <string name="app_name">CarrotMarket</string>
 
     <string name="test">test</string>
+    <string name="complete">완료</string>
 
     <!-- Naming Rules -->
     <!-- 도메인명_컴포넌트함축어_용도(=목적) -->
@@ -101,6 +102,7 @@
     <string name="my_page_inter_cate">관심 카테고리 설정</string>
     <string name="my_page_buzz_profile_make">버즈프로필 만들기</string>
     <string name="my_page_write_loca">동네홍보 글</string>
+    <string name="my_page_write_reply">동네홍보 댓글</string>
     <string name="my_page_ad_loca">지역광고</string>
     <string name="my_page_invite_friend">친구초대</string>
     <string name="my_page_share">당근마켓 공유</string>
@@ -119,6 +121,43 @@
     <string name="product_sale_list_fragment_ing">판매중인 게시글이 없어요</string>
     <string name="product_sale_list_fragment_comp">거래완료 게시글이 없어요</string>
     <string name="product_sale_list_fragment_hide">숨기기 한 게시글이 없어요</string>
+    
+    <!-- product_write -->
+    <string name="product_write_top">중고거래 글쓰기</string>
+    <string name="product_write_0">0</string>
+    <string name="product_write_slash">/</string>
+    <string name="product_write_title">제목</string>
+    <string name="product_write_cate">카테고리</string>
+    <string name="product_write_price">가격 (선택사항)</string>
+    <string name="product_write_price_pro">가격제안 받기</string>
+    <string name="product_write_contents">천호제1동에 올릴 게시글 내용을 작성해주세요. 가품 및 판매금지품목은 게시가 제한될 수 있어요.</string>
+    <string name="product_write_ph">자주 쓰는 문구</string>
+    <string name="product_write_set_loca">보여줄 동네 설정</string>
+
+
+
+    <!-- home_category -->
+    <string name="home_category_top">카테고리</string>
+    <string name="home_category_digital">디지털기기</string>
+    <string name="home_category_popular">인기매물</string>
+    <string name="home_category_household">생활가전</string>
+    <string name="home_category_interior">가구/인테리어</string>
+    <string name="home_category_child">유아동</string>
+    <string name="home_category_living">생활/가공식품</string>
+    <string name="home_category_child_book">유아도서</string>
+    <string name="home_category_sports">스포츠/레저</string>
+    <string name="home_category_women_part">여성잡화</string>
+    <string name="home_category_women_clothes">여성의류</string>
+    <string name="home_category_men_clothes">남성패션/잡화</string>
+    <string name="home_category_game">게임/취미</string>
+    <string name="home_category_beauty">뷰티/미용</string>
+    <string name="home_category_dog">반려동물용품</string>
+    <string name="home_category_book">도서/티켓/음반</string>
+    <string name="home_category_plant">식물</string>
+    <string name="home_category_et">기타 중고물품</string>
+    <string name="home_category_buy">삽니다</string>
+
+
 
 
 </resources>

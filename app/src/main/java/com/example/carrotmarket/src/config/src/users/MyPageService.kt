@@ -22,10 +22,15 @@ class MyPageService(val view: MyPageFragmentView) {
                 response: Response<MyPageResponse>
             ) {
 
-                val result = response.body() as MyPageResponse
-                view.onGetMyPageSuccess(result)
+                view.onGetMyPageSuccess(response.body() as MyPageResponse)
 
-//                result.nickname.toString()
+
+//                userInfoIdx
+
+
+//                val userInfoIdx = result.result.userInfoIdx
+
+            //                result.nickname.toString()
 
             }
 

@@ -19,11 +19,13 @@ class MyPageFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        MyPageService(this).tryGetMyPage(28)
-
+        MyPageService(this).tryGetMyPage(30)
     }
 
     override fun onGetMyPageSuccess(response: MyPageResponse) {
+
+        var s= response.result.userInfoIdx.toInt()
+        MyPageService(this).tryGetMyPage(response.result.userInfoIdx.toInt())
 
         binding.myPageUserName.text =
             response.result.nickname.toString()

@@ -12,7 +12,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="mainColor">#FFee8548</color>
     <color name="mainColorEditHighLight">#66ee8548</color>
-    <color name="editTextHint">#FF8e8e92</color>
+    <color name="editTextHint">#d1d3d7</color>
     <color name="editTextControl">#FFeaebee</color>
     <color name="dividerColor">#f2f3f6</color>
     <color name="status_bar">#FFD4D3DA</color>
@@ -30,5 +30,6 @@
     <color name="vp2Gradient">#47000000</color>
     <color name="indicatorInactive">#47eaebee</color>
     <color name="progressInactive">#eaebee</color>
+    <color name="camera">#878b93</color>
 
 </resources>
