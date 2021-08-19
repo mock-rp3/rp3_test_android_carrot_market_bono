@@ -2,12 +2,15 @@ package com.example.carrotmarket.src.login
 
 import android.content.Intent
 import android.os.Bundle
-import com.example.carrotmarket.config.ApplicationClass
+import com.example.carrotmarket.config.ApplicationClass.Companion.X_ACCESS_TOKEN
+import com.example.carrotmarket.config.ApplicationClass.Companion.editor
+import com.example.carrotmarket.config.ApplicationClass.Companion.sSharedPreferences
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivityLoginMainBinding
 import com.example.carrotmarket.src.MainActivity
-import com.example.carrotmarket.src.login.models.LoginResponse
+import com.example.carrotmarket.src.login.models.ResponseLogin
 import com.example.carrotmarket.src.login.models.PostLoginRequest
+import com.example.carrotmarket.src.login.models.ResultLogin
 
 class LoginMainActivity : BaseActivity<ActivityLoginMainBinding>(ActivityLoginMainBinding::inflate),
     LoginActivityView {
@@ -16,17 +19,11 @@ class LoginMainActivity : BaseActivity<ActivityLoginMainBinding>(ActivityLoginMa
         super.onCreate(savedInstanceState)
 
         binding.loginStartBtn.setOnClickListener {
-            val userID = binding.loginMainEdtId.text.toString()
+            val phoneNumber = binding.loginMainEdtId.text.toString()
             val password = binding.loginMainEdtPwd.text.toString()
 
-            ApplicationClass.sSharedPreferences.getString("id", userID)
-            ApplicationClass.sSharedPreferences.getString("pw", password)
-            ApplicationClass.editor.putString("id", userID)
-            ApplicationClass.editor.commit()
-            ApplicationClass.editor.putString("pw", password)
-            ApplicationClass.editor.commit()
             val postRequest = PostLoginRequest(
-                userID = userID,
+                phoneNumber = phoneNumber,
                 password = password
             )
             LoginService(this).tryPostLogin(postRequest)
@@ -34,8 +31,16 @@ class LoginMainActivity : BaseActivity<ActivityLoginMainBinding>(ActivityLoginMa
         }
     }
 
-    override fun onPostLoginSuccess(response: LoginResponse) {
+    override fun onPostLoginSuccess(response: ResponseLogin) {
         response.message?.let { showCustomToast(it) }
+
+
+
+        var editor = sSharedPreferences.edit()
+        editor.putString(X_ACCESS_TOKEN, response.result.authJwt)
+        editor.commit()
+
+
         intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()

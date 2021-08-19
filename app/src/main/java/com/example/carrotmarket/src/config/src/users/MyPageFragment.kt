@@ -1,6 +1,7 @@
 package com.example.carrotmarket.src.config.src.users
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.bumptech.glide.Glide
 import com.example.carrotmarket.R
@@ -23,20 +24,22 @@ class MyPageFragment :
     }
 
     override fun onGetMyPageSuccess(response: MyPageResponse) {
-        binding.myPageUserName.text =
-            response.nickname.toString()
 
         binding.myPageUserName.text =
-            response.nickname.toString()
+            response.result.nickname.toString()
+
+//        binding.myPageUserName.text =
+//            response.result.nickname.toString()
 
 
         Glide.with(this)
-            .load(response.profileImageUrl)
+            .load(response.result.profileImageUrl)
             .into(binding.myPageImgUserProfile)
 
     }
 
     override fun onGetMyPageFailure(message: String) {
+
     }
 
 

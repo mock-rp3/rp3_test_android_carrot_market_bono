@@ -1,10 +1,12 @@
 package com.example.carrotmarket.src.home
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.carrotmarket.databinding.HomeItemBinding
+import com.example.carrotmarket.src.config.src.product.ProductDetailActivity
 
 
 class HomeAdapter(
@@ -36,6 +38,12 @@ class HomeAdapter(
         holder.binding.homeItemLocation.text=productDataList[position].item_location
         holder.binding.homeItemTime.text=productDataList[position].item_time
         holder.binding.homeItemPrice.text=productDataList[position].item_price
+
+        holder.binding.homeItemCl.setOnClickListener {
+
+            var intent = Intent(context, ProductDetailActivity::class.java )
+            context.startActivity(intent)
+        }
 
     }
 

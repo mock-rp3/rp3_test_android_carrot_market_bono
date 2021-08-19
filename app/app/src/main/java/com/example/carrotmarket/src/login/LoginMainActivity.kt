@@ -20,12 +20,6 @@ class LoginMainActivity : BaseActivity<ActivityLoginMainBinding>(ActivityLoginMa
             val userID = binding.loginMainEdtId.text.toString()
             val password = binding.loginMainEdtPwd.text.toString()
 
-            ApplicationClass.sSharedPreferences.getString("id", userID)
-            ApplicationClass.sSharedPreferences.getString("pw", password)
-            ApplicationClass.editor.putString("id", userID)
-            ApplicationClass.editor.commit()
-            ApplicationClass.editor.putString("pw", password)
-            ApplicationClass.editor.commit()
             val postRequest = PostLoginRequest(
                 userID = userID,
                 password = password

@@ -6,6 +6,4 @@ data class ResultMyPage (
     @SerializedName("nickname") val nickname: String,
     @SerializedName("profileImageUrl") val profileImageUrl: String
 
-
-
 )
