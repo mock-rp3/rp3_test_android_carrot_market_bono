@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.MainActivity">
+    tools:context=".src.config.src.main.MainActivity">
 
     <View
         android:id="@+id/home_vi_back"
@@ -39,7 +39,6 @@
     <TextView
         android:id="@+id/home_txt_fab2_info"
         android:elevation="7dp"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
@@ -63,7 +62,6 @@
         android:visibility="invisible"
         app:borderWidth="0dp"
         app:elevation="7dp"
-
         app:fabSize="mini"
         app:layout_constraintBottom_toTopOf="@+id/home_fab_2"
         app:layout_constraintEnd_toEndOf="@id/fabMain"
@@ -98,8 +96,6 @@
         android:src="@drawable/bottom_floating_btn_icon"
         app:borderWidth="0dp"
         app:elevation="7dp"
-
-
         app:layout_constraintBottom_toTopOf="@+id/main_btm_nav"
         app:layout_constraintEnd_toEndOf="parent"
         app:rippleColor="@color/white"

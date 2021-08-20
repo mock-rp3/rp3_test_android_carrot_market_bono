@@ -5,13 +5,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import com.example.carrotmarket.config.ApplicationClass
 import com.example.carrotmarket.config.ApplicationClass.Companion.X_ACCESS_TOKEN
 import com.example.carrotmarket.config.ApplicationClass.Companion.sSharedPreferences
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivitySplashBinding
-import com.example.carrotmarket.src.MainActivity
-import com.example.carrotmarket.src.StartActivity
+import com.example.carrotmarket.src.config.src.main.MainActivity
 import com.example.carrotmarket.src.login.LoginMainActivity
 
 class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding::inflate) {

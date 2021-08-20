@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarrotMarket">
         <activity
-            android:name=".src.MainActivity"
+            android:name=".src.config.src.main.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.CarrotMarket.NoActionBar">
             <intent-filter>

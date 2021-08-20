@@ -12,8 +12,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.carrotmarket.R
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivityProductDetailsBinding
-import com.example.carrotmarket.src.MainActivity
-import com.example.carrotmarket.src.home.HomeFragment
+import com.example.carrotmarket.src.config.src.main.MainActivity
 
 
 data class Other(

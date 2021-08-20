@@ -2,16 +2,11 @@ package com.example.carrotmarket.src.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import com.example.carrotmarket.config.ApplicationClass.Companion.X_ACCESS_TOKEN
-import com.example.carrotmarket.config.ApplicationClass.Companion.editor
-import com.example.carrotmarket.config.ApplicationClass.Companion.sSharedPreferences
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivityLoginMainBinding
-import com.example.carrotmarket.src.MainActivity
+import com.example.carrotmarket.src.config.src.main.MainActivity
 import com.example.carrotmarket.src.login.models.ResponseLogin
 import com.example.carrotmarket.src.login.models.PostLoginRequest
-import com.example.carrotmarket.src.login.models.ResultLogin
 
 class LoginMainActivity : BaseActivity<ActivityLoginMainBinding>(ActivityLoginMainBinding::inflate),
     LoginActivityView {
