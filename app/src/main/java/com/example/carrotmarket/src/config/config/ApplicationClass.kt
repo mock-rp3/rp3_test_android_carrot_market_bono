@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 // 앱이 실행될때 1번만 실행이 됩니다.
 // 전역변수와 앱이 실행될 동안 한 번만 유지되어야 하는 객체 (싱글톤)
 class ApplicationClass : Application() {
-    val API_URL = "https://2c192544ea5f.ngrok.io/"
+    val API_URL = "https://31a9da013678.ngrok.io"
     val LOCATION_URL = "https://www.juso.go.kr/addrlink/addrLinkApiJsonp.do"
 
     // 테스트 서버 주소
@@ -30,6 +30,7 @@ class ApplicationClass : Application() {
 
         // JWT Token Header 키 값
         val X_ACCESS_TOKEN = "X-ACCESS-TOKEN"
+
         // Retrofit 인스턴스, 앱 실행시 한번만 생성하여 사용합니다.
         lateinit var sRetrofit: Retrofit
     }
@@ -39,6 +40,8 @@ class ApplicationClass : Application() {
         super.onCreate()
         sSharedPreferences =
             applicationContext.getSharedPreferences("SOFTSQUARED_TEMPLATE_APP", MODE_PRIVATE)
+
+
         // 레트로핏 인스턴스 생성
         initRetrofitInstance()
     }

@@ -36,7 +36,6 @@
 
         <activity android:name=".src.users.SignUpMainActivity">
 
-
         </activity>
 
         <activity android:name=".src.splash.SplashActivity">
@@ -55,11 +54,22 @@
 
         <activity android:name=".src.config.src.home.HomeCategoryActivity">
 
+
+        </activity>
+
+        <activity android:name=".src.config.src.product.ProductWriteActivity">
+
+
+        </activity>
+
+        <activity android:name=".src.config.src.users.UsersSettingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
         </activity>
     </application>
 

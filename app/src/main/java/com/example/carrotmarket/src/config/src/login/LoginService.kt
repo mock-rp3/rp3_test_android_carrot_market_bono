@@ -19,6 +19,9 @@ class LoginService(val view: LoginActivityView) {
                 val result = response.body() as ResponseLogin
                  view.onPostLoginSuccess(result)
 
+//                ApplicationClass.sSharedPreferences.getString("jwt", result.result.authJwt)
+//                ApplicationClass.editor.putString("jwt",result.result.authJwt)
+//                ApplicationClass.editor.commit()
 
             }
 

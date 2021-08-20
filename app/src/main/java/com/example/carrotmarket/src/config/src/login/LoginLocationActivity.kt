@@ -3,6 +3,7 @@ package com.example.carrotmarket.src.login
 import android.os.Bundle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.carrotmarket.config.ApplicationClass
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivityLoginLocationBinding
 
@@ -28,6 +29,7 @@ class LoginLocationActivity :
         val dividerItemDecoration = DividerItemDecoration(
             applicationContext, LinearLayoutManager(this).orientation)
         binding.loginLocationRvAround.addItemDecoration(dividerItemDecoration)
+
 
 
         locationArrayList.add(

@@ -158,6 +158,26 @@
     <string name="home_category_buy">삽니다</string>
 
 
+    <!-- users_setting -->
+    <string name="users_setting_top">설정</string>
+    <string name="users_setting_alarm_setting">알람 설정</string>
+    <string name="users_setting_alarm_setting1">알람 및 소리</string>
+    <string name="users_setting_alarm_setting2">방해금지 시간설정</string>
+    <string name="users_setting_alarm_setting3">진동</string>
+    <string name="users_setting_user_setting">사용자 설정</string>
+    <string name="users_setting_user_setting1">계정 / 정보 관리</string>
+    <string name="users_setting_user_setting2">모아보기 사용자관리</string>
+    <string name="users_setting_user_setting3">차단사용자 관리</string>
+    <string name="users_setting_user_setting4">게시글 미노출 사용자 관리</string>
+    <string name="users_setting_user_setting5">기타 설정</string>
+    <string name="users_setting_et">기타</string>
+    <string name="users_setting_et1">언어 설정</string>
+    <string name="users_setting_et2">앱 캐시 정리하기</string>
+    <string name="users_setting_et3">오픈소스 라이선스</string>
+    <string name="users_setting_et4">버전 6.2.5</string>
+    <string name="users_setting_et5">로그아웃</string>
+    <string name="users_setting_et6">탈퇴하기</string>
+
 
 
 </resources>

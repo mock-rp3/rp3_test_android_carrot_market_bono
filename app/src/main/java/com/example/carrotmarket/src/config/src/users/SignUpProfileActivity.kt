@@ -2,6 +2,9 @@ package com.example.carrotmarket.src.users
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import com.example.carrotmarket.config.ApplicationClass.Companion.X_ACCESS_TOKEN
+import com.example.carrotmarket.config.ApplicationClass.Companion.sSharedPreferences
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivitySignUpProfileBinding
 import com.example.carrotmarket.src.login.LoginLocationActivity
@@ -33,6 +36,14 @@ class SignUpProfileActivity :
     }
 
     override fun onPostSignUpSuccess(response: SignUpResponse) {
+
+        sSharedPreferences = getSharedPreferences(X_ACCESS_TOKEN, MODE_PRIVATE)
+
+        var editor = sSharedPreferences.edit()
+        editor.putString(X_ACCESS_TOKEN, response.result.jwt)
+        editor.commit()
+
+        Log.e("jwt123", editor.putString(X_ACCESS_TOKEN, response.result.jwt).toString())
         response.message?.let { showCustomToast(it) }
         intent = Intent(this, LoginLocationActivity::class.java)
         startActivity(intent)

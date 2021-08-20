@@ -1,5 +1,6 @@
 package com.example.carrotmarket.src.config.src.users
 
+import android.content.Context
 import android.util.Log
 import com.bumptech.glide.Glide
 import com.example.carrotmarket.config.ApplicationClass
@@ -8,6 +9,7 @@ import com.example.carrotmarket.src.users.UsersRetrofitInterface
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.coroutines.coroutineContext
 
 class MyPageService(val view: MyPageFragmentView) {
 
@@ -22,15 +24,10 @@ class MyPageService(val view: MyPageFragmentView) {
                 response: Response<MyPageResponse>
             ) {
 
+
+
                 view.onGetMyPageSuccess(response.body() as MyPageResponse)
 
-
-//                userInfoIdx
-
-
-//                val userInfoIdx = result.result.userInfoIdx
-
-            //                result.nickname.toString()
 
             }
 

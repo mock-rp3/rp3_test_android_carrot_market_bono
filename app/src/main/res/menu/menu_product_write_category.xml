@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home_category_digital"
+        android:title="@string/home_category_digital"
+        />
+    <item
+        android:id="@+id/home_category_household"
+        android:title="@string/home_category_household"
+        />
+    <item
+        android:id="@+id/home_category_interior"
+        android:title="@string/home_category_interior"
+        />
+    <item
+        android:id="@+id/home_category_child"
+        android:title="@string/home_category_child"
+        />
+
+    <item
+        android:id="@+id/home_category_living"
+        android:title="@string/home_category_living"
+        />
+    <item
+        android:id="@+id/home_category_child_book"
+        android:title="@string/home_category_child_book"
+        />
+    <item
+        android:id="@+id/home_category_sports"
+        android:title="@string/home_category_sports"
+        />
+    <item
+        android:id="@+id/home_category_women_part"
+        android:title="@string/home_category_women_part"
+        />
+    <item
+        android:id="@+id/home_category_women_clothes"
+        android:title="@string/home_category_women_clothes"
+        />
+    <item
+        android:id="@+id/home_category_men_clothes"
+        android:title="@string/home_category_men_clothes"
+        />
+    <item
+        android:id="@+id/home_category_beauty"
+        android:title="@string/home_category_beauty"
+        />
+    <item
+        android:id="@+id/home_category_dog"
+        android:title="@string/home_category_dog"
+        />
+    <item
+        android:id="@+id/home_category_book"
+        android:title="@string/home_category_book"
+        />
+    <item
+        android:id="@+id/home_category_plant"
+        android:title="@string/home_category_plant"
+        />
+    <item
+        android:id="@+id/home_category_et"
+        android:title="@string/home_category_et"
+        />
+    <item
+        android:id="@+id/home_category_buy"
+        android:title="@string/home_category_buy"
+        />
+
+
+
+
+</menu>

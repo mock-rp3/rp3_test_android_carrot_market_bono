@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.carrotmarket.config.ApplicationClass
 import com.example.carrotmarket.databinding.HomeItemBinding
 import com.example.carrotmarket.src.config.src.product.ProductDetailActivity
 
@@ -32,7 +33,6 @@ class HomeAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
         holder.binding.homeItemImage.setImageResource(productDataList[position].item_img)
         holder.binding.homeItemName.text=productDataList[position].item_name
         holder.binding.homeItemLocation.text=productDataList[position].item_location
