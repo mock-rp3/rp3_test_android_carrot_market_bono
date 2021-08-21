@@ -33,6 +33,7 @@
 - [x] 나의 당근 페이지 API  _**( 08/19 )**_
 - [x] 새로 작성된 회원가입 API >> 서버가 열리면 테스트 하기 **_( 08/18 )_**
 - [x] 새로 작성된 로그인 API **_( 08/19 )_**
+- [x] 전체 게시글 조회 API >> 서버가 열리면 테스트 하기 **_( 08/21 )_**
 <br />
 
 # 📌 개발일지
@@ -113,11 +114,11 @@
 
 
 ## 2021년 08월 19일 🌞
-> 자동 로그인과 나의 당근 페이지 API 엮기에서 삽질을 좀 많이했다. 성공조차 못했다 😥 >> SharedPreferences 이용해서 가볍게 성공했다. ( 8/20 )
+> 자동 로그인과 나의 당근 페이지 API 엮기에서 삽질을 좀 많이했다. 성공조차 못했다 😥 >> SharedPreferences 이용해서 가볍게 성공했다. _( 8/20 )_
 - 로그인 API 다시 엮기  **( 100% ✔)**
 - 자동 로그인
 - 나의 당근 페이지 API 엮기  **( 50% ✔)**
-  - 어제 나의 당근 페이지 API 엮기는 성공했는데, 바로 화면에 표시되는게 안된다. >> path Variable 값을 임의로 입력해주면 성공하는데, 받아오는 방법은 아직 !
+  - 어제 나의 당근 페이지 API 엮기는 성공했는데, 바로 화면에 표시되는게 안된다. >> path Variable 값을 임의로 입력해주면 성공하는데, 받아오는 방법은 아직 ! _(08/21)_
   - Glide 사용
 - 나의 당근페이지 구현 **( 100% ✔)** >> API를 엮어야 하는데 잘 안돼유 >> 성공하긴 했는데 뭔가 부족함
   - 나의 당근 페이지에 있는 목록들을 ~~RecyclerView~~로 구현 해야할지 아니면 그냥 **Linear**로 해줘야할지 모르겠어서 고민 해보기
@@ -139,7 +140,6 @@
 
 - 상품 등록 구현 **( 70% ✔)**
   - ~~Contextual menu~~, ~~popupMenu ?~~ , **Custom Dialog** ‼ >> 다이얼로그 리스트로 보여주기
-- 나의 당근 페이지 API path Variable 값 넘겨주기
 - 카테고리 구현 (개발일지 2021년 08월 19일 참고)  **( 80% ✔)** >> 눌렀을 때 나오는 페이지는 홈 프래그먼트랑 비슷하지만 상단바 다름
 - 앱 설정 구현  **( 100% ✔)**
 - 자동 로그인 **( 100% ✔)**
@@ -147,11 +147,16 @@
 ## 2021년 08월 21일 🌞
 > 꼭 해야하는 일: 이번 주까지 작업했던 것들 검토하며 디테일 더 많이 신경써보기 + 미러로이드 사이즈 고려하기
 - 상품 등록 구현 **( 100% ✔)**
-
-
+- 나의 당근 페이지 API path Variable 값 넘겨주기 // 나의 당근 페이지 API 완료 **( 100% ✔)**
+- 전체 게시글 조회 API >> 서버 열리면 확인.. **( 100% ✔)**
+ 
 ## 2021년 08월 22일 🌞
 > 꼭 해야하는 일: 이번 주까지 작업했던 것들 검토하며 디테일 더 많이 신경써보기
+- 로딩 dialog 만들기
 
+## 2021년 08월 23일 🌞
+
+## 2021년 08월 24일 🌞 [2차 피드백]
 
 <br />
 
@@ -255,7 +260,22 @@
  - **문제 🤦🏻‍♀ |**  fabState 값은 바텀 네비게이션 아이콘을 클릭 한 후 변경되기 때문에 두 번 클릭해야 적용됐다. 그래서 그냥 바로 코드를 넣어주는 식으로 수정 구현하였다.
 
 
- ### 11. 카테고리 메뉴
+
+ ### 11. Error inflating class com.google.android.material.floatingactionbutton.FloatingActionButton
+  - **문제 🤦🏻‍♀ |** 플로팅 액션 버튼이 자꾸 네모로 보이고, 실행도 안되고 바텀 네비게이션 바는 사라졌다. view 객체 생성에 문제가 생긴 것.
+  - **해결 🙆🏻‍♀️ |** [다음과 같은 문제](https://jootc.com/p/201908013017)가 발생한 것이었고, themes을 수정해주니 괜찮아졌다.
+ ```
+  [res/themes.xml]
+         <item name="colorPrimary">@null</item>
+        <item name="colorPrimaryVariant">@null</item>
+                           ⬇
+         <item name="colorPrimary">@color/mainColor</item>
+        <item name="colorPrimaryVariant">@color/mainColor</item>
+ 
+ ```
+
+
+ ### 12. 카테고리 메뉴
   - **문제 🤦🏻‍♀ |** 이런 메뉴는 어떤 걸 사용해서 만들까 하면서 검색해보다가 [이 사이트](https://dinfree.com/lecture/android/android_2.4.html)를 보았는데 Context Menu가 내가 찾던 메뉴 여서 만들어 보았다. 근데 Context Menu는 롱클릭을 해야지 메뉴가 생기고 내가 원하는 모습이 아니었다. 그래서 Popup Menu로 만들어 보았다. 클릭하면 나오긴 하는데 내가 원하는 위치에는 안 나온다. 공식문서를 보니 gravity 값을 조정할 수 있다하는데, 생각한 모습과 전혀 다른 모습이었다.
   - **해결 🙆🏻‍♀️ |** 다이얼로그를 리스트로 보여주는 방식을 사용하면 됐다 ..
 ```
@@ -273,6 +293,41 @@
         alertDialog.show()
     }
 ```
+
+ ### 13. 헤더에 토큰 넣어주기
+  - **문제 🤦🏻‍♀ |**  헤더에 토큰 넣어주는게 간단한거 같은데 자꾸 jwt 값이 없다해서 스트레스 받았다.
+  - **해결 🙆🏻‍♀️ |**  로그를 찍어보며 원인을 찾았다. 정말 간단하고 시간 투자할 일이 아닌데 멀리 돌아간 것 같다. 다신 같은 삽질을 하지 않아야 겠다!
+  ```
+       [Data class] RequestMyPage.kt
+  
+            data class RequestMyPage (
+            @SerializedName("userInfoIdx") val userInfoIdx: Int,
+            @Header("x-access-token") val X_ACCESS_TOKEN:String
+            )
+    
+       [Service] MyPageService.kt
+    
+           fun tryGetMyPage(X_ACCESS_TOKEN:String ,userInfoIdx: Int){
+           val myPageRetrofitInterface =
+                ApplicationClass.sRetrofit.create(UsersRetrofitInterface::class.java)
+           myPageRetrofitInterface.getMyPage(X_ACCESS_TOKEN,userInfoIdx).enqueue(object:
+                          ...
+            
+       [Fragment] MyPageFragment.kt
+           
+           sSharedPreferences =
+              requireActivity().getSharedPreferences(X_ACCESS_TOKEN, AppCompatActivity.MODE_PRIVATE)
+           val jwt = sSharedPreferences.getString(X_ACCESS_TOKEN, null)!!
+                   Log.e("jwt10", jwt.toString()) // 값이 잘 넘어오는지 로그 찍어보기 📌
+
+          sSharedPreferences =
+              requireActivity().getSharedPreferences("userIdx", AppCompatActivity.MODE_PRIVATE)
+
+          val userIdx = sSharedPreferences.getInt("userIdx", 0)
+          Log.e("userIdx2", userIdx.toString()) // 값이 잘 넘어오는지 로그 찍어보기 📌
+          MyPageService(this).tryGetMyPage(jwt, userIdx)
+  ```
+
    
  <br />
  
