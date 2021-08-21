@@ -138,15 +138,17 @@
 > 건강 Issue,,    
 
 - 상품 등록 구현 **( 70% ✔)**
-  - ~~Contextual menu~~, popupMenu ?
+  - ~~Contextual menu~~, ~~popupMenu ?~~ , **Custom Dialog** ‼ >> 다이얼로그 리스트로 보여주기
 - 나의 당근 페이지 API path Variable 값 넘겨주기
 - 카테고리 구현 (개발일지 2021년 08월 19일 참고)  **( 80% ✔)** >> 눌렀을 때 나오는 페이지는 홈 프래그먼트랑 비슷하지만 상단바 다름
 - 앱 설정 구현  **( 100% ✔)**
 - 자동 로그인 **( 100% ✔)**
 
-## 2021년 08월 21일 🌞🌧
+## 2021년 08월 21일 🌞
 
-## 2021년 08월 22일 🌞🌪
+
+
+## 2021년 08월 22일 🌞
 > 꼭 해야하는 일: 이번 주까지 작업했던 것들 검토하며 디테일 더 많이 신경써보기
 
 
@@ -222,11 +224,11 @@
  
 
  ### 10. floating action button 프래그먼트마다 다르게 적용해주기
-   - **해결 🙆🏻‍♀️ |**  int로 나눠줘서 동네생활이랑 다르게 나오도록하고 클릭 시 액티비티 이동, 나머지 프래그먼트 눌렀을 때는 없애주기
+   - **해결 🙆🏻‍♀️ |**  int로 나눠줘서 동네생활이랑 다르게 나오도록하고 클릭 시 액티비티 이동, 나머지 프래그먼트 눌렀을 때는 없애주기 (대략적인 코드고 실제는 다르게 작성함)
 ```
    [Activity] MainActivity.kt
 
-                private var fabState: Int = 1    // 중요 !!!
+                private var fabState: Int = 1   
                          
                 when (fabState) {
                     1 -> { binding.fabMain.visibility = View.VISIBLE }
@@ -240,29 +242,36 @@
                 
                                   ...
             binding.mainBtmNav.setOnNavigationItemSelectedListener(
-            BottomNavigationView.OnNavigationItemSelectedListener { item ->   
-            
+            BottomNavigationView.OnNavigationItemSelectedListener { item ->           
                 when (item.itemId) {
                     R.id.menu_main_btm_nav_1_on -> {
                     fabState = 1
                                   ... 
                     }
                                   ... 
-             }
-                    
-                                  ...
-                    
-               binding.fabMain.setOnClickListener {
-                    if(fabState ==1) {
-                       toggleFab()
-                    }else if(fabState ==2){
-                       intent = Intent(this, ProductWriteActivity::class.java)
-                       startActivity(intent)
-                       finish()
-                    }
-               }                  
+             }              
 ```
+ - **문제 🤦🏻‍♀ |**  fabState 값은 바텀 네비게이션 아이콘을 클릭 한 후 변경되기 때문에 두 번 클릭해야 적용됐다. 그래서 그냥 바로 코드를 넣어주는 식으로 수정 구현하였다.
 
+
+ ### 11. 카테고리 메뉴
+  - **문제 🤦🏻‍♀ |** 이런 메뉴는 어떤 걸 사용해서 만들까 하면서 검색해보다가 [이 사이트](https://dinfree.com/lecture/android/android_2.4.html)를 보았는데 Context Menu가 내가 찾던 메뉴 여서 만들어 보았다. 근데 Context Menu는 롱클릭을 해야지 메뉴가 생기고 내가 원하는 모습이 아니었다. 그래서 Popup Menu로 만들어 보았다. 클릭하면 나오긴 하는데 내가 원하는 위치에는 안 나온다. 공식문서를 보니 gravity 값을 조정할 수 있다하는데, 생각한 모습과 전혀 다른 모습이었다.
+  - **해결 🙆🏻‍♀️ |** 다이얼로그를 리스트로 보여주는 방식을 사용하면 됐다 ..
+```
+   [Activity] ProductWriteActivity.kt
+   
+       fun showDialog() {
+        val write_cate = resources.getStringArray(R.array.write_cate)
+
+        val builder = AlertDialog.Builder(this)
+        builder.setItems(write_cate, DialogInterface.OnClickListener { dialog, which ->
+            binding.productWriteTxtCate.text = write_cate[which].toString()
+        }
+        )
+        var alertDialog: AlertDialog = builder.create()
+        alertDialog.show()
+    }
+```
    
  <br />
  
@@ -277,4 +286,6 @@
 - [안드로이드에서 JWT 사용하기 이해하기 좋은 블로그](https://hyogeun-android.tistory.com/entry/12-Retrofit-%EC%84%9C%EB%B9%84%EC%8A%A4%EC%99%80-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B7%B8%EB%A6%AC%EA%B3%A0-SharedPref)
 - [로그인](https://hyogeun-android.tistory.com/entry/12-Retrofit-%EC%84%9C%EB%B9%84%EC%8A%A4%EC%99%80-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B7%B8%EB%A6%AC%EA%B3%A0-SharedPref)
 - [ScrollView can host only one direct child](https://blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=credenda&logNo=80152077567)
-- [popupMenu](https://developer.android.com/reference/android/support/v7/widget/PopupMenu.html)
+- [PopupMenu](https://developer.android.com/reference/android/support/v7/widget/PopupMenu.html) (x)
+- [Context Menu](https://lktprogrammer.tistory.com/162) (x) >> 길게 눌렀을 때 나오는 메뉴 
+- [다이얼로그 리스트로 보여주는 방법](https://aries574.tistory.com/109) (o)
