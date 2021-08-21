@@ -11,7 +11,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="mainColor">#FFee8548</color>
-    <color name="mainColorEditHighLight">#66ee8548</color>
+    <color name="mainColorEditHighLight">#66eaebee</color>
     <color name="editTextHint">#d1d3d7</color>
     <color name="editTextControl">#FFeaebee</color>
     <color name="dividerColor">#f2f3f6</color>

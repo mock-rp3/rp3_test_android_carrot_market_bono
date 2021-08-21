@@ -1,6 +1,7 @@
 package com.example.carrotmarket.src.home
 
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.carrotmarket.R
 import com.example.carrotmarket.config.BaseFragment
 import com.example.carrotmarket.databinding.FragmentHomeBinding
+import com.example.carrotmarket.src.config.src.home.HomeCategoryActivity
 
 
 data class Product(
@@ -46,6 +48,12 @@ class HomeFragment :
         binding.homeSrl.setOnRefreshListener {
             binding.homeSrl.isRefreshing = false
         }
+
+        binding.homeImgTopMenu.setOnClickListener {
+            var intent = Intent(context, HomeCategoryActivity::class.java)
+            startActivity(intent)
+        }
+
 
         productArrayList.add(
             Product(

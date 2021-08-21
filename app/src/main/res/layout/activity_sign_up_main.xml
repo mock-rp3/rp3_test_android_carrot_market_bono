@@ -71,7 +71,7 @@
 
     <EditText
         android:maxLines="1"
-
+        android:inputType="textMultiLine|phone|number|textNoSuggestions"
         android:id="@+id/sign_up_main_edt_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -106,16 +106,16 @@
             android:paddingVertical="10dp"
             android:text="@string/sign_up_main_btn_login"
             android:textColor="@color/white"
-            android:textSize="17.3sp"
+            android:textSize="17sp"
             android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:visibility="invisible"
+        android:visibility="visible"
         android:id="@+id/sign_up_main_txt_modi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:text="@string/sign_up_main_modi_txt"
         android:textColor="@color/black"
         android:textSize="14sp"
@@ -125,11 +125,11 @@
         app:layout_constraintTop_toBottomOf="@id/sign_up_main_btn_next" />
 
     <TextView
-        android:visibility="invisible"
+        android:visibility="visible"
         android:id="@+id/sign_up_main_txt_found_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
+        android:layout_marginLeft="5dp"
         android:text="@string/sign_up_main_found_id"
         android:textColor="@color/black"
         android:textSize="14sp"
@@ -140,6 +140,7 @@
 
     <EditText
         android:maxLines="1"
+        android:inputType="textMultiLine|phone|number|textNoSuggestions"
         android:visibility="invisible"
         android:id="@+id/sign_up_main_edt_pwd"
         android:layout_width="match_parent"
@@ -160,9 +161,9 @@
         android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:textColor="@color/activeBtn"
         android:text="@string/test"
-        android:textSize="15sp"
+        android:textSize="14sp"
         app:layout_constraintTop_toTopOf="@+id/sign_up_main_edt_pwd"
         app:layout_constraintBottom_toBottomOf="@+id/sign_up_main_edt_pwd"
         app:layout_constraintRight_toRightOf="@+id/sign_up_main_edt_pwd"
@@ -175,7 +176,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/sign_up_main_warn"
         android:textColor="@color/warn"
-        android:textSize="14sp"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="@+id/sign_up_main_edt_pwd"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -204,7 +205,7 @@
             android:paddingVertical="10dp"
             android:text="@string/sign_up_main_pw_confirm"
             android:textColor="@color/white"
-            android:textSize="17.3sp"
+            android:textSize="17sp"
             android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
 

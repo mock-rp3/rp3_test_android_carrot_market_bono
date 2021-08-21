@@ -25,6 +25,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+
         when (fabState) {
             1 -> {
 //                binding.fabMain.visibility = View.VISIBLE
@@ -45,51 +47,54 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 //                binding.fabMain.visibility = View.GONE
             }
         }
+
+
         supportFragmentManager.beginTransaction().replace(R.id.main_frm, HomeFragment())
             .commitAllowingStateLoss()
-        
+
         binding.mainBtmNav.setOnNavigationItemSelectedListener(
             BottomNavigationView.OnNavigationItemSelectedListener { item ->
 
                 when (item.itemId) {
                     R.id.menu_main_btm_nav_1_on -> {
-                        fabState=1
-                        binding.fabMain.visibility = View.VISIBLE
+//                        fabState=1
+//                        binding.fabMain.setImageResource(R.drawable.bottom_floating_btn_icon)
+//                        binding.fabMain.visibility = View.VISIBLE
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.main_frm, HomeFragment())
                             .commitAllowingStateLoss()
                         return@OnNavigationItemSelectedListener true
                     }
                     R.id.menu_main_btm_nav_2_off -> {
-                        binding.fabMain.setImageResource(R.drawable.pencil_icon)
-                        binding.fabMain.visibility = View.VISIBLE
-                        fabState=2
+//                        binding.fabMain.setImageResource(R.drawable.pencil_icon)
+//                        binding.fabMain.visibility = View.VISIBLE
+//                        fabState=2
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.main_frm, LifeFragment())
                             .commitAllowingStateLoss()
                         return@OnNavigationItemSelectedListener true
                     }
                     R.id.menu_main_btm_nav_3_off -> {
-                        fabState=3
-                        binding.fabMain.visibility = View.GONE
-                        binding.homeFab1.visibility = View.GONE
-                        binding.homeFab2.visibility = View.GONE
+//                        fabState=3
+//                        binding.fabMain.visibility = View.GONE
+//                        binding.homeFab1.visibility = View.GONE
+//                        binding.homeFab2.visibility = View.GONE
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.main_frm, AroundFragment())
                             .commitAllowingStateLoss()
                         return@OnNavigationItemSelectedListener true
                     }
                     R.id.menu_main_btm_nav_4_off -> {
-                        fabState=4
-                        binding.fabMain.visibility = View.GONE
+//                        fabState=4
+//                        binding.fabMain.visibility = View.GONE
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.main_frm, ChatFragment())
                             .commitAllowingStateLoss()
                         return@OnNavigationItemSelectedListener true
                     }
                     R.id.menu_main_btm_nav_5_off -> {
-                        fabState = 5
-                        binding.fabMain.visibility = View.GONE
+//                        fabState = 5
+//                        binding.fabMain.visibility = View.GONE
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.main_frm, MyPageFragment())
                             .commitAllowingStateLoss()
@@ -117,7 +122,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
         // 플로팅 버튼 클릭 이벤트 - 수정
         binding.homeFab2.setOnClickListener {
+            intent=Intent(this,ProductWriteActivity::class.java)
+            startActivity(intent)
+            finish()
         }
+
+
         binding.homeViBack.setOnClickListener {
             binding.homeViBack.visibility = View.GONE
             binding.homeFab1.hide()
@@ -127,6 +137,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             binding.homeTxtFab1Info.visibility = View.GONE
             binding.homeTxtFab2Info.visibility = View.GONE
         }
+
 
     }
 

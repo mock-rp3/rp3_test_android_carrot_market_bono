@@ -1,11 +1,13 @@
 package com.example.carrotmarket.src.config.src.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.carrotmarket.R
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivityHomeCategoryBinding
 import com.example.carrotmarket.src.config.src.home.models.HomeCategoryData
+import com.example.carrotmarket.src.home.HomeFragment
 
 
 class HomeCategoryActivity:BaseActivity<ActivityHomeCategoryBinding>(ActivityHomeCategoryBinding::inflate) {
@@ -21,6 +23,13 @@ class HomeCategoryActivity:BaseActivity<ActivityHomeCategoryBinding>(ActivityHom
 
         homeCategoryAdapter = HomeCategoryAdapter(this,homeCategoryData)
         binding.homeCategoryRv.adapter=homeCategoryAdapter
+
+
+        binding.homeCategoryImgBack.setOnClickListener {
+            intent= Intent(this,HomeFragment::class.java)
+            startActivity(intent)
+            finish()
+        }
 
 
         homeCategoryData.add(

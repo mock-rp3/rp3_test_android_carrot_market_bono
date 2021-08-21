@@ -14,6 +14,7 @@ import com.example.carrotmarket.config.ApplicationClass.Companion.sSharedPrefere
 import com.example.carrotmarket.config.BaseFragment
 import com.example.carrotmarket.databinding.FragmentMyPageBinding
 import com.example.carrotmarket.src.config.src.users.models.MyPageResponse
+import com.example.carrotmarket.src.config.src.users.models.RequestMyPage
 import com.example.carrotmarket.src.login.LoginMainActivity
 
 
@@ -25,18 +26,23 @@ class MyPageFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        sSharedPreferences =
+            requireActivity().getSharedPreferences(X_ACCESS_TOKEN, AppCompatActivity.MODE_PRIVATE)
+        val jwt = sSharedPreferences.getString(X_ACCESS_TOKEN, null)!!
+        Log.e("jwt10", jwt.toString())
+
+        sSharedPreferences =
+            requireActivity().getSharedPreferences("userIdx", AppCompatActivity.MODE_PRIVATE)
+
+        val userIdx = sSharedPreferences.getInt("userIdx", 0)
+        Log.e("userIdx2", userIdx.toString())
 
 
-        sSharedPreferences=requireActivity().getSharedPreferences(X_ACCESS_TOKEN,Context.MODE_PRIVATE)
-        val jwt = sSharedPreferences.getString(X_ACCESS_TOKEN, null)
-
-
-        Log.e("jwt10",requireActivity().getSharedPreferences(X_ACCESS_TOKEN, AppCompatActivity.MODE_PRIVATE).toString())
 
 //        MyPageService(this).tryGetMyPage(42)
 
 
-        Log.e("userIdx3", requireActivity().getSharedPreferences("userIdx", Context.MODE_PRIVATE).toString())
+        MyPageService(this).tryGetMyPage(jwt, userIdx)
 
 
 //        if (jwt ==null){
@@ -44,11 +50,7 @@ class MyPageFragment :
 //            var intent = Intent(context, LoginMainActivity::class.java)
 //            startActivity(intent)
 //        }else{
-        sSharedPreferences= requireActivity().getSharedPreferences("userIdx", Context.MODE_PRIVATE)
 
-        val userIdx = sSharedPreferences.getInt("userIdx",0)
-        Log.e("userIdx2", requireActivity().getSharedPreferences("userIdx", Context.MODE_PRIVATE).toString())
-        MyPageService(this).tryGetMyPage(userIdx)
 //            getProfile()
 //        }
 
@@ -57,12 +59,11 @@ class MyPageFragment :
 
     override fun onGetMyPageSuccess(response: MyPageResponse) {
 
-
-        sSharedPreferences= requireActivity().getSharedPreferences("userIdx", Context.MODE_PRIVATE)
-
-        var editor = sSharedPreferences.edit()
-        editor.putInt("userIdx",response.result.userInfoIdx)
-        editor.commit()
+//        var editor = sSharedPreferences.edit()
+//
+//        sSharedPreferences = requireActivity().getSharedPreferences("userIdx", Context.MODE_PRIVATE)
+//        editor.putInt("userIdx", response.result.userInfoIdx)
+//        editor.commit()
 
         binding.myPageUserName.text =
             response.result.nickname.toString()

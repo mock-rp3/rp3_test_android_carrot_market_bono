@@ -22,6 +22,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
 
         val jwt = sSharedPreferences.getString(X_ACCESS_TOKEN, null)
 
+        Log.e("jwt1123", jwt.toString())
 
 //        Handler(Looper.getMainLooper()).postDelayed({
 //            startActivity(Intent(this, StartActivity::class.java))
@@ -31,7 +32,6 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
         Handler(Looper.getMainLooper()).postDelayed({
             if (jwt == null) {
                 intent = Intent(this, LoginMainActivity::class.java)
-                Log.e("jwt1", getSharedPreferences(X_ACCESS_TOKEN, MODE_PRIVATE).toString())
                 startActivity(intent)
                 finish()
             } else {

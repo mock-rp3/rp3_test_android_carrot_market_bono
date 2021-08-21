@@ -14,10 +14,10 @@ import kotlin.coroutines.coroutineContext
 class MyPageService(val view: MyPageFragmentView) {
 
 
-    fun tryGetMyPage(userInfoIdx: Int){
+    fun tryGetMyPage(X_ACCESS_TOKEN:String ,userInfoIdx: Int){
         val myPageRetrofitInterface =
             ApplicationClass.sRetrofit.create(UsersRetrofitInterface::class.java)
-        myPageRetrofitInterface.getMyPage(userInfoIdx).enqueue(object:
+        myPageRetrofitInterface.getMyPage(X_ACCESS_TOKEN,userInfoIdx).enqueue(object:
             Callback<MyPageResponse> {
             override fun onResponse(
                 call: Call<MyPageResponse>,

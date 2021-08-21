@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.text.Editable
+import android.text.Html
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
@@ -19,6 +20,9 @@ class SignUpMainActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //밑줄
+        binding.signUpMainTxtFoundId.text = Html.fromHtml("<u>"+binding.signUpMainTxtFoundId.text+"</u>")
 
 
         //TextWatcher를 사용하여 실시간 입력 동작 확인

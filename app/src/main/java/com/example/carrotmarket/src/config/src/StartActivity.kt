@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivityStartBinding
+import com.example.carrotmarket.databinding.LoginLocationListItemBinding
+import com.example.carrotmarket.src.login.LoginLocationActivity
 import com.example.carrotmarket.src.users.SignUpMainActivity
 
 class StartActivity: BaseActivity<ActivityStartBinding>(ActivityStartBinding::inflate) {
@@ -12,7 +14,7 @@ class StartActivity: BaseActivity<ActivityStartBinding>(ActivityStartBinding::in
         super.onCreate(savedInstanceState)
 
         binding.loginStartBtn.setOnClickListener {
-            intent = Intent(this, SignUpMainActivity::class.java)
+            intent = Intent(this, LoginLocationActivity::class.java)
             startActivity(intent)
             finish()
         }

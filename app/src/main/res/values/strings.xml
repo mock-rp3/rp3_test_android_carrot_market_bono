@@ -82,10 +82,9 @@
     <string name="product_detail_ad">책상 옮기기 무거우시죠? 명일제1동 근처 용달 보기</string>
     <string name="product_detail_post_report">이 게시글 신고하기</string>
     <string name="product_detail_user_other">님의 판매상품</string>
-    <string name="product_detail_user_other_more">더보기</string>
+    <string name="product_detail_user_other_more">모두보기</string>
     <string name="product_detail_user_other_name">스타벅스 랜턴</string>
     <string name="product_detail_user_other_price">13,000원</string>
-
 
 
     <!-- my_page -->
@@ -111,8 +110,8 @@
     <string name="my_page_app_setting">앱 설정</string>
     <string name="my_page_user_name">혜원혜원</string>
     <string name="my_page_user_location">명일제1동</string>
-    
-    
+
+
     <!-- product_sale_list -->
     <string name="product_sale_list_top">판매내역</string>
     <string name="product_sale_list_ing">판매중</string>
@@ -121,7 +120,7 @@
     <string name="product_sale_list_fragment_ing">판매중인 게시글이 없어요</string>
     <string name="product_sale_list_fragment_comp">거래완료 게시글이 없어요</string>
     <string name="product_sale_list_fragment_hide">숨기기 한 게시글이 없어요</string>
-    
+
     <!-- product_write -->
     <string name="product_write_top">중고거래 글쓰기</string>
     <string name="product_write_0">0</string>
@@ -133,7 +132,6 @@
     <string name="product_write_contents">천호제1동에 올릴 게시글 내용을 작성해주세요. 가품 및 판매금지품목은 게시가 제한될 수 있어요.</string>
     <string name="product_write_ph">자주 쓰는 문구</string>
     <string name="product_write_set_loca">보여줄 동네 설정</string>
-
 
 
     <!-- home_category -->
@@ -179,5 +177,26 @@
     <string name="users_setting_et6">탈퇴하기</string>
 
 
+    <!-- Dialog -->
+    <string-array name="write_cate">
+        <item>디지털기기</item>
+        <item>생활가전</item>
+        <item>가구/인테리어</item>
+        <item>유아동</item>
+        <item>생활/가공식품</item>
+        <item>유아도서</item>
+        <item>스포츠/레저</item>
+        <item>여성잡화</item>
+        <item>여성의류</item>
+        <item>남성패션/잡화</item>
+        <item>게임/취미</item>
+        <item>뷰티/미용</item>
+        <item>반려동물용품</item>
+        <item>도서/티켓/음반</item>
+        <item>식물</item>
+        <item>기타 중고물품</item>
+        <item>삽니다</item>
+    </string-array>
 
 </resources>
+

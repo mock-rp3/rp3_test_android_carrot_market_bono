@@ -37,6 +37,8 @@
         app:layout_constraintTop_toTopOf="@id/user_setting_vi_top" />
 
     <androidx.core.widget.NestedScrollView
+        android:overScrollMode="never"
+        android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,13 +63,13 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:layout_marginBottom="32dp"
+                    android:layout_marginBottom="30dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/users_setting_alarm_setting"
                     android:textColor="@color/black"
-                    android:textSize="12.5sp" />
+                    android:textSize="13sp" />
 
                 <TextView
                     android:layout_marginBottom="13dp"
@@ -76,7 +78,7 @@
                     android:layout_weight="1"
                     android:text="@string/users_setting_alarm_setting1"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -88,12 +90,13 @@
                         android:layout_height="wrap_content"
                         android:text="@string/users_setting_alarm_setting2"
                         android:textColor="@color/black"
-                        android:textSize="15sp"
+                        android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.appcompat.widget.SwitchCompat
+                        android:background="@null"
                         android:id="@+id/user_setting_swc1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -114,12 +117,13 @@
                         android:layout_height="wrap_content"
                         android:text="@string/users_setting_alarm_setting3"
                         android:textColor="@color/black"
-                        android:textSize="15sp"
+                        android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.appcompat.widget.SwitchCompat
+                        android:background="@null"
                         android:id="@+id/user_setting_swc2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -158,13 +162,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/user_setting_divider1">
 
                 <TextView
-                    android:layout_marginBottom="32dp"
+                    android:layout_marginBottom="30dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/users_setting_user_setting"
                     android:textColor="@color/black"
-                    android:textSize="12.5sp" />
+                    android:textSize="13sp" />
 
                 <TextView
                     android:layout_marginBottom="30dp"
@@ -173,7 +177,7 @@
                     android:layout_weight="1"
                     android:text="@string/users_setting_user_setting1"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_marginBottom="30dp"
@@ -182,7 +186,7 @@
                     android:layout_weight="1"
                     android:text="@string/users_setting_user_setting2"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
                 <TextView
                     android:layout_marginBottom="30dp"
                     android:layout_width="match_parent"
@@ -190,7 +194,7 @@
                     android:layout_weight="1"
                     android:text="@string/users_setting_user_setting3"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
                 <TextView
                     android:layout_marginBottom="30dp"
                     android:layout_width="match_parent"
@@ -198,7 +202,7 @@
                     android:layout_weight="1"
                     android:text="@string/users_setting_user_setting4"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
                 <TextView
                     android:layout_marginBottom="30dp"
                     android:layout_width="match_parent"
@@ -206,7 +210,7 @@
                     android:layout_weight="1"
                     android:text="@string/users_setting_user_setting5"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -236,11 +240,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="32dp"
+                    android:layout_marginBottom="30dp"
                     android:layout_weight="1"
                     android:text="@string/users_setting_et"
                     android:textColor="@color/black"
-                    android:textSize="12.5sp" />
+                    android:textSize="13sp" />
 
                 <TextView
                     android:layout_marginBottom="30dp"
@@ -249,7 +253,7 @@
                     android:layout_weight="1"
                     android:text="@string/users_setting_et1"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_marginBottom="30dp"
@@ -258,7 +262,7 @@
                     android:layout_weight="1"
                     android:text="@string/users_setting_et2"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
                 <TextView
                     android:layout_marginBottom="30dp"
                     android:layout_width="match_parent"
@@ -266,7 +270,7 @@
                     android:layout_weight="1"
                     android:text="@string/users_setting_et3"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
                 <TextView
                     android:layout_marginBottom="30dp"
                     android:layout_width="match_parent"
@@ -274,7 +278,7 @@
                     android:layout_weight="1"
                     android:text="@string/users_setting_et4"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
                 <TextView
                     android:layout_marginBottom="30dp"
                     android:layout_width="match_parent"
@@ -282,7 +286,7 @@
                     android:layout_weight="1"
                     android:text="@string/users_setting_et5"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
                 <TextView
                     android:layout_marginBottom="30dp"
                     android:layout_width="match_parent"
@@ -290,7 +294,7 @@
                     android:layout_weight="1"
                     android:text="@string/users_setting_et6"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
