@@ -1,12 +1,11 @@
-package com.example.carrotmarket.src.config.src.home
+package com.example.carrotmarket.src.config.src.main.btm.home
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.carrotmarket.databinding.HomeCategoryItemBinding
-import com.example.carrotmarket.src.config.src.home.models.HomeCategoryData
-import com.example.carrotmarket.src.home.Product
+import com.example.carrotmarket.src.config.src.main.btm.home.models.HomeCategoryData
 
 class HomeCategoryAdapter(private val context: Context, private var homeCategoryArrayList:ArrayList<HomeCategoryData>):
 RecyclerView.Adapter<HomeCategoryAdapter.ViewHolder>(){

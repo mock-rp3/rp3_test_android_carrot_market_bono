@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivityUsersSettingBinding
+import com.example.carrotmarket.src.StartActivity
 
 class UsersSettingActivity:BaseActivity<ActivityUsersSettingBinding>(ActivityUsersSettingBinding::inflate) {
 
@@ -16,5 +17,14 @@ class UsersSettingActivity:BaseActivity<ActivityUsersSettingBinding>(ActivityUse
             startActivity(intent)
             finish()
         }
+
+        binding.userSettingLogout.setOnClickListener {
+            intent = Intent(this, StartActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+
+
     }
 }

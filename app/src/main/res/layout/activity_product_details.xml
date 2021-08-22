@@ -104,6 +104,7 @@
                 android:paddingBottom="10dp"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:paddingTop="4dp"
                 android:id="@+id/product_detail_cl_user_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -114,9 +115,10 @@
 
 
                 <ImageView
+                    android:scaleType="centerCrop"
                     android:id="@+id/detail_img_user_profile"
-                    android:layout_width="40dp"
-                    android:layout_height="0dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:src="@drawable/profile"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -133,22 +135,22 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
+                        android:id="@+id/product_detail_txt_user_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="@string/product_detail_user_name"
-
                         android:textColor="@color/black"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/product_write_txt_local"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:text="@string/product_detail_user_location"
                         android:textColor="@color/black"
-                        android:textSize="13.5sp" />
+                        android:textSize="13sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -161,6 +163,7 @@
                     app:layout_constraintTop_toTopOf="@+id/detail_ll_user_info">
 
                     <TextView
+                        android:id="@+id/product_detail_user_tem"
                         android:textColor="@color/userTemp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -206,7 +209,7 @@
             <View
                 android:id="@+id/product_detail_vi_gl"
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
+                android:layout_height="1dp"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/dividerColor"
@@ -227,9 +230,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_vi_gl">
 
                 <TextView
+                    android:id="@+id/product_write_txt_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
+                    android:layout_marginBottom="12dp"
                     android:text="@string/product_detail_product_name"
                     android:textColor="@color/black"
                     android:textSize="18sp"
@@ -238,7 +242,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="12dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -267,6 +271,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/product_detail_txt_contents"
                     android:layout_width="wrap_content"
 
                     android:layout_height="wrap_content"
@@ -301,7 +306,7 @@
                     android:id="@+id/sign_up_main_start_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="13dp"
+                    android:layout_marginTop="10dp"
                     app:cardBackgroundColor="@color/productDetailAd"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="0dp"
@@ -325,7 +330,7 @@
                     android:layout_marginTop="20dp"
                     android:id="@+id/product_detail_vi_gl2"
                     android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
+                    android:layout_height="1dp"
                     android:background="@color/dividerColor"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -343,7 +348,7 @@
                 <View
                     android:id="@+id/product_detail_vi_gl3"
                     android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
+                    android:layout_height="1dp"
                     android:background="@color/dividerColor"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -424,7 +429,7 @@
 
         <View
             android:id="@+id/detail_vi_gl"
-            android:layout_width="0.5dp"
+            android:layout_width="1dp"
             android:layout_height="0dp"
             android:layout_marginVertical="10dp"
             android:layout_marginLeft="20dp"
@@ -453,6 +458,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/product_detail_txt_price_proposal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

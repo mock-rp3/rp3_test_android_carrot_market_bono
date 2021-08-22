@@ -1,4 +1,4 @@
-package com.example.carrotmarket.src.config.src.product
+package com.example.carrotmarket.src.config.src.main.btm.home.product.detail
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -15,14 +15,14 @@ class ProductDetailOtherAdapter(private val context: Context, private var otherA
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
-    ): ProductDetailOtherAdapter.ViewHolder {
+    ): ViewHolder {
         val binding = ProductDetailItemBinding.inflate(
             LayoutInflater.from(context),parent, false)
         return ViewHolder(binding)
 
     }
 
-    override fun onBindViewHolder(holder: ProductDetailOtherAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         holder.binding.productDetailItemImg.setImageResource(otherArrayList[position].productDetailOtherImage)
         holder.binding.productDetailItemName.text=otherArrayList[position].productDetailOtherName

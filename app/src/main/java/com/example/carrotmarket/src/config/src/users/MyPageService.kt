@@ -14,6 +14,7 @@ import kotlin.coroutines.coroutineContext
 class MyPageService(val view: MyPageFragmentView) {
 
 
+    // 토큰과 userIdx 넘겨주기
     fun tryGetMyPage(X_ACCESS_TOKEN:String ,userInfoIdx: Int){
         val myPageRetrofitInterface =
             ApplicationClass.sRetrofit.create(UsersRetrofitInterface::class.java)
@@ -24,10 +25,7 @@ class MyPageService(val view: MyPageFragmentView) {
                 response: Response<MyPageResponse>
             ) {
 
-
-
                 view.onGetMyPageSuccess(response.body() as MyPageResponse)
-
 
             }
 

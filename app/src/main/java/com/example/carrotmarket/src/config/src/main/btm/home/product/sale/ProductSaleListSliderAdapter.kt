@@ -1,13 +1,8 @@
-package com.example.carrotmarket.src.config.src.product
+package com.example.carrotmarket.src.config.src.main.btm.home.product.sale
 
-import android.content.Context
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.carrotmarket.databinding.ProductDetailItemSliderBinding
 
 class ProductSaleListSliderAdapter (fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
 

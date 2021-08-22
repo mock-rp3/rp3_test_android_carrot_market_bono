@@ -1,4 +1,4 @@
-package com.example.carrotmarket.src.config.src.home
+package com.example.carrotmarket.src.config.src.main.btm.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.carrotmarket.R
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivityHomeCategoryBinding
-import com.example.carrotmarket.src.config.src.home.models.HomeCategoryData
+import com.example.carrotmarket.src.config.src.main.btm.home.models.HomeCategoryData
 import com.example.carrotmarket.src.home.HomeFragment
 
 

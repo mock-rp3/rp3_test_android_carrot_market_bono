@@ -38,6 +38,7 @@
         app:layout_constraintTop_toTopOf="@id/product_write_vi_top" />
 
     <TextView
+        android:id="@+id/product_write_comp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -112,74 +113,77 @@
                 app:layout_constraintRight_toRightOf="parent" />
 
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <View
-            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/dividerColor"/>
+            android:layout_marginTop="15dp"
+            android:background="@color/dividerColor" />
 
         <EditText
-            android:theme="@style/loginLocationEditText"
-            android:textColorHint="@color/editTextHint"
-            android:paddingVertical="25dp"
+            android:id="@+id/product_write_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/product_write_title"/>
+            android:hint="@string/product_write_title"
+            android:paddingVertical="25dp"
+            android:textColorHint="@color/editTextHint"
+            android:theme="@style/loginLocationEditText" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:background="@color/white"
             android:id="@+id/product_write_cl_cate"
             android:layout_width="match_parent"
-            android:paddingVertical="25dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingVertical="25dp">
 
             <TextView
                 android:id="@+id/product_write_txt_cate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/product_write_cate"
-                android:textSize="17sp"
                 android:textColor="@color/black"
-                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"/>
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="0dp"
                 android:src="@drawable/location_more_icon"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"/>
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/dividerColor"/>
+            android:background="@color/dividerColor" />
 
 
         <EditText
-            android:theme="@style/loginLocationEditText"
-            android:drawablePadding="2dp"
-            android:drawableLeft="@drawable/price"
-            android:drawableTint="@color/editTextHint"
-            android:textColorHint="@color/editTextHint"
-            android:paddingVertical="25dp"
+            android:id="@+id/product_write_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/product_write_price"/>
+            android:drawableLeft="@drawable/price"
+            android:drawablePadding="2dp"
+            android:drawableTint="@color/editTextHint"
+            android:hint="@string/product_write_price"
+            android:paddingVertical="25dp"
+            android:textColorHint="@color/editTextHint"
+            android:theme="@style/loginLocationEditText" />
 
         <EditText
-
-            android:gravity="top"
-            android:textColorHint="@color/editTextHint"
-            android:paddingVertical="25dp"
+            android:id="@+id/product_write_contents"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/product_write_contents"/>
+            android:gravity="top"
+            android:hint="@string/product_write_contents"
+            android:paddingVertical="25dp"
+            android:textColorHint="@color/editTextHint" />
 
 
     </LinearLayout>

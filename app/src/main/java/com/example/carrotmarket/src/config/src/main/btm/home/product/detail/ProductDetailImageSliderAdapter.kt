@@ -1,4 +1,4 @@
-package com.example.carrotmarket.src.config.src.product
+package com.example.carrotmarket.src.config.src.main.btm.home.product.detail
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -13,14 +13,12 @@ class ProductDetailImageSliderAdapter(
     RecyclerView.Adapter<ProductDetailImageSliderAdapter.MyViewHolder>() {
     class MyViewHolder(var binding: ProductDetailItemSliderBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
-
     }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
-    ): ProductDetailImageSliderAdapter.MyViewHolder {
+    ): MyViewHolder {
         val binding = ProductDetailItemSliderBinding.inflate(
             LayoutInflater.from(context), parent, false
         )
@@ -28,7 +26,7 @@ class ProductDetailImageSliderAdapter(
     }
 
     override fun onBindViewHolder(
-        holder: ProductDetailImageSliderAdapter.MyViewHolder,
+        holder: MyViewHolder,
         position: Int,
     ) {
 

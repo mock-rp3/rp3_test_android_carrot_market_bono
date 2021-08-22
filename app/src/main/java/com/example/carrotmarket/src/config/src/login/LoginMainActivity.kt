@@ -2,6 +2,7 @@ package com.example.carrotmarket.src.login
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import com.example.carrotmarket.config.ApplicationClass.Companion.X_ACCESS_TOKEN
@@ -35,19 +36,20 @@ class LoginMainActivity : BaseActivity<ActivityLoginMainBinding>(ActivityLoginMa
         response.message?.let { showCustomToast(it) }
 
 
+        // 토큰 값 넣어주기
         sSharedPreferences = getSharedPreferences(X_ACCESS_TOKEN, MODE_PRIVATE)
-
         var editor = sSharedPreferences.edit()
         editor.putString(X_ACCESS_TOKEN, response.result.authJwt)
         editor.commit()
 
 
 
+        // userIdx 넣어주기
         sSharedPreferences = getSharedPreferences("userIdx", MODE_PRIVATE)
-
         var editor2 = sSharedPreferences.edit()
         editor2.putInt("userIdx", response.result.userInfoIdx)
         editor2.commit()
+
 
         intent = Intent(this, MainActivity::class.java)
         startActivity(intent)

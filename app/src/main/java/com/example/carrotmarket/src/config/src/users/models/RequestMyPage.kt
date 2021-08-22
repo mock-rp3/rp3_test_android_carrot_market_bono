@@ -9,5 +9,4 @@ data class RequestMyPage (
 
     @SerializedName("userInfoIdx") val userInfoIdx: Int,
     @Header("x-access-token") val X_ACCESS_TOKEN:String
-
     )

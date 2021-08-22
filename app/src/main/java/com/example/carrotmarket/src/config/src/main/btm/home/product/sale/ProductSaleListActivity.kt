@@ -1,4 +1,4 @@
-package com.example.carrotmarket.src.config.src.product
+package com.example.carrotmarket.src.config.src.main.btm.home.product.sale
 
 import android.os.Bundle
 import com.example.carrotmarket.config.BaseActivity
@@ -14,7 +14,7 @@ class ProductSaleListActivity: BaseActivity<ActivityProductSaleListBinding>(Acti
         super.onCreate(savedInstanceState)
 
 
-        binding.productSaleListVp2.adapter=ProductSaleListSliderAdapter(this)
+        binding.productSaleListVp2.adapter= ProductSaleListSliderAdapter(this)
 
         TabLayoutMediator(binding.productSaleListTl, binding.productSaleListVp2){ tab, position ->
             tab.text =tabLayoutTextArray[position]

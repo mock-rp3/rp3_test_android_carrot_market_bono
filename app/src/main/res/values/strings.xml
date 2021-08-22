@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">CarrotMarket</string>
-
+    <string name="price"> 원</string>
     <string name="test">test</string>
     <string name="complete">완료</string>
 
@@ -62,7 +62,7 @@
     <string name="home_item_name">캉골 반팔티</string>
     <string name="home_item_location">천호제3동</string>
     <string name="home_item_time">1분 전</string>
-    <string name="home_item_price">15,000원</string>
+    <string name="home_item_price">15,000</string>
     <string name="home_item_location_and_time"> · </string>
 
     <!-- product_detail -->
@@ -72,7 +72,7 @@
     <string name="product_detail_user_name">병진마눌</string>
     <string name="product_detail_user_location">하남시 망월동</string>
     <string name="product_detail_user_tem_txt">매너온도</string>
-    <string name="product_detail_user_tem">44.4℃</string>
+    <string name="product_detail_user_tem">44.4</string>
     <string name="product_detail_product_name">이케아 유아 책상</string>
     <string name="product_detail_cate">유아동</string>
     <string name="product_detail_time">54초 전</string>
@@ -197,6 +197,30 @@
         <item>기타 중고물품</item>
         <item>삽니다</item>
     </string-array>
+
+    <!-- home_search -->
+    <string name="home_search_more">더보기</string>
+
+    <string name="home_search_tab1">중고거래</string>
+    <string name="home_search_tab2">동네정보</string>
+    <string name="home_search_tab3">사람</string>
+    <string name="home_search_popular">인기검색어</string>
+    <string name="home_search_popular1">자전거</string>
+    <string name="home_search_popular2">의자</string>
+    <string name="home_search_popular3">냉장고</string>
+    <string name="home_search_popular4">캠핑</string>
+    <string name="home_search_popular5">노트북</string>
+    <string name="home_search_popular6">에어컨</string>
+    <string name="home_search_popular7">아이패드</string>
+    <string name="home_search_popular8">애플워치</string>
+    <string name="home_search_popular9">골프</string>
+    <string name="home_search_popular10">모니터</string>
+    <string name="home_search_popular11">식물</string>
+    <string name="home_search_local">천호제1동</string>
+    <string name="home_search_local_popular"> 인기매물</string>
+
+
+
 
 </resources>
 

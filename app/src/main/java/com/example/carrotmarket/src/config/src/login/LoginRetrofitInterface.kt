@@ -9,8 +9,6 @@ import retrofit2.http.POST
 
 interface LoginRetrofitInterface {
 
-//    @Header("/jwt")
-
     @POST("/app/logIn")
     fun postLogin(@Body params: PostLoginRequest): Call<ResponseLogin>
 }

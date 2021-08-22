@@ -16,10 +16,6 @@
             android:name=".src.config.src.main.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.CarrotMarket.NoActionBar">
-
-        </activity>
-
-        <activity android:name=".src.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +23,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".src.splash.SplashActivity">
 
+        </activity>
+
+        <activity android:name=".src.config.src.main.btm.home.product.writing.ProductWritingActivity">
+            
+        </activity>
 
         <activity android:name=".src.StartActivity">
 
@@ -49,22 +51,22 @@
         </activity>
 
 
-        <activity android:name=".src.config.src.product.ProductDetailActivity">
+        <activity android:name="com.example.carrotmarket.src.config.src.main.btm.home.product.detail.ProductDetailActivity">
 
 
         </activity>
 
-        <activity android:name=".src.config.src.product.ProductSaleListActivity">
+        <activity android:name="com.example.carrotmarket.src.config.src.main.btm.home.product.sale.ProductSaleListActivity">
 
         </activity>
 
 
-        <activity android:name=".src.config.src.home.HomeCategoryActivity">
+        <activity android:name="com.example.carrotmarket.src.config.src.main.btm.home.HomeCategoryActivity">
 
 
         </activity>
 
-        <activity android:name=".src.config.src.product.ProductWriteActivity">
+        <activity android:name="com.example.carrotmarket.src.config.src.main.btm.home.product.ProductWriteActivity">
 
 
         </activity>

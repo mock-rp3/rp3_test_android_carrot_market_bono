@@ -1,4 +1,4 @@
-package com.example.carrotmarket.src.config.src.product
+package com.example.carrotmarket.src.config.src.main.btm.home.product.sale
 
 import android.os.Bundle
 import android.view.View
