@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.carrotmarket">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,7 +12,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CarrotMarket">
+        android:theme="@style/Theme.CarrotMarket"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".src.config.src.main.MainActivity"
             android:screenOrientation="portrait"
@@ -28,7 +30,7 @@
         </activity>
 
         <activity android:name=".src.config.src.main.btm.home.product.writing.ProductWritingActivity">
-            
+
         </activity>
 
         <activity android:name=".src.StartActivity">
@@ -50,6 +52,11 @@
 
         </activity>
 
+        <activity android:name=".src.config.src.main.btm.home.product.search.ProductSearchActivity">
+
+
+
+        </activity>
 
         <activity android:name="com.example.carrotmarket.src.config.src.main.btm.home.product.detail.ProductDetailActivity">
 
@@ -66,13 +73,10 @@
 
         </activity>
 
-        <activity android:name="com.example.carrotmarket.src.config.src.main.btm.home.product.ProductWriteActivity">
-
-
-        </activity>
+        <activity android:name=".src.config.src.main.btm.home.product.writing.ProductWritingActivity"
+            tools:ignore="DuplicateActivity"></activity>
 
         <activity android:name=".src.config.src.users.UsersSettingActivity">
-
 
 
         </activity>

@@ -1,5 +1,6 @@
 package com.example.carrotmarket.src.users
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -9,8 +10,10 @@ import android.text.Html
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivitySignUpMainBinding
+import com.example.carrotmarket.src.config.util.CustomToast
 import java.util.*
 import kotlin.concurrent.timer
 
@@ -23,6 +26,8 @@ class SignUpMainActivity :
 
         //밑줄
         binding.signUpMainTxtFoundId.text = Html.fromHtml("<u>"+binding.signUpMainTxtFoundId.text+"</u>")
+
+        //키보드 내리기
 
 
         //TextWatcher를 사용하여 실시간 입력 동작 확인
@@ -37,8 +42,13 @@ class SignUpMainActivity :
                 if (binding.signUpMainEdtId.length() > 9) {
                     binding.signUpMainBtnNext.setCardBackgroundColor(Color.parseColor("#4d5158"))
 
+                    var handled = false
                     // 비밀번호 입력하기 버튼을 누르면
                     binding.signUpMainBtnNext.setOnClickListener {
+                        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                        inputMethodManager.hideSoftInputFromWindow(binding.signUpMainEdtId.windowToken,0)
+                        handled =true
+
                         binding.signUpMainMainLl.visibility = View.GONE
                         binding.signUpMainTxtModi.visibility = View.GONE
                         binding.signUpMainTxtFoundId.visibility = View.GONE
@@ -48,10 +58,12 @@ class SignUpMainActivity :
                         binding.signUpBtnPwConfirm.visibility = View.VISIBLE
                         binding.signUpMainBtnNext.setCardBackgroundColor(Color.parseColor("#4d5158"))
 
+                        CustomToast.createToast(this@SignUpMainActivity,"인증번호가 문자로 전송됐습니다. (최대 20초 소요)")?.show()
                         //타이머 시작
                         startTimer()
 
                     }
+                    handled
 
                 } else {
                     binding.signUpMainBtnNext.setCardBackgroundColor(Color.parseColor("#FFdcdee2"))

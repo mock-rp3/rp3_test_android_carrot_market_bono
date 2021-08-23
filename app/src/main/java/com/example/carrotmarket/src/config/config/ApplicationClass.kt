@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 // 앱이 실행될때 1번만 실행이 됩니다.
 // 전역변수와 앱이 실행될 동안 한 번만 유지되어야 하는 객체 (싱글톤)
 class ApplicationClass : Application() {
-    val API_URL = "https://31a9da013678.ngrok.io"
+    val API_URL = "http://prod.carrotmarket2.shop:9000"
     val LOCATION_URL = "https://www.juso.go.kr/addrlink/addrLinkApiJsonp.do"
 
     // 테스트 서버 주소

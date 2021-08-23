@@ -44,11 +44,16 @@ class ProductDetailActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+
         // 이미지 둥글게
         binding.detailImgUserProfile.background =
             resources.getDrawable(R.drawable.image_rounding_oval)
         binding.detailImgUserProfile.clipToOutline = true
 
+
+
+        showLoadingDialog(this)
         // api 호출
         val productIdx = intent.getIntExtra("productIdx",0)
         ProductDetailService(this).tryGetProductDetail(productIdx)
@@ -152,7 +157,7 @@ class ProductDetailActivity :
     }
 
     override fun onGetProductDetailSuccess(response: ResponseDetail) {
-
+        dismissLoadingDialog()
         binding.productDetailTxtContents.text = response.result[0][0].contents
         binding.productDetailTxtUserName.text = response.result[0][0].nickname
         binding.productWriteTxtLocal.text = response.result[0][0].regionNameTown

@@ -20,5 +20,6 @@ class ProductSaleListActivity: BaseActivity<ActivityProductSaleListBinding>(Acti
             tab.text =tabLayoutTextArray[position]
         }.attach()
 
+
     }
 }

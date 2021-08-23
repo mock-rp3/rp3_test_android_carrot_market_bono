@@ -2,46 +2,69 @@ package com.example.carrotmarket.src.config.src.main.btm.home.product.writing
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.example.carrotmarket.R
+import com.example.carrotmarket.config.ApplicationClass
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivityProductWritingBinding
 import com.example.carrotmarket.src.config.src.main.MainActivity
-import com.example.carrotmarket.src.config.src.main.btm.LifeFragment
+
 import com.example.carrotmarket.src.config.src.main.btm.home.product.writing.models.RequestPostWriting
 import com.example.carrotmarket.src.config.src.main.btm.home.product.writing.models.ResponseWriting
-import com.example.carrotmarket.src.login.LoginService
-import com.example.carrotmarket.src.login.models.PostLoginRequest
-import com.google.gson.annotations.SerializedName
+
 
 class ProductWritingActivity :
     BaseActivity<ActivityProductWritingBinding>(ActivityProductWritingBinding::inflate),
     ProductWritingActivityView {
 
+
+    private var categoryId = 0
+    private var canProposal = "N"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//
-//        val phoneNumber = binding.loginMainEdtId.text.toString()
-//        val password = binding.loginMainEdtPwd.text.toString()
-//
-//        val postRequest = PostLoginRequest(
-//            phoneNumber = phoneNumber,
-//            password = password
-//        )
-//        LoginService(this).tryPostLogin(postRequest)
 
+        //카테고리
+        binding.productWriteClCate.setOnClickListener {
+            showDialog()
+        }
 
-//        val title:String,
-//        @SerializedName("description") val contents: String,
-//        val price:Int,
-//        val canProposal:String,
-//        val categoryId:Int,
-//        val sellerId:Int,
-//        val imageUrl:String
+        //edittext 글자 변화
+        binding.productWritePrice.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
 
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (binding.productWritePrice.length() > 0) {
+                    binding.productWritePricePro.setTextColor(Color.parseColor("#000000"))
+                }
+            }
 
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+
+        //체크박스 상태변화
+        binding.productWriteCbPricePro.setOnClickListener {
+            if (binding.productWriteCbPricePro.isChecked == true) {
+                canProposal = "Y"
+            } else {
+                canProposal = "N"
+            }
+        }
+
+        // userIdx 가져오기
+        ApplicationClass.sSharedPreferences = getSharedPreferences("userIdx", AppCompatActivity.MODE_PRIVATE)
+
+        val userIdx = ApplicationClass.sSharedPreferences.getInt("userIdx", 0)
+        Log.e("userIdx2", userIdx.toString())
 
 
         binding.productWriteComp.setOnClickListener {
@@ -50,12 +73,12 @@ class ProductWritingActivity :
             val contents = binding.productWriteContents.text.toString()
 
             val requestPostWriting = RequestPostWriting(
-                title=title,
-                price=price.toInt(),
-                canProposal="Y",
-                categoryId=1,
-                sellerId=1,
-                imageUrl="test",
+                title = title,
+                price = price.toInt(),
+                canProposal = canProposal,
+                categoryId = categoryId,
+                sellerId = userIdx,
+                imageUrl = "test",
                 contents = contents
             )
             ProductWritingService(this).tryPostProductWriting(requestPostWriting)
@@ -63,32 +86,11 @@ class ProductWritingActivity :
 
         binding.productWriteImgBack.setOnClickListener {
             intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
             finish()
         }
-
-        binding.productWriteClCate.setOnClickListener {
-//            showDialog()
-            val categoryId =0
-            val write_cate = resources.getStringArray(R.array.write_cate)
-
-            val builder = AlertDialog.Builder(this)
-            builder.setItems(write_cate, DialogInterface.OnClickListener { dialog, which ->
-                binding.productWriteTxtCate.text = write_cate[which].toString()
-                for (i in 2..write_cate.size){
-                    write_cate[i-2]
-                }
-            })
-            var alertDialog: AlertDialog = builder.create()
-            alertDialog.show()
-        }
-
-
-//
-//
-//
-//        )
-
 
 //            val p=PopupMenu(applicationContext, binding.productWriteClCate)
 //            menuInflater.inflate(R.menu.menu_product_write_category,
@@ -98,7 +100,16 @@ class ProductWritingActivity :
     }
 
     fun showDialog() {
+        val write_cate = resources.getStringArray(R.array.write_cate)
 
+        val builder = AlertDialog.Builder(this)
+        builder.setItems(write_cate, DialogInterface.OnClickListener { dialog, which ->
+            binding.productWriteTxtCate.text = write_cate[which].toString()
+            categoryId = which + 2
+            Log.e("categoryId", categoryId.toString())
+        })
+        var alertDialog: AlertDialog = builder.create()
+        alertDialog.show()
     }
 
     override fun onPostProductWritingSuccess(response: ResponseWriting) {

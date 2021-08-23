@@ -70,6 +70,7 @@
     </LinearLayout>
 
     <EditText
+        android:imeOptions="actionDone"
         android:maxLines="1"
         android:inputType="textMultiLine|phone|number|textNoSuggestions"
         android:id="@+id/sign_up_main_edt_id"

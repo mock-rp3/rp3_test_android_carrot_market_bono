@@ -18,6 +18,7 @@ import com.example.carrotmarket.src.config.src.main.btm.home.HomeFragmentView
 import com.example.carrotmarket.src.config.src.main.btm.home.HomeService
 import com.example.carrotmarket.src.config.src.main.btm.home.models.ResponseHome
 import com.example.carrotmarket.src.config.src.main.btm.home.models.ResultHome
+import com.example.carrotmarket.src.config.src.main.btm.home.product.search.ProductSearchActivity
 
 //
 //data class Product(
@@ -45,7 +46,6 @@ class HomeFragment :
         homeAdapter = HomeAdapter(requireActivity(), responseHome)
         binding.homeRv.adapter = homeAdapter
 
-
         //1 . Activity () -> X
         //2. requireActivity() -> O
         //3. requireContext() -> O
@@ -65,6 +65,10 @@ class HomeFragment :
             var intent = Intent(context, HomeCategoryActivity::class.java)
             startActivity(intent)
         }
+        binding.homeImgTopSearch.setOnClickListener {
+            var intent = Intent(context, ProductSearchActivity::class.java)
+            startActivity(intent)
+        }
 
 //
 //        productArrayList.add(
@@ -76,17 +80,14 @@ class HomeFragment :
 //                15000
 //            )
 //        )
-
+        showLoadingDialog(requireContext())
         HomeService(this).tryGetHome()
 
     }
 
     override fun onGetProductSuccess(response: ResponseHome) {
-
+        dismissLoadingDialog()
         for (i in 0 until  response.result.size) {
-
-
-            Log.e("test", response.result[i].productIdx.toString())
             responseHome.add(
                 ResultHome(
                     response.result[i].productIdx,

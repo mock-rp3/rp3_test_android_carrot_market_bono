@@ -40,7 +40,7 @@ abstract class BaseFragment<B : ViewBinding>(
     }
 
     fun showLoadingDialog(context: Context) {
-//        mLoadingDialog = LoadingDialog(context)
+        mLoadingDialog = LoadingDialog(context)
         mLoadingDialog.show()
     }
 

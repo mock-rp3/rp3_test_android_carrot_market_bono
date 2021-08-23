@@ -11,6 +11,7 @@ class LoadingDialog(context: Context) : Dialog(context) {
     private lateinit var binding: DialogLoadingBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         binding = DialogLoadingBinding.inflate(layoutInflater)
         setContentView(binding.root)

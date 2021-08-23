@@ -1,5 +1,7 @@
 package com.example.carrotmarket.src.users
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -30,13 +32,15 @@ class SignUpProfileActivity :
                 password = password!!,
                 nickname = nickname,
                 profileImageUrl = "https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg")
+
+            showLoadingDialog(baseContext!!)
             SignUpService(this).tryPostSignUp(postRequest)
         }
 
     }
 
     override fun onPostSignUpSuccess(response: SignUpResponse) {
-
+        dismissLoadingDialog()
         sSharedPreferences = getSharedPreferences(X_ACCESS_TOKEN, MODE_PRIVATE)
 
         var editor = sSharedPreferences.edit()
