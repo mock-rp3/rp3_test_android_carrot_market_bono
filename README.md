@@ -349,8 +349,13 @@
         val priceDecimalFormat =decimalFormat.format(productDataList[position].price)
         holder.binding.homeItemPrice.text = "$priceDecimalFormat 원"
   ```
-   
-   
+### 15. java.net.UnknownServiceException: CLEARTEXT communication to prod.carrotmarket2.shop not permitted by network security policy 
+ - **문제 🤦🏻‍♀ |** 서버 url이 https가 아닌 http로 되어있어서 생긴 문제
+ - **해결 🙆🏻‍♀️ |**
+   ```
+   [Manifest]
+   android:usesCleartextTraffic="true"
+     ```
    
    
    
