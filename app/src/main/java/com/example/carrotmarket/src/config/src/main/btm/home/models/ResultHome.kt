@@ -15,6 +15,6 @@ data class ResultHome (
 //    @SerializedName("regionNameGu") val regionNameGu: String,
     @SerializedName("price") val price: Int,
 
-//    @SerializedName("wishCount") val wishCount: Int
+    @SerializedName("wishCount") val wishCount: Int
 
 )

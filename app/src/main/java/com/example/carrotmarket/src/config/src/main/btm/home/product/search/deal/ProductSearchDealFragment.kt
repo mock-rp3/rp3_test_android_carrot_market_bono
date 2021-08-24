@@ -12,11 +12,24 @@ import com.example.carrotmarket.config.BaseFragment
 import com.example.carrotmarket.databinding.FragmentSearchDealBinding
 import com.example.carrotmarket.src.config.src.main.btm.home.HomeCategoryAdapter
 import com.example.carrotmarket.src.config.src.main.btm.home.models.HomeCategoryData
+import com.example.carrotmarket.src.config.src.main.btm.home.models.ResultHome
 import com.example.carrotmarket.src.config.src.main.btm.home.product.search.deal.models.ResponseSearchDeal
+import com.example.carrotmarket.src.config.src.main.btm.home.product.search.deal.models.ResultSearchDeal
+import com.example.carrotmarket.src.config.src.main.btm.home.product.search.user.models.UserResult
+import com.example.carrotmarket.src.home.HomeAdapter
 
-class ProductSearchDealFragment:BaseFragment<FragmentSearchDealBinding>(FragmentSearchDealBinding::bind, R.layout.fragment_search_deal),
-ProductSearchDealFragmentView{
-    var homeCategoryData =ArrayList<HomeCategoryData>()
+class ProductSearchDealFragment:
+    BaseFragment<FragmentSearchDealBinding>(FragmentSearchDealBinding::bind,
+        R.layout.fragment_search_deal),
+    ProductSearchDealFragmentView {
+    var homeCategoryData = ArrayList<HomeCategoryData>()
+
+
+    var responseArrayList = ArrayList<ResultSearchDeal>()
+
+
+    private lateinit var dealAdapter: DealAdapter
+
 
     private lateinit var homeCategoryAdapter: HomeCategoryAdapter
 
@@ -24,24 +37,36 @@ ProductSearchDealFragmentView{
         super.onViewCreated(view, savedInstanceState)
 
 
-        binding.searchRv.layoutManager= GridLayoutManager(requireContext(),4)
+        dealAdapter = DealAdapter(requireActivity(), responseArrayList)
+        binding.searchDealRv.adapter = dealAdapter
 
-        homeCategoryAdapter = HomeCategoryAdapter(requireContext(),homeCategoryData)
-        binding.searchRv.adapter=homeCategoryAdapter
+        binding.searchRv.layoutManager = GridLayoutManager(requireContext(), 4)
 
-        ApplicationClass.sSharedPreferences =
-            requireActivity().getSharedPreferences("title", AppCompatActivity.MODE_PRIVATE)
+        homeCategoryAdapter = HomeCategoryAdapter(requireContext(), homeCategoryData)
+        binding.searchRv.adapter = homeCategoryAdapter
 
-        val title = ApplicationClass.sSharedPreferences.getString("title", null)
-        Log.e("title2",title.toString())
+//        ApplicationClass.sSharedPreferences =
+//            requireActivity().getSharedPreferences("search", AppCompatActivity.MODE_PRIVATE)
+//
+//        val title = ApplicationClass.sSharedPreferences.getString("search", null)
 
-        binding.searchTxtCate.setOnClickListener{
-            Log.e("title3",title.toString())
-            ProductSearchService(this).tryGetDealSearch(title!!)
+
+
+        val search = arguments?.getString("search")
+
+        binding.searchTxtCate.setOnClickListener {
+//            Log.e("title3", search.toString())
+            showLoadingDialog(requireActivity())
+            ProductSearchService(this).tryGetDealSearch(search!!)
+            binding.searchDealRv.visibility = View.VISIBLE
+            binding.searchDealLl.visibility = View.GONE
+
+//            var editor = ApplicationClass.sSharedPreferences.edit()
+//            editor.remove("title").commit()
         }
 
-//        val title =requireActivity().intent.getStringExtra("title")
 
+//        val title =requireActivity().intent.getStringExtra("title")
 
 
         homeCategoryData.add(
@@ -101,12 +126,26 @@ ProductSearchDealFragmentView{
         )
 
 
-
-
-
     }
 
     override fun onGetDealSearchSuccess(response: ResponseSearchDeal) {
+
+        dismissLoadingDialog()
+        for (i in 0 until response.result.size) {
+            responseArrayList.add(0,
+                ResultSearchDeal(
+                    response.result[i].imageUrl,
+                    response.result[i].price,
+                    response.result[i].productIdx,
+                    response.result[i].pulledAt,
+                    response.result[i].regionNameTown,
+                    response.result[i].title,
+                    response.result[i].wishCount
+                )
+            )
+
+        }
+        dealAdapter.notifyDataSetChanged()
     }
 
     override fun onGetDealSearchFailure(message: String) {

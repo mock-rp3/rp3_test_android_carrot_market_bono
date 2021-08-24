@@ -2,6 +2,8 @@
 <resources>
     <color name="colorAccent">#889dfe</color>
     <color name="test">#FFefefef</color>
+<!--    <color name="transparent">transparent</color>-->
+<!--    <color name="nullColor">@null</color>-->
 
 
     <color name="purple_200">#FFBB86FC</color>
@@ -12,7 +14,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="mainColor">#FFee8548</color>
-    <color name="mainColorEditHighLight">#66eaebee</color>
+    <color name="mainColorEditHighLight">#ffeaebee</color>
     <color name="editTextHint">#d1d3d7</color>
     <color name="editTextControl">#FFeaebee</color>
     <color name="dividerColor">#f2f3f6</color>
@@ -34,5 +36,6 @@
     <color name="camera">#878b93</color>
     <color name="searchEdit">#e3e4e8</color>
     <color name="searchEditHint">#8e8e92</color>
+    <color name="searchUserBack">#e2e0e4</color>
 
 </resources>

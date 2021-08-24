@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.Html
 import android.util.Log
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -19,6 +20,7 @@ import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivityProductDetailsBinding
 import com.example.carrotmarket.src.config.src.main.MainActivity
 import com.example.carrotmarket.src.config.src.main.btm.home.product.detail.models.ResponseDetail
+import com.google.android.material.appbar.AppBarLayout
 import com.google.gson.annotations.SerializedName
 
 
@@ -45,6 +47,17 @@ class ProductDetailActivity :
         super.onCreate(savedInstanceState)
 
 
+        binding.detailAppBar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener {
+            appBarLayout, verticalOffset ->
+            if (kotlin.math.abs(verticalOffset) - appBarLayout.totalScrollRange ==0){
+                binding.detailAppBar.setBackgroundColor(ContextCompat.getColor(this, R.color.black))
+                binding.nsv.visibility=View.VISIBLE
+
+            }else{
+                binding.detailAppBar.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.nsv.visibility=View.GONE
+            }
+        })
 
         // 이미지 둥글게
         binding.detailImgUserProfile.background =
@@ -55,7 +68,7 @@ class ProductDetailActivity :
 
         showLoadingDialog(this)
         // api 호출
-        val productIdx = intent.getIntExtra("productIdx",0)
+        val productIdx = intent.getIntExtra("productIdx", 0)
         ProductDetailService(this).tryGetProductDetail(productIdx)
 
 
@@ -70,7 +83,6 @@ class ProductDetailActivity :
         //밑줄 넣기
         binding.productDetailTxtUserTem.text =
             Html.fromHtml("<u>" + binding.productDetailTxtUserTem.text + "</u>")
-
 
 
         //Recyclerview
@@ -178,9 +190,10 @@ class ProductDetailActivity :
 
         if (response.result[0][0].priceProposal == "Y") {
             binding.productDetailTxtPriceProposal.text = "가격제안가능"
-            binding.productDetailTxtPriceProposal.text=Html.fromHtml("<u>" + binding.productDetailTxtPriceProposal.text + "</u>")
+            binding.productDetailTxtPriceProposal.text =
+                Html.fromHtml("<u>" + binding.productDetailTxtPriceProposal.text + "</u>")
             binding.productDetailTxtPriceProposal.setTextColor(Color.parseColor("#FFee8548"))
-        }else {
+        } else {
             binding.productDetailTxtPriceProposal.text = "가격제안불가"
         }
 

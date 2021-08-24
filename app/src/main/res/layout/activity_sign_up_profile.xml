@@ -20,7 +20,7 @@
         android:layout_marginLeft="20dp"
         android:text="@string/sign_up_top_txt"
         android:textColor="@color/black"
-        android:textSize="17sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/sign_up_vi_top"
         app:layout_constraintLeft_toLeftOf="@+id/sign_up_vi_top"
@@ -37,6 +37,7 @@
         app:layout_constraintTop_toBottomOf="@id/sign_up_vi_top" />
 
     <EditText
+        android:maxLines="1"
         android:imeOptions="actionDone"
         android:singleLine="true"
         android:id="@+id/sign_up_edt_nick"
@@ -68,6 +69,7 @@
         android:textSize="14sp"/>
 
     <View
+        app:layout_constraintVertical_weight="1"
         android:background="@color/inactiveBtn"
         android:id="@+id/sign_up_btn_next"
         android:layout_width="match_parent"

@@ -21,11 +21,11 @@ class LoginMainActivity : BaseActivity<ActivityLoginMainBinding>(ActivityLoginMa
 
         binding.loginStartBtn.setOnClickListener {
             val phoneNumber = binding.loginMainEdtId.text.toString()
-            val password = binding.loginMainEdtPwd.text.toString()
+//            val password = binding.loginMainEdtPwd.text.toString()
 
             val postRequest = PostLoginRequest(
                 phoneNumber = phoneNumber,
-                password = password
+//                password = password
             )
             LoginService(this).tryPostLogin(postRequest)
 

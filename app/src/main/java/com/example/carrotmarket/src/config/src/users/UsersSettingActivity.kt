@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivityUsersSettingBinding
 import com.example.carrotmarket.src.StartActivity
+import com.example.carrotmarket.src.config.src.main.MainActivity
 
 class UsersSettingActivity:BaseActivity<ActivityUsersSettingBinding>(ActivityUsersSettingBinding::inflate) {
 
@@ -13,7 +14,7 @@ class UsersSettingActivity:BaseActivity<ActivityUsersSettingBinding>(ActivityUse
 
 
         binding.userSettingImgBack.setOnClickListener {
-            intent= Intent(this, MyPageFragment::class.java)
+            intent= Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }

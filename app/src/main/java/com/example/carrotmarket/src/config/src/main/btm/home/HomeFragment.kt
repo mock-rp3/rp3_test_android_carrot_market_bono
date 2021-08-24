@@ -46,6 +46,21 @@ class HomeFragment :
         homeAdapter = HomeAdapter(requireActivity(), responseHome)
         binding.homeRv.adapter = homeAdapter
 
+
+
+
+//        val addProductIdx = arguments?.getInt("productIdx")
+//        Log.e("id",addProductIdx.toString())
+//        val addTitle = arguments?.getString("title")
+//        val addPrice = arguments?.getInt("price")
+//        val addCanProposal = arguments?.getString("canProposal")
+//        val addCategoryId = arguments?.getInt("categoryId")
+//        val addSellerId = arguments?.getInt("sellerId")
+//        val addImageUrl = arguments?.getString("imageUrl")
+//        val addContents = arguments?.getString("contents")
+
+
+
         //1 . Activity () -> X
         //2. requireActivity() -> O
         //3. requireContext() -> O
@@ -80,7 +95,7 @@ class HomeFragment :
 //                15000
 //            )
 //        )
-        showLoadingDialog(requireContext())
+        showLoadingDialog(requireActivity())
         HomeService(this).tryGetHome()
 
     }
@@ -95,11 +110,26 @@ class HomeFragment :
                     response.result[i].title,
                     response.result[i].regionNameTown,
                     response.result[i].pulledAt,
-                    response.result[i].price
+                    response.result[i].price,
+                    response.result[i].wishCount
                 )
             )
         }
         homeAdapter.notifyDataSetChanged()
+
+
+
+//
+//        responseHome.add(
+//            ResultHome(
+//                addProductIdx!!,
+//                addImageUrl!!,
+//                addTitle!!,
+//                "test",
+//                "test",
+//                addPrice!!
+//            )
+//        )
 
 
     }

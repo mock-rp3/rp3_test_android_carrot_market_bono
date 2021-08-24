@@ -1,13 +1,17 @@
 package com.example.carrotmarket.src.config.src.main.btm.home.product.search.deal.models
 
+import com.google.gson.annotations.SerializedName
+
 data class ResultSearchDeal(
-    val createdAt: String,
+//    val createdAt: String,
     val imageUrl: String,
     val price: Int,
     val productIdx: Int,
     val pulledAt: String,
-    val regionNameGu: String,
+//    val regionNameGu: String,
     val regionNameTown: String,
     val title: String,
     val wishCount: Int
+
+
 )

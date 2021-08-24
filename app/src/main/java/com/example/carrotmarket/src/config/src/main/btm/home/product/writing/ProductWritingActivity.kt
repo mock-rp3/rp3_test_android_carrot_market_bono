@@ -14,9 +14,13 @@ import com.example.carrotmarket.config.ApplicationClass
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivityProductWritingBinding
 import com.example.carrotmarket.src.config.src.main.MainActivity
+import com.example.carrotmarket.src.config.src.main.btm.home.models.ResultHome
+import com.example.carrotmarket.src.config.src.main.btm.home.product.detail.images
+import com.example.carrotmarket.src.config.src.main.btm.home.product.search.deal.models.ResultSearchDeal
 
 import com.example.carrotmarket.src.config.src.main.btm.home.product.writing.models.RequestPostWriting
 import com.example.carrotmarket.src.config.src.main.btm.home.product.writing.models.ResponseWriting
+import com.example.carrotmarket.src.home.HomeFragment
 
 
 class ProductWritingActivity :
@@ -82,6 +86,46 @@ class ProductWritingActivity :
                 contents = contents
             )
             ProductWritingService(this).tryPostProductWriting(requestPostWriting)
+            //                        intent.putExtra("phoneNumber", binding.signUpMainEdtId.text.toString())
+            //                        intent.putExtra("password", binding.signUpMainEdtPwd.text.toString())
+//            intent.putExtra("title",title)
+//            intent.putExtra("price",price)
+//            intent.putExtra("canProposal",canProposal)
+//            intent.putExtra("categoryId",categoryId)
+//            intent.putExtra("sellerId",userIdx)
+//            intent.putExtra("imageUrl", "test")
+//            intent.putExtra("contents",contents)
+
+
+
+
+//            supportFragmentManager.beginTransaction().replace()(
+//                R.id
+//            )
+
+//            val bundle = Bundle()
+//            bundle.putString("title", title)
+//            bundle.putInt("price", price.toInt())
+//            bundle.putString("canProposal", canProposal)
+//            bundle.putInt("categoryId", categoryId)
+//            bundle.putInt("sellerId", userIdx)
+//            bundle.putString("imageUrl", "test")
+//            bundle.putString("contents", contents)
+//
+//            val homeFragment = HomeFragment()
+//            homeFragment.arguments = bundle
+//
+//
+////            val transaction = supportFragmentManager.beginTransaction()
+////            transaction.add(R.id.frameLayout, fragmentA)
+////            transaction.commit()
+//
+//            val transaction = supportFragmentManager.beginTransaction()
+//            transaction.add(R.id.main_frm, homeFragment)
+//            transaction.commit()
+
+
+
         }
 
         binding.productWriteImgBack.setOnClickListener {
@@ -113,10 +157,35 @@ class ProductWritingActivity :
     }
 
     override fun onPostProductWritingSuccess(response: ResponseWriting) {
-
         intent = Intent(this, MainActivity::class.java)
+
         startActivity(intent)
         finish()
+//        title = title,
+//        price = price.toInt(),
+//        canProposal = canProposal,
+//        categoryId = categoryId,
+//        sellerId = userIdx,
+//        imageUrl = "test",
+//        contents = contents
+
+
+//        val bundle = Bundle()
+//        bundle.putInt("productIdx", response.result.productIdx)
+//
+//        val homeFragment = HomeFragment()
+//        homeFragment.arguments = bundle
+//
+//
+////            val transaction = supportFragmentManager.beginTransaction()
+////            transaction.add(R.id.frameLayout, fragmentA)
+////            transaction.commit()
+//
+//        val transaction = supportFragmentManager.beginTransaction()
+//        transaction.add(R.id.main_frm, homeFragment)
+//        transaction.commit()
+
+
     }
 
     override fun onPostProductWritingFailure(message: String) {

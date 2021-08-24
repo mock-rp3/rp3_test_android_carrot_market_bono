@@ -70,7 +70,9 @@
 
     <EditText
         android:theme="@style/loginLocationEditText"
-
+        android:imeOptions="actionDone"
+        android:maxLines="1"
+        android:inputType="textMultiLine|phone|number|textNoSuggestions"
         android:id="@+id/login_main_edt_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

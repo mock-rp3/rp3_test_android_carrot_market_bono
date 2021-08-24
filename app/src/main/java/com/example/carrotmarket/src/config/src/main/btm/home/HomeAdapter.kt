@@ -58,6 +58,7 @@ class HomeAdapter(
         holder.binding.homeItemPrice.text = "$priceDecimalFormat 원"
         holder.binding.homeItemImage.background = context.resources.getDrawable(R.drawable.image_rounding)
         holder.binding.homeItemImage.clipToOutline = true
+        holder.binding.count.text=productDataList[position].wishCount.toString()
 
 
 

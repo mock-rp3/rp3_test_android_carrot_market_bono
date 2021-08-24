@@ -23,6 +23,8 @@ class MyPageFragment :
         super.onViewCreated(view, savedInstanceState)
 
 
+
+        //이미지 둥글게
         binding.myPageImgUserProfile.background = resources.getDrawable(R.drawable.image_rounding_oval)
         binding.myPageImgUserProfile.clipToOutline = true
 
@@ -39,6 +41,7 @@ class MyPageFragment :
         val userIdx = sSharedPreferences.getInt("userIdx", 0)
         Log.e("userIdx2", userIdx.toString())
 
+        showLoadingDialog(requireActivity())
         // 값 넣어주기
         MyPageService(this).tryGetMyPage(jwt, userIdx)
 
@@ -54,7 +57,7 @@ class MyPageFragment :
     }
 
     override fun onGetMyPageSuccess(response: MyPageResponse) {
-
+        dismissLoadingDialog()
 //        var editor = sSharedPreferences.edit()
 //
 //        sSharedPreferences = requireActivity().getSharedPreferences("userIdx", Context.MODE_PRIVATE)

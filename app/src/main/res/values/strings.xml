@@ -47,12 +47,12 @@
     <string name="sign_up_main_top_txt">회원가입</string>
     <string name="sign_up_main_cert_txt">당근마켓은 휴대폰 번호로 가입해요. 번호는 안전하게 보관되며 어디에도 공개되지 않아요.</string>
     <string name="sign_up_main_edt_id">휴대폰 번호를 입력해주세요</string>
-    <string name="sign_up_main_edt_pwd">비밀번호를 입력해주세요</string>
-    <string name="sign_up_main_btn_login">비밀번호 입력하기</string>
+    <string name="sign_up_main_edt_pwd">인증번호를 입력해주세요</string>
+    <string name="sign_up_main_btn_login">인증문자 받기</string>
     <string name="sign_up_main_modi_txt">전화번호가 변경되었나요?</string>
     <string name="sign_up_main_found_id">이메일로 계정찾기</string>
     <string name="sign_up_main_warn">어떤 경우에도 타인에게 공유하지 마세요!</string>
-    <string name="sign_up_main_pw_confirm">비밀번호 확인</string>
+    <string name="sign_up_main_pw_confirm">인증번호 확인</string>
 
     <!-- home_fragment -->
     <string name="home_cv_main_txt">따뜻한 거래를 시작해보세요!</string>
@@ -224,8 +224,11 @@
     <string name="home_search_popular11">식물</string>
     <string name="home_search_local">천호제1동</string>
     <string name="home_search_local_popular"> 인기매물</string>
+    <string name="home_search_local_sug">추천 검색어</string>
 
-
+    <string name="home_search_user_main">동네 이웃을 찾고있나요?</string>
+    <string name="home_search_user_sub">• 닉네임으로 검색해보세요.</string>
+    <string name="home_search_user_sub2">• 사용자 프로필의 닉네임 옆 #숫자로도 검색할 수 있어요.(예: 당근이 #10000)</string>
 
 
 </resources>

@@ -9,8 +9,10 @@ import com.example.carrotmarket.config.ApplicationClass.Companion.X_ACCESS_TOKEN
 import com.example.carrotmarket.config.ApplicationClass.Companion.sSharedPreferences
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivitySplashBinding
+import com.example.carrotmarket.src.StartActivity
 import com.example.carrotmarket.src.config.src.main.MainActivity
 import com.example.carrotmarket.src.login.LoginMainActivity
+import com.example.carrotmarket.src.users.SignUpMainActivity
 
 class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding::inflate) {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +33,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
 
         Handler(Looper.getMainLooper()).postDelayed({
             if (jwt == null) {
-                intent = Intent(this, LoginMainActivity::class.java)
+                intent = Intent(this, StartActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {
