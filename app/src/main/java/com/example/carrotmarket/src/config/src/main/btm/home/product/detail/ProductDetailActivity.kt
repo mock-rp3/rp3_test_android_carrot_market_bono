@@ -47,6 +47,7 @@ class ProductDetailActivity :
         super.onCreate(savedInstanceState)
 
 
+        //스크롤 시 색상 변경
         binding.detailAppBar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener {
             appBarLayout, verticalOffset ->
             if (kotlin.math.abs(verticalOffset) - appBarLayout.totalScrollRange ==0){
@@ -117,6 +118,38 @@ class ProductDetailActivity :
 
 
         //더미데이터
+        otherArrayList.add(
+            Other(
+                R.drawable.item_image,
+                "스타벅스 랜턴",
+                "15,000원"
+            )
+        )
+
+        otherArrayList.add(
+            Other(
+                R.drawable.item_image,
+                "스타벅스 랜턴",
+                "15,000원"
+            )
+        )
+
+        otherArrayList.add(
+            Other(
+                R.drawable.item_image,
+                "스타벅스 랜턴",
+                "15,000원"
+            )
+        )
+
+        otherArrayList.add(
+            Other(
+                R.drawable.item_image,
+                "스타벅스 랜턴",
+                "15,000원"
+            )
+        )
+
         otherArrayList.add(
             Other(
                 R.drawable.item_image,

@@ -17,16 +17,23 @@ interface UsersRetrofitInterface {
 
     @GET("/app/users/{userInfoIdx}")
     fun getMyPage(
-        @Header("x-access-token") X_ACCESS_TOKEN:String,
-        @Path("userInfoIdx") userInfoIdx:Int
-    ) : Call<MyPageResponse>
+        @Header("x-access-token") X_ACCESS_TOKEN: String,
+        @Path("userInfoIdx") userInfoIdx: Int,
+    ): Call<MyPageResponse>
+
+//
+//    @PATCH("/app/users/{userInfoIdx}")
+//    fun patchProfile(@Body params: RequestProfile) : Call<ResponseProfile>
+//    fun jwtIdx(@Header("x-access-token") X_ACCESS_TOKEN: String,
+//               @Path("userInfoIdx") userInfoIdx: Int): Call<ResponseProfile>
 
 
     @PATCH("/app/users/{userInfoIdx}")
-    fun patchProfile(@Body params: RequestProfile) : Call<ResponseProfile>
-    fun jwtIdx(@Header("x-access-token") X_ACCESS_TOKEN: String,
-               @Path("userInfoIdx") userInfoIdx: Int): Call<ResponseProfile>
-
+    fun patchProfile(
+        @Body params: RequestProfile,
+        @Header("x-access-token") X_ACCESS_TOKEN: String,
+        @Path("userInfoIdx") userInfoIdx: Int,
+    ): Call<ResponseProfile>
 
 
 }

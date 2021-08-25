@@ -12,6 +12,7 @@ import com.example.carrotmarket.config.ApplicationClass.Companion.sSharedPrefere
 import com.example.carrotmarket.config.BaseFragment
 import com.example.carrotmarket.databinding.FragmentMyPageBinding
 import com.example.carrotmarket.src.config.src.users.models.MyPageResponse
+import com.example.carrotmarket.src.config.src.users.profile.ProfilePatchActivity
 
 
 class MyPageFragment :
@@ -22,6 +23,11 @@ class MyPageFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        binding.myPageBtnUserProfile.setOnClickListener {
+            var intent = Intent(context, ProfilePatchActivity::class.java)
+            startActivity(intent)
+        }
 
 
         //이미지 둥글게

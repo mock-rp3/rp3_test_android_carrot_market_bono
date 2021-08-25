@@ -4,7 +4,7 @@ data class ResultProfile(
     val createdAt: String,
     val nickname: String,
     val phoneNumber: String,
-    val profileImageUrl: String,
+    var profileImageUrl: String,
     val status: String,
     val userInfoIdx: Int
 )

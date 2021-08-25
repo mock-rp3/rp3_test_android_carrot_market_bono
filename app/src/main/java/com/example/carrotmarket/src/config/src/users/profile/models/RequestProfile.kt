@@ -6,8 +6,9 @@ import retrofit2.http.Header
 
 data class RequestProfile (
 
-    @Header("x-access-token") val X_ACCESS_TOKEN:String,
-    @SerializedName("userInfoIdx") val userInfoIdx: Int,
-    val profileImageUrl:String,
+//    @Header("x-access-token") val X_ACCESS_TOKEN:String,
+//    @SerializedName("userInfoIdx") val userInfoIdx: Int,
     val nickname: String,
-)
+    val profileImageUrl:String,
+
+    )

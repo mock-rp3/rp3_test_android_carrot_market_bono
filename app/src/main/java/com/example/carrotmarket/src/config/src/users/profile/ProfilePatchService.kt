@@ -12,46 +12,46 @@ import retrofit2.Response
 class ProfilePatchService(val view: ProfilePatchActivityView) {
 
 
-//    // 토큰과 userIdx 넘겨주기
-//    fun tryPatchProfile(profileImageUrl:String,nickname: String){
-//        val profileRetrofitInterface =
-//            ApplicationClass.sRetrofit.create(UsersRetrofitInterface::class.java)
-//
-//        profileRetrofitInterface.patchProfile(profileImageUrl,nickname).enqueue(object:
-//            Callback<ResponseProfile> {
-//            override fun onResponse(
-//                call: Call<ResponseProfile>,
-//                response: Response<ResponseProfile>
-//            ) {
-//
-//                view.onPatchProfileSuccess(response.body() as ResponseProfile)
-//
-//            }
-//
-//            override fun onFailure(call: Call<ResponseProfile>, t: Throwable) {
-//
-//                view.onPatchProfileFailure(t.message ?:"통신오류")
-//            }
-//        }
-//        )
-//    }
-    fun tryGetJwt(X_ACCESS_TOKEN: String, userInfoIdx: Int){
-        val jwtIdxRetrofitInterface =
+    // 토큰과 userIdx 넘겨주기
+    fun tryPatchProfile(requestProfile:RequestProfile, X_ACCESS_TOKEN:String, userInfoIdx:Int){
+        val profileRetrofitInterface =
             ApplicationClass.sRetrofit.create(UsersRetrofitInterface::class.java)
-        jwtIdxRetrofitInterface.jwtIdx(X_ACCESS_TOKEN, userInfoIdx).enqueue(object :
-        Callback<ResponseProfile>{
+
+        profileRetrofitInterface.patchProfile(requestProfile, X_ACCESS_TOKEN,userInfoIdx).enqueue(object:
+            Callback<ResponseProfile> {
             override fun onResponse(
                 call: Call<ResponseProfile>,
                 response: Response<ResponseProfile>
             ) {
+
                 view.onPatchProfileSuccess(response.body() as ResponseProfile)
+
             }
+
             override fun onFailure(call: Call<ResponseProfile>, t: Throwable) {
+
                 view.onPatchProfileFailure(t.message ?:"통신오류")
             }
         }
         )
-
     }
+//    fun tryGetJwt(X_ACCESS_TOKEN: String, userInfoIdx: Int){
+//        val jwtIdxRetrofitInterface =
+//            ApplicationClass.sRetrofit.create(UsersRetrofitInterface::class.java)
+//        jwtIdxRetrofitInterface.jwtIdx(X_ACCESS_TOKEN, userInfoIdx).enqueue(object :
+//        Callback<ResponseProfile>{
+//            override fun onResponse(
+//                call: Call<ResponseProfile>,
+//                response: Response<ResponseProfile>
+//            ) {
+//                view.onPatchProfileSuccess(response.body() as ResponseProfile)
+//            }
+//            override fun onFailure(call: Call<ResponseProfile>, t: Throwable) {
+//                view.onPatchProfileFailure(t.message ?:"통신오류")
+//            }
+//        }
+//        )
+//
+//    }
 
 }
