@@ -1,7 +1,6 @@
 package com.example.carrotmarket.src.login.models
 
 import com.example.carrotmarket.config.BaseResponse
-import com.example.carrotmarket.src.users.models.ResultSignUp
 import com.google.gson.annotations.SerializedName
 
 data class ResponseLogin(

@@ -1,11 +1,10 @@
 package com.example.carrotmarket.src.users
 
-import com.example.carrotmarket.config.ApplicationClass.Companion.X_ACCESS_TOKEN
-import com.example.carrotmarket.src.config.src.users.models.MyPageResponse
+import com.example.carrotmarket.src.config.src.users.mypage.models.MyPageResponse
 import com.example.carrotmarket.src.config.src.users.profile.models.RequestProfile
 import com.example.carrotmarket.src.config.src.users.profile.models.ResponseProfile
-import com.example.carrotmarket.src.users.models.PostSignUpRequest
-import com.example.carrotmarket.src.users.models.SignUpResponse
+import com.example.carrotmarket.src.config.src.users.signup.models.PostSignUpRequest
+import com.example.carrotmarket.src.config.src.users.signup.models.SignUpResponse
 import retrofit2.Call
 import retrofit2.http.*
 

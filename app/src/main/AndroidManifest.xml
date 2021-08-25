@@ -23,6 +23,10 @@
             android:name=".src.config.src.main.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.CarrotMarket.NoActionBar">
+
+        </activity>
+
+        <activity android:name=".src.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,15 +34,19 @@
             </intent-filter>
         </activity>
 
+
+        <activity android:name=".src.config.src.main.btm.products.category.select.CategorySelectActivity">
+
+        </activity>
+
         <activity android:name=".src.config.src.users.profile.ProfilePatchActivity">
 
         </activity>
 
-        <activity android:name=".src.splash.SplashActivity">
 
-        </activity>
+        <activity android:name=".src.config.src.main.btm.products.product.detail.edit.EditActivity"></activity>
 
-        <activity android:name=".src.config.src.main.btm.home.product.writing.ProductWritingActivity">
+        <activity android:name=".src.config.src.main.btm.products.product.writing.ProductWritingActivity">
 
         </activity>
 
@@ -53,41 +61,41 @@
 
         </activity>
 
-        <activity android:name=".src.users.SignUpProfileActivity"
+        <activity android:name=".src.config.src.users.signup.SignUpProfileActivity"
             android:windowSoftInputMode="adjustResize">
 
 
         </activity>
 
-        <activity android:name=".src.users.SignUpMainActivity">
+        <activity android:name=".src.config.src.users.signup.SignUpMainActivity">
 
         </activity>
 
-        <activity android:name=".src.config.src.main.btm.home.product.search.ProductSearchActivity">
+        <activity android:name=".src.config.src.main.btm.products.product.search.ProductSearchActivity">
 
-
-
-        </activity>
-
-        <activity android:name="com.example.carrotmarket.src.config.src.main.btm.home.product.detail.ProductDetailActivity">
 
 
         </activity>
 
-        <activity android:name="com.example.carrotmarket.src.config.src.main.btm.home.product.sale.ProductSaleListActivity">
-
-        </activity>
-
-
-        <activity android:name="com.example.carrotmarket.src.config.src.main.btm.home.HomeCategoryActivity">
+        <activity android:name="com.example.carrotmarket.src.config.src.main.btm.products.product.detail.ProductDetailActivity">
 
 
         </activity>
 
-        <activity android:name=".src.config.src.main.btm.home.product.writing.ProductWritingActivity"
+        <activity android:name="com.example.carrotmarket.src.config.src.main.btm.products.product.sale.ProductSaleListActivity">
+
+        </activity>
+
+
+        <activity android:name="com.example.carrotmarket.src.config.src.main.btm.products.category.HomeCategoryActivity">
+
+
+        </activity>
+
+        <activity android:name=".src.config.src.main.btm.products.product.writing.ProductWritingActivity"
             tools:ignore="DuplicateActivity"></activity>
 
-        <activity android:name=".src.config.src.users.UsersSettingActivity">
+        <activity android:name=".src.config.src.users.setting.UsersSettingActivity">
 
 
         </activity>

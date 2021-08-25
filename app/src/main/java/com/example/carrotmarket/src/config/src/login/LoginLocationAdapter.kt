@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.carrotmarket.databinding.LoginLocationListItemBinding
-import com.example.carrotmarket.src.users.SignUpMainActivity
+import com.example.carrotmarket.src.config.src.users.signup.SignUpMainActivity
 
 class LoginLocationAdapter(
     private val context: Context,

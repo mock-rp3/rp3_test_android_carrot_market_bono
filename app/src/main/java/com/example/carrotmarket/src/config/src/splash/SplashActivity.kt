@@ -11,8 +11,6 @@ import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivitySplashBinding
 import com.example.carrotmarket.src.StartActivity
 import com.example.carrotmarket.src.config.src.main.MainActivity
-import com.example.carrotmarket.src.login.LoginMainActivity
-import com.example.carrotmarket.src.users.SignUpMainActivity
 
 class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding::inflate) {
     override fun onCreate(savedInstanceState: Bundle?) {

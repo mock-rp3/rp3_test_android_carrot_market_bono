@@ -39,7 +39,8 @@ class ProfilePatchActivity :
 //원하는 퍼미션을 이곳에 추가하면 된다.
     private val requiredPermissions = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
-        Manifest.permission.WRITE_EXTERNAL_STORAGE
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        Manifest.permission.READ_PHONE_STATE
     )
 
 

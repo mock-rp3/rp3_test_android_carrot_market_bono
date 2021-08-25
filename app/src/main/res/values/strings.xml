@@ -4,7 +4,10 @@
     <string name="test">test</string>
     <string name="complete">완료</string>
     <string name="cancel">취소</string>
-
+    <string name="report">신고하기</string>
+    <string name="delete_product">중고거래 삭제하기</string>
+    <string name="modify_product">중고거래 수정하기</string>
+    <string name="user_hide">이 사용자의 글 보지 않기</string>
     <!-- custom_toast -->
     <string name="toast">인증번호가 문자로 전송됐습니다. (최대 20초 소요)</string>
 
@@ -124,6 +127,9 @@
     <string name="product_sale_list_fragment_ing">판매중인 게시글이 없어요</string>
     <string name="product_sale_list_fragment_comp">거래완료 게시글이 없어요</string>
     <string name="product_sale_list_fragment_hide">숨기기 한 게시글이 없어요</string>
+    <string name="product_sale_list_change_ing">예약중으로 변경</string>
+    <string name="product_sale_list_change_comp">거래완료로 변경</string>
+
 
     <!-- product_write -->
     <string name="product_write_top">중고거래 글쓰기</string>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <View
+        android:id="@+id/edit_product_vi_top"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/login_main_top_vi_border"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/edit_product_img_back"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/login_location_back"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_product_vi_top"
+        app:layout_constraintLeft_toLeftOf="@id/edit_product_vi_top"
+        app:layout_constraintTop_toTopOf="@id/edit_product_vi_top" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="@string/modify_product"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_product_vi_top"
+        app:layout_constraintLeft_toRightOf="@id/edit_product_img_back"
+        app:layout_constraintTop_toTopOf="@id/edit_product_vi_top" />
+
+    <TextView
+        android:id="@+id/edit_product_comp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/complete"
+        android:textColor="@color/mainColor"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_product_vi_top"
+        app:layout_constraintRight_toRightOf="@+id/edit_product_vi_top"
+        app:layout_constraintTop_toTopOf="@id/edit_product_vi_top" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_product_vi_top">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/edit_product_camera_img"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/write_camera"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/product_img"
+                android:layout_marginLeft="20dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:layout_constraintLeft_toRightOf="@+id/edit_product_camera_img"
+                android:src="@drawable/profile_main"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/edit_product_txt_now"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="@string/product_write_0"
+                android:textColor="@color/camera"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toLeftOf="@+id/edit_product_camera_img"
+                app:layout_constraintRight_toLeftOf="@+id/edit_product_txt_slash" />
+
+            <TextView
+                android:id="@+id/edit_product_txt_slash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="@string/product_write_slash"
+                android:textColor="@color/camera"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/edit_product_txt_now"
+                app:layout_constraintRight_toLeftOf="@+id/edit_product_txt_total" />
+
+            <TextView
+                android:id="@+id/edit_product_txt_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="@string/product_write_0"
+                android:textColor="@color/camera"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/edit_product_txt_slash"
+                app:layout_constraintRight_toRightOf="@+id/edit_product_camera_img" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/dividerColor" />
+
+        <EditText
+            android:id="@+id/edit_product_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/product_write_title"
+            android:paddingVertical="25dp"
+            android:textColorHint="@color/editTextHint"
+            android:theme="@style/loginLocationEditText" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/edit_product_cl_cate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingVertical="25dp">
+
+            <TextView
+                android:id="@+id/edit_product_txt_cate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/product_write_cate"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="0dp"
+                android:src="@drawable/location_more_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/dividerColor" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edit_product_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/price"
+                android:drawablePadding="2dp"
+                android:drawableTint="@color/editTextHint"
+                android:hint="@string/product_write_price"
+                android:paddingVertical="25dp"
+                android:textColorHint="@color/editTextHint"
+                android:theme="@style/loginLocationEditText"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/edit_product_cb_price_pro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/edit_product_price_pro"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/edit_product_price_pro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/product_write_price_pro"
+                android:textColor="@color/editTextHint"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <EditText
+            android:id="@+id/edit_product_contents"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:hint="@string/product_write_contents"
+            android:paddingVertical="25dp"
+            android:textColorHint="@color/editTextHint" />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

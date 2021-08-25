@@ -26,8 +26,6 @@ class ApplicationClass : Application() {
         // 만들어져있는 SharedPreferences 를 사용해야합니다. 재생성하지 않도록 유념해주세요
         lateinit var sSharedPreferences: SharedPreferences
 
-        lateinit var editor: SharedPreferences.Editor
-
         // JWT Token Header 키 값
         val X_ACCESS_TOKEN = "X-ACCESS-TOKEN"
 
