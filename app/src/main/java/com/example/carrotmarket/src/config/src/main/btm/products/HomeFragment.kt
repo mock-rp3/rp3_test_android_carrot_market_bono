@@ -83,8 +83,8 @@ class HomeFragment :
 
     override fun onGetProductSuccess(response: ResponseHome) {
         dismissLoadingDialog()
-        //response.result[i].productIdx 순으로 정렬하고 싶음
-        for (i in 0 until  response.result.size) {
+        //끌올 순 정렬
+        for (i in 0 until response.result.size) {
             responseHome.add(
                 ResultHome(
                     response.result[i].productIdx,

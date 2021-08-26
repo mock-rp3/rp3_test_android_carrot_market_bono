@@ -8,3 +8,8 @@ import com.google.gson.annotations.SerializedName
 data class ResponseDetail(
     @SerializedName("result") val result: ArrayList<ArrayList<ResultDetail>>
 ) : BaseResponse()
+
+
+data class ResponseDetailImage(
+    @SerializedName("result") val result: ArrayList<ArrayList<ResultDetail>>
+) : BaseResponse()

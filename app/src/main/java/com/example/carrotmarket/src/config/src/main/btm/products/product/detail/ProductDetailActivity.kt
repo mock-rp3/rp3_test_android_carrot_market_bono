@@ -23,16 +23,17 @@ import com.example.carrotmarket.src.config.src.main.btm.products.product.detail.
 import java.text.DecimalFormat
 
 
-val images = arrayOf(
-    "https://dnvefa72aowie.cloudfront.net/origin/article/202108/51656185cfb4b9f326a0e2fea8c99331d8eb7e14683201548386687329bcc615.webp?q=95&s=1440x1440&t=inside",
-    "https://dnvefa72aowie.cloudfront.net/origin/article/202108/fa44aa18a23e036d724faedb128f1beb2ec8b4809ee967d68ffb62e6f71c0ec0.webp?q=95&s=1440x1440&t=inside"
-)
+//val images = arrayOf(
+//    "https://dnvefa72aowie.cloudfront.net/origin/article/202108/51656185cfb4b9f326a0e2fea8c99331d8eb7e14683201548386687329bcc615.webp?q=95&s=1440x1440&t=inside",
+//    "https://dnvefa72aowie.cloudfront.net/origin/article/202108/fa44aa18a23e036d724faedb128f1beb2ec8b4809ee967d68ffb62e6f71c0ec0.webp?q=95&s=1440x1440&t=inside"
+//)
 
 class ProductDetailActivity :
     BaseActivity<ActivityProductDetailsBinding>(ActivityProductDetailsBinding::inflate),
     ProductDetailActivityView {
     var wish: Boolean = false
     var otherArrayList = ArrayList<ResultSellerProduct>()
+    var imageArrayList = ArrayList<ResultDetail>()
 
     private lateinit var productDetailOtherAdapter: ProductDetailOtherAdapter
     private lateinit var productDetailImageSliderAdapter: ProductDetailImageSliderAdapter
@@ -85,9 +86,7 @@ class ProductDetailActivity :
         binding.productDetailRvOthers.layoutManager = GridLayoutManager(this, 2)
 
 
-        //ViewPager2
-        productDetailImageSliderAdapter = ProductDetailImageSliderAdapter(this, images)
-        binding.productDetailVp2.adapter = productDetailImageSliderAdapter
+
 
         binding.productDetailVp2.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
@@ -106,7 +105,6 @@ class ProductDetailActivity :
                 setCurrentIndicator(position)
             }
         })
-        setupIndicators(images.size)
 
     }
 
@@ -125,6 +123,7 @@ class ProductDetailActivity :
         }
         setCurrentIndicator(0)
     }
+//            setupIndicators()
 
     private fun setCurrentIndicator(position: Int) {
         val childCount: Int = binding.detailLlIndicator.childCount
@@ -149,7 +148,39 @@ class ProductDetailActivity :
         val seller = response.result[0][0].userInfoIdx
 
         ProductDetailService(this).tryGetSellerProduct("normal",seller)
+
         dismissLoadingDialog()
+
+        //ViewPager2
+        productDetailImageSliderAdapter = ProductDetailImageSliderAdapter(this, response.result[1])
+        binding.productDetailVp2.adapter = productDetailImageSliderAdapter
+
+        //1 0 , 1 1
+        for (i in 0 .. response.result[1].size-1) {
+            Log.e("size",response.result[1].size.toString())
+            imageArrayList.add(
+                ResultDetail(
+                    response.result[0][0].priceProposal,
+                    response.result[0][0].contents,
+                    response.result[0][0].mannerGrade,
+                    response.result[0][0].cate,
+                    response.result[0][0].nickname,
+                    response.result[0][0].price,
+                    response.result[1][i].imageUrl,
+                    response.result[0][0].productIdx,
+                    response.result[0][0].profileImageUrl,
+                    response.result[0][0].pulledAt,
+                    response.result[0][0].regionNameTown,
+                    response.result[0][0].title,
+                    response.result[0][0].viewCount,
+                    response.result[0][0].userInfoIdx
+
+                )
+            )
+            setupIndicators(response.result[1].size)
+        }
+
+        productDetailImageSliderAdapter.notifyDataSetChanged()
 
         response.result[0][0].productIdx
         binding.productDetailTxtContents.text = response.result[0][0].contents
@@ -159,7 +190,6 @@ class ProductDetailActivity :
         binding.productDetailTxtUserName2.text = response.result[0][0].nickname
         binding.productWriteTxtTitle.text = response.result[0][0].title
         binding.productDetailCate.text = response.result[0][0].cate
-        binding.productDetailTxtPriceProposal.text = response.result[0][0].priceProposal
         binding.homeItemTime.text = response.result[0][0].pulledAt
         binding.viewCount.text = response.result[0][0].viewCount
 
@@ -184,16 +214,42 @@ class ProductDetailActivity :
             binding.productDetailTxtPriceProposal.text = "가격제안불가"
         }
 
+        val productId = response.result[0][0].productIdx.toInt()
+        val userInfoId = response.result[0][0].userInfoIdx.toInt()
+        val requestWishDel = RequestWishDel(
+            productId,
+            userInfoId
+        )
+        val requestWish = RequestWish(
+            productId,
+            userInfoId
+        )
+        binding.productDetailTxtPriceProposal.setOnClickListener {
+
+        }
+        binding.detailImgHeart.setOnClickListener {
+            if (binding.detailImgHeart.tag.toString() == "true") {
+
+                ProductDetailService(this).tryDeleteWishProduct(requestWishDel)
+
+            } else {
+                ProductDetailService(this).tryPostWishProduct(requestWish)
+
+            }
+        }
         binding.detailImgTopMenu.setOnClickListener {
             val p = PopupMenu(applicationContext, binding.detailImgTopMenu)
             menuInflater.inflate(R.menu.menu_product_detail,
                 p.menu)
 //            p.setOnMenuItemClickListener(PopupListener())
 
+
             p.setOnMenuItemClickListener { MenuItem ->
                 when (MenuItem?.itemId) {
                     R.id.edit -> {
                         intent = Intent(this@ProductDetailActivity, EditActivity::class.java)
+                        intent.putExtra("image", response.result[1][0].imageUrl)
+                        Log.e("imge",response.result[1][0].imageUrl.toString())
                         intent.putExtra("productIdx", response.result[0][0].productIdx)
                         intent.putExtra("title", binding.productDetailCate.text)
                         intent.putExtra("proposal", binding.productDetailTxtPriceProposal.text)
@@ -207,6 +263,7 @@ class ProductDetailActivity :
                     R.id.delete -> {
                         val productIdx = intent.getIntExtra("productIdx", 0)
                         ProductDetailService(this).tryDeleteProduct(productIdx)
+
                     }
                 }
                 false
@@ -215,36 +272,6 @@ class ProductDetailActivity :
             p.show()
         }
 
-        val productId = response.result[0][0].productIdx.toInt()
-        val userInfoId = response.result[0][0].userInfoIdx.toInt()
-        val requestWishDel = RequestWishDel(
-            productId,
-            userInfoId
-        )
-        val requestWish = RequestWish(
-            productId,
-            userInfoId
-        )
-        binding.detailImgHeart.setOnClickListener {
-            if (binding.detailImgHeart.tag.toString() == "true") {
-                binding.detailImgHeart.setImageResource(R.drawable.heart_icon)
-                ProductDetailService(this).tryDeleteWishProduct(requestWishDel)
-                binding.detailImgHeart.tag="true"
-            } else {
-                binding.detailImgHeart.setImageResource(R.drawable.heart_on_icon)
-                ProductDetailService(this).tryPostWishProduct(requestWish)
-                binding.detailImgHeart.tag="false"
-            }
-        }
-
-//            wish == true
-//            if (wish == false) {
-
-//                wish == true
-//            } else if (wish == false) {
-
-//                wish == false
-//            }
 
 
     }
@@ -291,6 +318,9 @@ class ProductDetailActivity :
     }
 
     override fun onDeleteProductSuccess(response: BaseResponse) {
+        intent = Intent(this,MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     override fun onDeleteProductFailure(message: String) {
@@ -314,6 +344,7 @@ class ProductDetailActivity :
             )
         }
         productDetailOtherAdapter.notifyDataSetChanged()
+
     }
 
     override fun onGetSellerProductFailure(message: String) {
@@ -321,12 +352,17 @@ class ProductDetailActivity :
 
     override fun onPostWishSuccess(response: BaseResponse) {
 
+        binding.detailImgHeart.tag="false"
+        binding.detailImgHeart.setImageResource(R.drawable.heart_on_icon)
+
     }
 
     override fun onPostWishFailure(message: String) {
     }
 
     override fun onDeleteWishSuccess(response: BaseResponse) {
+        binding.detailImgHeart.tag="true"
+        binding.detailImgHeart.setImageResource(R.drawable.heart_icon)
     }
 
     override fun onDeleteWishFailure(message: String) {

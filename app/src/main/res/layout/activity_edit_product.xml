@@ -52,12 +52,13 @@
 
 
     <LinearLayout
+        app:layout_constraintBottom_toTopOf="@+id/edit_product_ll_btm"
+        android:id="@+id/edit_product_ll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
         android:paddingHorizontal="20dp"
         android:paddingTop="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_product_vi_top">
@@ -74,26 +75,15 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/product_img"
-                android:layout_marginLeft="20dp"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:layout_constraintLeft_toRightOf="@+id/edit_product_camera_img"
-                android:src="@drawable/profile_main"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                />
-
             <TextView
                 android:id="@+id/edit_product_txt_now"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                android:text="@string/product_write_0"
-                android:textColor="@color/camera"
+                android:text="@string/product_write_1"
+                android:textColor="@color/mainColor"
                 android:textSize="17sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/edit_product_camera_img"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintLeft_toLeftOf="@+id/edit_product_camera_img"
                 app:layout_constraintRight_toLeftOf="@+id/edit_product_txt_slash" />
@@ -106,7 +96,7 @@
                 android:text="@string/product_write_slash"
                 android:textColor="@color/camera"
                 android:textSize="17sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/edit_product_camera_img"
                 app:layout_constraintLeft_toRightOf="@id/edit_product_txt_now"
                 app:layout_constraintRight_toLeftOf="@+id/edit_product_txt_total" />
 
@@ -115,12 +105,37 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                android:text="@string/product_write_0"
+                android:text="@string/product_write_10"
                 android:textColor="@color/camera"
                 android:textSize="17sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/edit_product_camera_img"
                 app:layout_constraintLeft_toRightOf="@+id/edit_product_txt_slash"
                 app:layout_constraintRight_toRightOf="@+id/edit_product_camera_img" />
+
+            <ImageView
+                android:scaleType="centerCrop"
+                android:visibility="visible"
+                android:id="@+id/product_img"
+                android:layout_marginLeft="10dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:layout_constraintLeft_toRightOf="@+id/edit_product_camera_img"
+                android:src="@drawable/profile_main"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/X"
+                android:background="@drawable/close"
+                android:textColor="@color/white"
+                android:paddingHorizontal="5dp"
+                android:textSize="12sp"
+                app:layout_constraintTop_toTopOf="@+id/product_img"
+                app:layout_constraintRight_toRightOf="@+id/product_img"/>
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -132,6 +147,9 @@
             android:background="@color/dividerColor" />
 
         <EditText
+            android:maxLines="1"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
             android:id="@+id/edit_product_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -176,9 +194,17 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            >
             <EditText
+                android:inputType="number"
+                android:maxLines="1"
+                android:imeOptions="actionDone"
+                android:singleLine="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 android:id="@+id/edit_product_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -188,34 +214,34 @@
                 android:hint="@string/product_write_price"
                 android:paddingVertical="25dp"
                 android:textColorHint="@color/editTextHint"
-                android:theme="@style/loginLocationEditText"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:theme="@style/loginLocationEditText" />
 
             <CheckBox
-                android:id="@+id/edit_product_cb_price_pro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:button="@null"
+                android:background="@drawable/check"
                 android:checked="false"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/edit_product_price_pro"
-                app:layout_constraintTop_toTopOf="parent" />
-
+                android:id="@+id/edit_product_cb_price_pro"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                />
             <TextView
                 android:id="@+id/edit_product_price_pro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/product_write_price_pro"
-                android:textColor="@color/editTextHint"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="@color/editTextHint"
+                android:textSize="15sp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <EditText
+            android:imeOptions="actionDone"
             android:id="@+id/edit_product_contents"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -224,6 +250,52 @@
             android:paddingVertical="25dp"
             android:textColorHint="@color/editTextHint" />
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingBottom="10dp"
+        android:paddingHorizontal="20dp"
+        android:id="@+id/edit_product_ll_btm"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toBottomOf="@+id/edit_product_ll"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/write_icon"
+            />
+        <TextView
+            android:layout_marginRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/product_write_ph"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_marginRight="8dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/write_icon2"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/product_write_set_loca"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_gravity="center"/>
 
     </LinearLayout>
 

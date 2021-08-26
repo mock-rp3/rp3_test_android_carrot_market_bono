@@ -27,9 +27,10 @@
         app:layout_constraintTop_toTopOf="@+id/sign_up_vi_top" />
 
     <ImageView
+        android:scaleType="centerCrop"
         android:id="@+id/sign_up_img_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:layout_marginTop="30dp"
         android:src="@drawable/profile"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -43,7 +44,6 @@
         android:id="@+id/sign_up_edt_nick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/loginLocationEditText"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="15dp"
         android:textCursorDrawable="@drawable/cursor"

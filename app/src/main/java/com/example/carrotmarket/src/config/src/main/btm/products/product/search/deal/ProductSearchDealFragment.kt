@@ -19,8 +19,7 @@ import com.example.carrotmarket.src.config.src.main.btm.products.product.search.
 
 class ProductSearchDealFragment:
     BaseFragment<FragmentSearchDealBinding>(FragmentSearchDealBinding::bind,
-        R.layout.fragment_search_deal),
-    ProductSearchDealFragmentView {
+        R.layout.fragment_search_deal), ProductSearchDealFragmentView {
     var homeCategoryData = ArrayList<HomeCategoryData>()
     var responseArrayList = ArrayList<ResultSearchDeal>()
     var otherArrayList = ArrayList<ResultSellerProduct>()
@@ -63,12 +62,12 @@ class ProductSearchDealFragment:
 
 
 
-        val search = arguments?.getString("search")
+//        val search = arguments?.getString("search")
 
         binding.searchTxtCate.setOnClickListener {
 //            Log.e("title3", search.toString())
             showLoadingDialog(requireActivity())
-            ProductSearchService(this).tryGetDealSearch(search!!)
+//            ProductSearchService(this).tryGetDealSearch(search!!)
             binding.searchDealRv.visibility = View.VISIBLE
             binding.searchDealLl.visibility = View.GONE
 
@@ -139,28 +138,28 @@ class ProductSearchDealFragment:
 
     }
 
-    override fun onGetDealSearchSuccess(response: ResponseSearchDeal) {
-
-        dismissLoadingDialog()
-        for (i in 0 until response.result.size) {
-            responseArrayList.add(0,
-                ResultSearchDeal(
-                    response.result[i].imageUrl,
-                    response.result[i].price,
-                    response.result[i].productIdx,
-                    response.result[i].pulledAt,
-                    response.result[i].regionNameTown,
-                    response.result[i].title,
-                    response.result[i].wishCount
-                )
-            )
-
-        }
-        dealAdapter.notifyDataSetChanged()
-    }
-
-    override fun onGetDealSearchFailure(message: String) {
-    }
+//    override fun onGetDealSearchSuccess(response: ResponseSearchDeal) {
+//
+//        dismissLoadingDialog()
+//        for (i in 0 until response.result.size) {
+//            responseArrayList.add(0,
+//                ResultSearchDeal(
+//                    response.result[i].imageUrl,
+//                    response.result[i].price,
+//                    response.result[i].productIdx,
+//                    response.result[i].pulledAt,
+//                    response.result[i].regionNameTown,
+//                    response.result[i].title,
+//                    response.result[i].wishCount
+//                )
+//            )
+//
+//        }
+//        dealAdapter.notifyDataSetChanged()
+//    }
+//
+//    override fun onGetDealSearchFailure(message: String) {
+//    }
 
     override fun onGetSuggestSuccess(response: ResponseSug) {
         dismissLoadingDialog()

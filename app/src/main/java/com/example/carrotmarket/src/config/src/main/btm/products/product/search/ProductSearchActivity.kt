@@ -28,7 +28,7 @@ class ProductSearchActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         productSearchSliderAdapter = ProductSearchSliderAdapter(this)
-        binding.homeSearchVp2.adapter =productSearchSliderAdapter
+        binding.homeSearchVp2.adapter = productSearchSliderAdapter
 
 
         binding.homeSearchEtSearch.setOnEditorActionListener { v, actionId, event ->
@@ -36,14 +36,37 @@ class ProductSearchActivity :
 
                 val dealFragment = ProductSearchDealFragment()
 
-                supportFragmentManager.beginTransaction().replace(R.id.home_search_vp2, dealFragment).commit()
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.home_search_vp2, dealFragment).commit()
 
                 val bundle = Bundle()
                 bundle.putString("search", binding.homeSearchEtSearch.text.toString())
 
-                dealFragment.arguments=bundle
+                dealFragment.arguments = bundle
 
-//            bundle.putInt("price", price.toInt())
+                val transaction = supportFragmentManager.beginTransaction()
+                transaction.add(R.id.home_search_vp2, dealFragment)
+                transaction.commit()
+
+                binding.cancelTxt.visibility = View.GONE
+                binding.invisibleView.visibility = View.GONE
+
+                //키보드 내리기
+                val inputMethodManager =
+                    getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputMethodManager.hideSoftInputFromWindow(binding.homeSearchEtSearch.windowToken,
+                    0)
+
+                handled = true
+
+                //                ApplicationClass.sSharedPreferences =
+//                    getSharedPreferences("search", MODE_PRIVATE)
+//                var editor1 = ApplicationClass.sSharedPreferences.edit()
+//                editor1.putString("search",
+//                    binding.homeSearchEtSearch.text.toString())
+//                Log.e("search", binding.homeSearchEtSearch.text.toString())
+//                editor1.commit()
+                //            bundle.putInt("price", price.toInt())
 //            bundle.putString("canProposal", canProposal)
 //            bundle.putInt("categoryId", categoryId)
 //            bundle.putInt("sellerId", userIdx)
@@ -52,30 +75,9 @@ class ProductSearchActivity :
 //
 //                dealFragment.arguments = bundle
 //
-//
 ////            val transaction = supportFragmentManager.beginTransaction()
 ////            transaction.add(R.id.frameLayout, fragmentA)
 ////            transaction.commit()
-//
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.add(R.id.home_search_vp2, dealFragment)
-            transaction.commit()
-
-//
-//                ApplicationClass.sSharedPreferences =
-//                    getSharedPreferences("search", MODE_PRIVATE)
-//                var editor1 = ApplicationClass.sSharedPreferences.edit()
-//                editor1.putString("search",
-//                    binding.homeSearchEtSearch.text.toString())
-//                Log.e("search", binding.homeSearchEtSearch.text.toString())
-//                editor1.commit()
-                binding.cancelTxt.visibility = View.GONE
-                binding.invisibleView.visibility = View.GONE
-                val inputMethodManager =
-                    getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                inputMethodManager.hideSoftInputFromWindow(binding.homeSearchEtSearch.windowToken,
-                    0)
-                handled = true
                 true
             } else {
                 handled

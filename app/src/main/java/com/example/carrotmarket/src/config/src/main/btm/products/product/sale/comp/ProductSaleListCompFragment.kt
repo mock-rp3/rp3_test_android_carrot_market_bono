@@ -1,4 +1,4 @@
-package com.example.carrotmarket.src.config.src.main.btm.products.product.sale.ing
+package com.example.carrotmarket.src.config.src.main.btm.products.product.sale.comp
 
 import android.os.Bundle
 import android.util.Log
@@ -7,31 +7,35 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.carrotmarket.R
 import com.example.carrotmarket.config.ApplicationClass
 import com.example.carrotmarket.config.BaseFragment
-import com.example.carrotmarket.databinding.FragmentProductSaleListIngBinding
-import com.example.carrotmarket.src.config.src.main.btm.products.models.ResultHome
+import com.example.carrotmarket.databinding.FragmentProductSaleListCompBinding
+import com.example.carrotmarket.src.config.src.main.btm.products.product.sale.ing.IngService
+import com.example.carrotmarket.src.config.src.main.btm.products.product.sale.ing.IngView
 import com.example.carrotmarket.src.config.src.main.btm.products.product.sale.ing.models.IngResponse
 import com.example.carrotmarket.src.config.src.main.btm.products.product.sale.ing.models.IngResult
+import com.example.carrotmarket.src.home.CompAdapter
 import com.example.carrotmarket.src.home.IngAdapter
 
-class ProductSaleListIngFragment : BaseFragment<FragmentProductSaleListIngBinding>(
-    FragmentProductSaleListIngBinding::bind,
-    R.layout.fragment_product_sale_list_ing), IngView {
-
+class ProductSaleListCompFragment : BaseFragment<FragmentProductSaleListCompBinding>(
+    FragmentProductSaleListCompBinding::bind,
+    R.layout.fragment_product_sale_list_comp),
+    IngView {
 
     var ingResult = ArrayList<IngResult>()
 
-    private lateinit var ingAdapter: IngAdapter
+    private lateinit var compAdapter: CompAdapter
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ingAdapter = IngAdapter(requireActivity(), ingResult)
-        binding.ingRv.adapter = ingAdapter
+        compAdapter = CompAdapter(requireActivity(), ingResult)
+        binding.ingRv.adapter = compAdapter
 
-
-        ApplicationClass.sSharedPreferences = requireActivity().getSharedPreferences(ApplicationClass.X_ACCESS_TOKEN,
+        ApplicationClass.sSharedPreferences = requireActivity().getSharedPreferences(
+            ApplicationClass.X_ACCESS_TOKEN,
             AppCompatActivity.MODE_PRIVATE)
 
-        val jwt = ApplicationClass.sSharedPreferences.getString(ApplicationClass.X_ACCESS_TOKEN, null)
+        val jwt =
+            ApplicationClass.sSharedPreferences.getString(ApplicationClass.X_ACCESS_TOKEN, null)
 
         ApplicationClass.sSharedPreferences =
             requireActivity().getSharedPreferences("userIdx", AppCompatActivity.MODE_PRIVATE)
@@ -44,19 +48,17 @@ class ProductSaleListIngFragment : BaseFragment<FragmentProductSaleListIngBindin
         Log.e("jwt1112323", jwt.toString())
 
         showLoadingDialog(requireContext())
-        IngService(this).tryGetIng(jwt!!,"normal",userIdx)
-        ingAdapter.notifyDataSetChanged()
+        IngService(this).tryGetIng(jwt!!, "traded", userIdx)
 
 
     }
 
     override fun onGetIngSuccess(response: IngResponse) {
-
         dismissLoadingDialog()
-        Log.e("size",ingAdapter.productDataList.size.toString())
-        Log.e("size2",ingResult.size.toString())
-        Log.e("size3",response.result.size.toString())
+
+
         for (i in response.result.indices) {
+
             ingResult.add(
                 IngResult(
                     response.result[i].imageUrl,
@@ -68,8 +70,8 @@ class ProductSaleListIngFragment : BaseFragment<FragmentProductSaleListIngBindin
                 )
             )
         }
-        ingAdapter.notifyDataSetChanged()
 
+        compAdapter.notifyDataSetChanged()
     }
 
     override fun onGetIngFailure(message: String) {

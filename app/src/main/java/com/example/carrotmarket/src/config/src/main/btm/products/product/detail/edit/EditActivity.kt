@@ -7,7 +7,9 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View.inflate
 import androidx.appcompat.app.AlertDialog
+import com.bumptech.glide.Glide
 import com.example.carrotmarket.R
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivityEditProductBinding
@@ -26,7 +28,14 @@ class EditActivity : BaseActivity<ActivityEditProductBinding>(ActivityEditProduc
 
 //        binding.editProductTitle.text = intent.getStringExtra("title").toString()
 
-//        binding.editProductTitle.text= intent.getStringExtra("title")
+        Glide.with(this)
+            .load(intent.getStringExtra("image"))
+            .into(binding.productImg)
+
+        binding.productImg.background =
+            resources.getDrawable(R.drawable.image_rounding)
+       binding.productImg.clipToOutline = true
+        Log.e("int",intent.getStringExtra("image").toString())
 
         binding.editProductClCate.setOnClickListener {
             showDialog()

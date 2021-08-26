@@ -36,11 +36,11 @@ class ProfilePatchActivity :
     private val multiplePermissionsCode = 100
 
     //필요한 퍼미션 리스트
-//원하는 퍼미션을 이곳에 추가하면 된다.
+    //원하는 퍼미션을 이곳에 추가하면 된다.
     private val requiredPermissions = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.WRITE_EXTERNAL_STORAGE,
-        Manifest.permission.READ_PHONE_STATE
+        Manifest.permission.READ_PHONE_STATE,
     )
 
 
@@ -75,10 +75,8 @@ class ProfilePatchActivity :
         Log.e("userIdx2", userIdx.toString())
 
         binding.profilePatchBtnNext.setOnClickListener {
+
             val nickname = binding.profilePatchEdtNick.text.toString()
-
-
-
             val ref: StorageReference =
                 storageReference.child("images/" + UUID.randomUUID().toString())
 
@@ -88,12 +86,11 @@ class ProfilePatchActivity :
                         nickname = nickname,
                         profileImageUrl = uri.toString()
                     )
-                    showLoadingDialog(this)
+//                    showLoadingDialog(this)
                     ProfilePatchService(this).tryPatchProfile(requestProfile, jwt, userIdx)
 
                 }
             }
-
 
             intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -104,6 +101,19 @@ class ProfilePatchActivity :
 
 
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, @Nullable data: Intent?) {
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.data != null) {
+            val selectedImageUri = data.data
+            binding.profilePatchImgProfile.setImageURI(selectedImageUri)
+            binding.profilePatchImgProfile.background = resources.getDrawable(R.drawable.image_rounding_oval)
+            binding.profilePatchImgProfile.clipToOutline = true
+            uri = selectedImageUri
+        }
+        super.onActivityResult(requestCode, resultCode, data)
+    }
+
+
 
     private fun checkPermissions() {
         //거절되었거나 아직 수락하지 않은 권한(퍼미션)을 저장할 문자열 배열 리스트
@@ -145,49 +155,9 @@ class ProfilePatchActivity :
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, @Nullable data: Intent?) {
-        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.data != null) {
-            val selectedImageUri = data.data
-            binding.profilePatchImgProfile.setImageURI(selectedImageUri)
-            binding.profilePatchImgProfile.background = resources.getDrawable(R.drawable.image_rounding_oval)
-            binding.profilePatchImgProfile.clipToOutline = true
-            uri = selectedImageUri
-        }
-        super.onActivityResult(requestCode, resultCode, data)
-    }
-
     override fun onPatchProfileSuccess(response: ResponseProfile) {
-        dismissLoadingDialog()
-
-        val ref: StorageReference =
-            storageReference.child("images/" + UUID.randomUUID().toString())
-
-        //로컬 파일에서 업로드
-        ref.putFile(uri!!).addOnSuccessListener { taskSnapshot ->
-            taskSnapshot.storage.downloadUrl.addOnSuccessListener { uri ->
-
-                response.result.profileImageUrl = uri.toString()
-
-                Glide.with(this)
-                    .load(response.result.profileImageUrl)
-                    .into(binding.profilePatchImgProfile)
-            }
-        }
+//        dismissLoadingDialog()
     }
-
-//    fun done() {
-//
-//    }
-
-//        val imageUri =response.result.profileImageUrl
-//        binding.profilePatchImgProfile.setImageURI(imageUri)
-////            binding.profilePatchImgProfile.setBackgroundResource(R.drawable.profile)
-//            binding.profilePatchImgProfile.background = resources.getDrawable(com.example.carrotmarket.R.drawable.image_rounding_oval)
-//            binding.profilePatchImgProfile.clipToOutline = true
-//        uri=imageUri
-
-
-
 
     override fun onPatchProfileFailure(message: String) {
     }

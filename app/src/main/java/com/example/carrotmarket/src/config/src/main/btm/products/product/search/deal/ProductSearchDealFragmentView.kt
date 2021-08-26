@@ -6,9 +6,6 @@ import com.example.carrotmarket.src.config.src.main.btm.products.product.search.
 interface ProductSearchDealFragmentView {
 
 
-    fun onGetDealSearchSuccess(response: ResponseSearchDeal)
-    fun onGetDealSearchFailure(message: String)
-
     fun onGetSuggestSuccess(response: ResponseSug)
     fun onGetSuggestFailure(message: String)
 }

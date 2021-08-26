@@ -10,27 +10,9 @@ import retrofit2.Response
 
 class ProductSearchService(val view: ProductSearchDealFragmentView) {
 
-
-    fun tryGetDealSearch(title: String){
-        val productSearchRetrofitInterface = ApplicationClass.sRetrofit.create(ProductsRetrofitInterface::class.java)
-        productSearchRetrofitInterface.getSearchDeal(title).enqueue(object  : Callback<ResponseSearchDeal>{
-            override fun onResponse(
-                call: Call<ResponseSearchDeal>,
-                response: Response<ResponseSearchDeal>
-            ) {
-
-                view.onGetDealSearchSuccess(response.body() as ResponseSearchDeal)
-            }
-
-            override fun onFailure(call: Call<ResponseSearchDeal>, t: Throwable) {
-                view.onGetDealSearchFailure(t.message?:"통신오류")
-            }
-        })
-    }
-
     fun tryGetSuggest(){
         val suggestRetrofitInterface = ApplicationClass.sRetrofit.create(ProductsRetrofitInterface::class.java)
-        suggestRetrofitInterface.getSuggest().enqueue(object  : Callback<ResponseSug>{
+        suggestRetrofitInterface.getSuggest().enqueue(object  : Callback<ResponseSug> {
             override fun onResponse(
                 call: Call<ResponseSug>,
                 response: Response<ResponseSug>
@@ -44,6 +26,10 @@ class ProductSearchService(val view: ProductSearchDealFragmentView) {
             }
         })
     }
+
+
+
+
 
 
 }

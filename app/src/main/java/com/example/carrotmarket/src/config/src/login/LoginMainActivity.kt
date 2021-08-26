@@ -27,12 +27,14 @@ class LoginMainActivity : BaseActivity<ActivityLoginMainBinding>(ActivityLoginMa
                 phoneNumber = phoneNumber,
 //                password = password
             )
+            showLoadingDialog(this)
             LoginService(this).tryPostLogin(postRequest)
 
         }
     }
 
     override fun onPostLoginSuccess(response: ResponseLogin) {
+        dismissLoadingDialog()
         response.message?.let { showCustomToast(it) }
 
 

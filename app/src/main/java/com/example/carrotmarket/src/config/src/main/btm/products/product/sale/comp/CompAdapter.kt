@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -22,11 +23,11 @@ import com.example.carrotmarket.src.config.src.main.btm.products.product.sale.mo
 import java.text.DecimalFormat
 
 
-class IngAdapter(
+class CompAdapter(
     private val context: Context,
     private var responseHome: ArrayList<IngResult>
 ) :
-    RecyclerView.Adapter<IngAdapter.ViewHolder>(), AdapterView {
+    RecyclerView.Adapter<CompAdapter.ViewHolder>(), AdapterView {
 
     var productDataList: ArrayList<IngResult> = responseHome
 
@@ -62,23 +63,17 @@ class IngAdapter(
         holder.binding.saleImg.clipToOutline = true
 
 
-//        val statusIngRequest = StatusRequest(
-//
-//            productId =productDataList[position].productId,
-//            status = "reserved"
-//        )
-//        val statusCompRequest = StatusRequest(
-//
-//            productId =productDataList[position].productId,
-//            status = "traded"
-//        )
+//        holder.binding.homeItemCl.setOnClickListener {
+//            var intent = Intent(context, ProductDetailActivity::class.java )
+//            intent.putExtra("productIdx",productDataList[position].productIdx)
+//            context.startActivity(intent)
+//        }
 
-//        holder.binding.productSaleListChangeIng.setOnClickListener {
-//            AdapterService(this).tryPatchStatus(statusIngRequest)
-//        }
-//        holder.binding.productSaleListChangeComp.setOnClickListener {
-//            AdapterService(this).tryPatchStatus(statusCompRequest)
-//        }
+
+        holder.binding.productSaleListChangeComp.visibility= View.GONE
+        holder.binding.productSaleListChangeIng.text="후기 작성 완료"
+
+
 
     }
 

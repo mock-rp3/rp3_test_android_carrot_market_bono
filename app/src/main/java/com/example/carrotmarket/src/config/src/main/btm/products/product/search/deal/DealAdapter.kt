@@ -2,6 +2,7 @@ package com.example.carrotmarket.src.config.src.main.btm.products.product.search
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,6 +10,8 @@ import com.bumptech.glide.Glide
 import com.example.carrotmarket.R
 import com.example.carrotmarket.databinding.HomeItemBinding
 import com.example.carrotmarket.src.config.src.main.btm.products.product.detail.ProductDetailActivity
+import com.example.carrotmarket.src.config.src.main.btm.products.product.search.deal.models.ResponseSearchDeal
+import com.example.carrotmarket.src.config.src.main.btm.products.product.search.deal.models.ResponseSug
 import com.example.carrotmarket.src.config.src.main.btm.products.product.search.deal.models.ResultSearchDeal
 import java.text.DecimalFormat
 
@@ -17,7 +20,8 @@ class DealAdapter(
     private var responseSearchDeal: ArrayList<ResultSearchDeal>
 //    private var productArrayList: ArrayList<Product>,
 ) :
-    RecyclerView.Adapter<DealAdapter.ViewHolder>() {
+    RecyclerView.Adapter<DealAdapter.ViewHolder>(),
+    ProductSearchDealView {
 
 //    var productDataList: ArrayList<Product> = productArrayList
 
@@ -39,6 +43,7 @@ class DealAdapter(
 
         return ViewHolder(binding)
     }
+    lateinit var bundle:Bundle
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
@@ -58,6 +63,10 @@ class DealAdapter(
         holder.binding.count.text=productDataList[position].price.toString()
 
 
+        val search =bundle.getString("search")
+
+        ProductSearchDealService(this).tryGetDealSearch(search!!)
+
 
 //        holder.binding.homeItemPrice.setText(productDataList[position].price)
 
@@ -73,6 +82,13 @@ class DealAdapter(
 
     override fun getItemCount(): Int {
         return productDataList.size
+    }
+
+
+    override fun onGetDealSearchSuccess(response: ResponseSearchDeal) {
+    }
+
+    override fun onGetDealSearchFailure(message: String) {
     }
 
 }

@@ -3,6 +3,7 @@ package com.example.carrotmarket.src.config.src.main
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import com.example.carrotmarket.R
 import com.example.carrotmarket.config.BaseActivity
@@ -20,6 +21,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     private var isFabOpen = false
 
     private var fabState: Int = 1
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,16 +48,23 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             }
         }
 
-
         supportFragmentManager.beginTransaction().replace(R.id.main_frm, HomeFragment())
             .commitAllowingStateLoss()
-
+        val menu: Menu = binding.mainBtmNav.menu
+//        binding.mainBtmNav.selectedItemId=R.id.menu_main_btm_nav_1_off
         binding.mainBtmNav.setOnNavigationItemSelectedListener(
             BottomNavigationView.OnNavigationItemSelectedListener { item ->
 
                 when (item.itemId) {
-                    R.id.menu_main_btm_nav_1_on -> {
-                        fabState=1
+                    R.id.menu_main_btm_nav_1_off -> {
+                        fabState = 1
+                        item.setIcon(R.drawable.bottom_home_on)
+
+                        menu.findItem(R.id.menu_main_btm_nav_2_off).setIcon(R.drawable.bottom_2_off)
+                        menu.findItem(R.id.menu_main_btm_nav_3_off).setIcon(R.drawable.bottom_3_off)
+                        menu.findItem(R.id.menu_main_btm_nav_4_off).setIcon(R.drawable.bottom_4_off)
+                        menu.findItem(R.id.menu_main_btm_nav_5_off).setIcon(R.drawable.bottom_5_off)
+
                         binding.fabMain.setImageResource(R.drawable.bottom_floating_btn_icon)
                         binding.fabMain.visibility = View.VISIBLE
                         supportFragmentManager.beginTransaction()
@@ -63,7 +73,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                         return@OnNavigationItemSelectedListener true
                     }
                     R.id.menu_main_btm_nav_2_off -> {
-                        fabState=2
+                        fabState = 2
+                        item.setIcon(R.drawable.bottom_2_on)
+
+                        menu.findItem(R.id.menu_main_btm_nav_1_off).setIcon(R.drawable.bottom_home_off)
+                        menu.findItem(R.id.menu_main_btm_nav_3_off).setIcon(R.drawable.bottom_3_off)
+                        menu.findItem(R.id.menu_main_btm_nav_4_off).setIcon(R.drawable.bottom_4_off)
+                        menu.findItem(R.id.menu_main_btm_nav_5_off).setIcon(R.drawable.bottom_5_off)
                         binding.fabMain.setImageResource(R.drawable.pencil_icon)
                         binding.fabMain.visibility = View.VISIBLE
                         supportFragmentManager.beginTransaction()
@@ -72,7 +88,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                         return@OnNavigationItemSelectedListener true
                     }
                     R.id.menu_main_btm_nav_3_off -> {
-                        fabState=3
+                        fabState = 3
+                        item.setIcon(R.drawable.bottom_3_on)
+
+                        menu.findItem(R.id.menu_main_btm_nav_1_off).setIcon(R.drawable.bottom_home_off)
+                        menu.findItem(R.id.menu_main_btm_nav_2_off).setIcon(R.drawable.bottom_2_off)
+                        menu.findItem(R.id.menu_main_btm_nav_4_off).setIcon(R.drawable.bottom_4_off)
+                        menu.findItem(R.id.menu_main_btm_nav_5_off).setIcon(R.drawable.bottom_5_off)
                         binding.fabMain.visibility = View.GONE
                         binding.homeFab1.visibility = View.GONE
                         binding.homeFab2.visibility = View.GONE
@@ -82,7 +104,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                         return@OnNavigationItemSelectedListener true
                     }
                     R.id.menu_main_btm_nav_4_off -> {
-                        fabState=4
+                        fabState = 4
+                        item.setIcon(R.drawable.bottom_4_on)
+                        menu.findItem(R.id.menu_main_btm_nav_1_off).setIcon(R.drawable.bottom_home_off)
+                        menu.findItem(R.id.menu_main_btm_nav_2_off).setIcon(R.drawable.bottom_2_off)
+                        menu.findItem(R.id.menu_main_btm_nav_3_off).setIcon(R.drawable.bottom_3_off)
+                        menu.findItem(R.id.menu_main_btm_nav_5_off).setIcon(R.drawable.bottom_5_off)
                         binding.fabMain.visibility = View.GONE
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.main_frm, ChatFragment())
@@ -91,6 +118,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                     }
                     R.id.menu_main_btm_nav_5_off -> {
                         fabState = 5
+                        item.setIcon(R.drawable.bottom_5_on)
+                        menu.findItem(R.id.menu_main_btm_nav_1_off).setIcon(R.drawable.bottom_home_off)
+                        menu.findItem(R.id.menu_main_btm_nav_2_off).setIcon(R.drawable.bottom_2_off)
+                        menu.findItem(R.id.menu_main_btm_nav_3_off).setIcon(R.drawable.bottom_3_off)
+                        menu.findItem(R.id.menu_main_btm_nav_4_off).setIcon(R.drawable.bottom_4_off)
                         binding.fabMain.visibility = View.GONE
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.main_frm, MyPageFragment())
@@ -104,9 +136,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
 
         binding.fabMain.setOnClickListener {
-            if(fabState ==1) {
+            if (fabState == 1) {
                 toggleFab()
-            }else if(fabState ==2){
+            } else if (fabState == 2) {
                 intent = Intent(this, ProductWritingActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -119,7 +151,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
         // 플로팅 버튼 클릭 이벤트 - 수정
         binding.homeFab2.setOnClickListener {
-            intent=Intent(this, ProductWritingActivity::class.java)
+            intent = Intent(this, ProductWritingActivity::class.java)
             startActivity(intent)
             finish()
         }

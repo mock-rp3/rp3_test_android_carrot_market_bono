@@ -1,14 +1,22 @@
 package com.example.carrotmarket.src.config.src.main.btm.products.product.writing
 
+import android.Manifest
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View
+import androidx.annotation.Nullable
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.example.carrotmarket.R
 import com.example.carrotmarket.config.ApplicationClass
 import com.example.carrotmarket.config.BaseActivity
@@ -17,6 +25,9 @@ import com.example.carrotmarket.src.config.src.main.MainActivity
 
 import com.example.carrotmarket.src.config.src.main.btm.products.product.writing.models.RequestPostWriting
 import com.example.carrotmarket.src.config.src.main.btm.products.product.writing.models.ResponseWriting
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import java.util.*
 
 
 class ProductWritingActivity :
@@ -27,9 +38,39 @@ class ProductWritingActivity :
     private var categoryId = 0
     private var canProposal = "N"
 
+    private val PICK_IMAGE = 1
+    private lateinit var storageReference: StorageReference
+    private lateinit var firebaseStorage: FirebaseStorage
+    var uri: Uri? = null
+
+    //퍼미션 응답 처리 코드
+    private val multiplePermissionsCode = 100
+
+    //필요한 퍼미션 리스트
+    //원하는 퍼미션을 이곳에 추가하면 된다.
+    private val requiredPermissions = arrayOf(
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        Manifest.permission.READ_PHONE_STATE,
+    )
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        firebaseStorage = FirebaseStorage.getInstance()
+        storageReference = firebaseStorage.reference
 
+        // 카메라 누르면 이미지 가져오기
+        binding.productWriteCameraImg.setOnClickListener {
+            checkPermissions()
+            var intent = Intent(Intent.ACTION_PICK) // 이미지 가져오기
+            intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                "image/*")
+            Log.e("image",
+                intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                    "image/*").toString())
+            startActivityForResult(intent, PICK_IMAGE)
+        }
 
         //카테고리
         binding.productWriteClCate.setOnClickListener {
@@ -61,7 +102,8 @@ class ProductWritingActivity :
         }
 
         // userIdx 가져오기
-        ApplicationClass.sSharedPreferences = getSharedPreferences("userIdx", AppCompatActivity.MODE_PRIVATE)
+        ApplicationClass.sSharedPreferences =
+            getSharedPreferences("userIdx", AppCompatActivity.MODE_PRIVATE)
 
         val userIdx = ApplicationClass.sSharedPreferences.getInt("userIdx", 0)
         Log.e("userIdx2", userIdx.toString())
@@ -72,17 +114,28 @@ class ProductWritingActivity :
             val price = binding.productWritePrice.text.toString()
             val contents = binding.productWriteContents.text.toString()
 
-            val requestPostWriting = RequestPostWriting(
-                title = title,
-                price = price.toInt(),
-                canProposal = canProposal,
-                categoryId = categoryId,
-                sellerId = userIdx,
-                imageUrl = "test",
-                contents = contents
-            )
-            showLoadingDialog(this)
-            ProductWritingService(this).tryPostProductWriting(requestPostWriting)
+            //            val ref: StorageReference =
+            //                storageReference.child("images/" + UUID.randomUUID().toString())
+            //
+
+            val ref: StorageReference =
+                storageReference.child("images/" + UUID.randomUUID().toString())
+
+            ref.putFile(uri!!).addOnSuccessListener { taskSnapshot ->
+                taskSnapshot.storage.downloadUrl.addOnSuccessListener { uri ->
+                    val requestPostWriting = RequestPostWriting(
+                        title = title,
+                        price = price.toInt(),
+                        canProposal = canProposal,
+                        categoryId = categoryId,
+                        sellerId = userIdx,
+                        imageUrl = uri.toString(),
+                        contents = contents
+                    )
+                    ProductWritingService(this).tryPostProductWriting(requestPostWriting)
+                    //                    showLoadingDialog(this)
+                }
+            }
             //                        intent.putExtra("phoneNumber", binding.signUpMainEdtId.text.toString())
             //                        intent.putExtra("password", binding.signUpMainEdtPwd.text.toString())
 //            intent.putExtra("title",title)
@@ -92,8 +145,6 @@ class ProductWritingActivity :
 //            intent.putExtra("sellerId",userIdx)
 //            intent.putExtra("imageUrl", "test")
 //            intent.putExtra("contents",contents)
-
-
 
 
 //            supportFragmentManager.beginTransaction().replace()(
@@ -122,7 +173,6 @@ class ProductWritingActivity :
 //            transaction.commit()
 
 
-
         }
 
         binding.productWriteImgBack.setOnClickListener {
@@ -134,7 +184,7 @@ class ProductWritingActivity :
         }
 
 //            val p=PopupMenu(applicationContext, binding.productWriteClCate)
-//            menuInflater.inflate(R.menu.menu_product_write_category,
+//            menuInflater.inflate(R.menu.menu_edit_product_category,
 //                p.menu)
 //            p.show()
 
@@ -154,7 +204,7 @@ class ProductWritingActivity :
     }
 
     override fun onPostProductWritingSuccess(response: ResponseWriting) {
-        dismissLoadingDialog()
+//        dismissLoadingDialog()
         intent = Intent(this, MainActivity::class.java)
 
         startActivity(intent)
@@ -209,5 +259,67 @@ class ProductWritingActivity :
 //        return super.onContextItemSelected(item)
 //
 //    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, @Nullable data: Intent?) {
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.data != null) {
+            val selectedImageUri = data.data
+            binding.productImg.visibility = View.VISIBLE
+            binding.productImg.setImageURI(selectedImageUri)
+            binding.productImg.background = resources.getDrawable(R.drawable.image_rounding)
+            binding.productImg.clipToOutline = true
+            uri = selectedImageUri
+            binding.productWriteTxtNow.text="1"
+            binding.productWriteTxtNow.setTextColor(Color.parseColor("FFee8548"))
+        }
+        super.onActivityResult(requestCode, resultCode, data)
+    }
+
+
+    private fun checkPermissions() {
+        //거절되었거나 아직 수락하지 않은 권한(퍼미션)을 저장할 문자열 배열 리스트
+        var rejectedPermissionList = ArrayList<String>()
+
+        //필요한 퍼미션들을 하나씩 끄집어내서 현재 권한을 받았는지 체크
+        for (permission in requiredPermissions) {
+            if (ContextCompat.checkSelfPermission(this,
+                    permission) != PackageManager.PERMISSION_GRANTED
+            ) {
+                //만약 권한이 없다면 rejectedPermissionList에 추가
+                rejectedPermissionList.add(permission)
+            }
+        }
+        //거절된 퍼미션이 있다면...
+        if (rejectedPermissionList.isNotEmpty()) {
+            //권한 요청!
+            val array = arrayOfNulls<String>(rejectedPermissionList.size)
+            ActivityCompat.requestPermissions(this,
+                rejectedPermissionList.toArray(array),
+                multiplePermissionsCode)
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>, grantResults: IntArray,
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            multiplePermissionsCode -> {
+                if (grantResults.isNotEmpty()) {
+                    for ((i, permission) in permissions.withIndex()) {
+                        if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                            //권한 획득 실패
+                            Log.i("TAG", "The user has denied to $permission")
+                            Log.i("TAG", "I can't work for you anymore then. ByeBye!")
+
+                            //finish()!!!!!!!!!!!?????
+
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 }

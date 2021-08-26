@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_main_btm_nav_1_on"
+        android:id="@+id/menu_main_btm_nav_1_off"
         android:icon="@drawable/bottom_home_on"
         app:showAsAction="always"
         android:enabled="true"

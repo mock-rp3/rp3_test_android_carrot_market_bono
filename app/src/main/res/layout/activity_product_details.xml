@@ -241,7 +241,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_vi_gl">
 
                 <TextView
-                    android:id="@+id/product_write_txt_title"
+                    android:id="@+id/product_write__txt_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"

@@ -98,6 +98,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:visibility="visible"
             android:id="@+id/product_sale_list_change_ing"
             android:paddingVertical="10dp"
             android:background="@drawable/sale_btn"
@@ -111,6 +112,7 @@
             android:textSize="15sp"/>
 
         <TextView
+            android:visibility="visible"
             android:id="@+id/product_sale_list_change_comp"
             android:layout_weight="1"
             android:gravity="center"

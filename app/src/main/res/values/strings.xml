@@ -8,6 +8,8 @@
     <string name="delete_product">중고거래 삭제하기</string>
     <string name="modify_product">중고거래 수정하기</string>
     <string name="user_hide">이 사용자의 글 보지 않기</string>
+    <string name="X">X</string>
+
     <!-- custom_toast -->
     <string name="toast">인증번호가 문자로 전송됐습니다. (최대 20초 소요)</string>
 
@@ -97,7 +99,7 @@
     <!-- my_page -->
     <string name="my_page_top">나의 당근</string>
     <string name="my_page_user_hash">#1231231</string>
-    <string name="my_page_user_btn_title_profile">프로필 보기</string>
+    <string name="my_page_user_btn_title_profile">프로필 변경</string>
     <string name="my_page_sale_list">판매내역</string>
     <string name="my_page_pur_list">구매내역</string>
     <string name="my_page_like_list">관심목록</string>
@@ -134,6 +136,8 @@
     <!-- product_write -->
     <string name="product_write_top">중고거래 글쓰기</string>
     <string name="product_write_0">0</string>
+    <string name="product_write_1">1</string>
+    <string name="product_write_10">10</string>
     <string name="product_write_slash">/</string>
     <string name="product_write_title">제목</string>
     <string name="product_write_cate">카테고리</string>
