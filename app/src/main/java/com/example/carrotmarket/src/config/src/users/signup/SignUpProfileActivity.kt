@@ -18,8 +18,10 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.example.carrotmarket.R
 import com.example.carrotmarket.config.ApplicationClass
+import com.example.carrotmarket.config.ApplicationClass.Companion.X_ACCESS_TOKEN
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivitySignUpProfileBinding
+import com.example.carrotmarket.src.config.src.main.MainActivity
 import com.example.carrotmarket.src.config.src.users.profile.ProfilePatchService
 import com.example.carrotmarket.src.config.src.users.profile.models.RequestProfile
 import com.example.carrotmarket.src.config.src.users.profile.models.ResponseProfile
@@ -145,16 +147,23 @@ class SignUpProfileActivity :
 //        dismissLoadingDialog()
 
         // 토큰 값 넣어주기
-//        sSharedPreferences = getSharedPreferences(X_ACCESS_TOKEN, MODE_PRIVATE)
-//        var editor = sSharedPreferences.edit()
-//        editor.putString(X_ACCESS_TOKEN, response.result.jwt)
-//        editor.commit()
-//
-//        Log.e("jwt123", editor.putString(X_ACCESS_TOKEN, response.result.jwt).toString())
+        ApplicationClass.sSharedPreferences = getSharedPreferences(ApplicationClass.X_ACCESS_TOKEN, MODE_PRIVATE)
+        var editor = ApplicationClass.sSharedPreferences.edit()
+        editor.putString(ApplicationClass.X_ACCESS_TOKEN, response.result.jwt)
+        editor.commit()
+
+
+        // userIdx 넣어주기
+        ApplicationClass.sSharedPreferences = getSharedPreferences("userIdx", MODE_PRIVATE)
+        var editor2 = ApplicationClass.sSharedPreferences.edit()
+        editor2.putInt("userIdx", response.result.userInfoIdx)
+        editor2.commit()
+
+        Log.e("jwt123", editor.putString(X_ACCESS_TOKEN, response.result.jwt).toString())
 
 
         response.message?.let { showCustomToast("회원가입 성공!") }
-        intent = Intent(this, LoginMainActivity::class.java)
+        intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()
 

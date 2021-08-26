@@ -17,6 +17,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.toColor
 import com.example.carrotmarket.R
 import com.example.carrotmarket.config.ApplicationClass
 import com.example.carrotmarket.config.BaseActivity
@@ -60,6 +61,12 @@ class ProductWritingActivity :
         firebaseStorage = FirebaseStorage.getInstance()
         storageReference = firebaseStorage.reference
 
+
+        // 안됨
+//        if(binding.productWriteTxtNow.text.equals("1")){
+//            binding.productWriteTxtNow.setTextColor(Color.parseColor("FFee8548"))
+//        }
+
         // 카메라 누르면 이미지 가져오기
         binding.productWriteCameraImg.setOnClickListener {
             checkPermissions()
@@ -70,7 +77,10 @@ class ProductWritingActivity :
                 intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                     "image/*").toString())
             startActivityForResult(intent, PICK_IMAGE)
+
         }
+
+
 
         //카테고리
         binding.productWriteClCate.setOnClickListener {
@@ -264,13 +274,15 @@ class ProductWritingActivity :
     override fun onActivityResult(requestCode: Int, resultCode: Int, @Nullable data: Intent?) {
         if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.data != null) {
             val selectedImageUri = data.data
+            binding.x.visibility=View.VISIBLE
             binding.productImg.visibility = View.VISIBLE
             binding.productImg.setImageURI(selectedImageUri)
             binding.productImg.background = resources.getDrawable(R.drawable.image_rounding)
             binding.productImg.clipToOutline = true
             uri = selectedImageUri
             binding.productWriteTxtNow.text="1"
-            binding.productWriteTxtNow.setTextColor(Color.parseColor("FFee8548"))
+//            binding.productWriteTxtNow.setTextColor(Color.parseColor("FFee8548"))
+
         }
         super.onActivityResult(requestCode, resultCode, data)
     }

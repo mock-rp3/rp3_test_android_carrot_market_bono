@@ -125,11 +125,11 @@ class ProductDetailService(val view: ProductDetailActivityView) {
                 call: Call<BaseResponse>,
                 response: Response<BaseResponse>,
             ) {
-                view.onDeleteProductSuccess(response.body() as BaseResponse)
+                view.onDeleteWishSuccess(response.body() as BaseResponse)
             }
 
             override fun onFailure(call: Call<BaseResponse>, t: Throwable) {
-                view.onDeleteProductFailure(t.message ?: "통신오류")
+                view.onDeleteWishFailure(t.message ?: "통신오류")
             }
 
         }

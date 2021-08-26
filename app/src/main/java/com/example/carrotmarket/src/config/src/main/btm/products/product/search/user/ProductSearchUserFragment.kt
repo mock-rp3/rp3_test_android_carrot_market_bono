@@ -6,6 +6,9 @@ import android.view.View
 import com.example.carrotmarket.R
 import com.example.carrotmarket.config.BaseFragment
 import com.example.carrotmarket.databinding.FragmentSearchUserBinding
+import com.example.carrotmarket.src.config.src.main.btm.products.product.search.deal.ProductSearchDealService
+import com.example.carrotmarket.src.config.src.main.btm.products.product.search.deal.ProductSearchDealView
+import com.example.carrotmarket.src.config.src.main.btm.products.product.search.deal.models.ResponseSearchDeal
 import com.example.carrotmarket.src.config.src.main.btm.products.product.search.user.models.UserResponse
 import com.example.carrotmarket.src.config.src.main.btm.products.product.search.user.models.UserResult
 
@@ -36,30 +39,32 @@ class ProductSearchUserFragment :
 //        if (userName==null){
 //
 //        }else{
-        binding.test.setOnClickListener {
-            showLoadingDialog(requireActivity())
-//            ProductSearchUserService(this).tryGetUserSearch(search!!)
-            binding.searchUserLl.visibility = View.GONE
-            binding.searchUserRv.visibility = View.VISIBLE
+
 //                userAdapter.notifyDataSetChanged()
 
 //                var editor = ApplicationClass.sSharedPreferences.edit()
 //                editor.remove("user_name").commit()
+
+
+        val search2 = arguments?.getString("search2", null)
+        Log.e("qq",search2.toString())
+        if (search2 == null) {
+
+        } else {
+//            showLoadingDialog(requireContext())
+            ProductSearchUserService(this).tryGetUserSearch(search2)
+
+            binding.searchUserLl.visibility = View.GONE
+            binding.searchUserRv.visibility = View.VISIBLE
         }
-//        }
 
-
-//
-//
-//
 
 
     }
 
     override fun onGetUserSearchSuccess(response: UserResponse) {
-        dismissLoadingDialog()
+//        dismissLoadingDialog()
 
-        Log.e("response.result.size", response.result.size.toString())
 
         Log.e("userResponse", userAdapter.userDataList.size.toString())
 //        if (response.result[0].equals(userResponse[0])){
@@ -72,11 +77,12 @@ class ProductSearchUserFragment :
 //        if(userAdapter.userDataList[0] ==userResponse[0]){
 
 //        }else{
-        for (i in 0 until response.result.size) {
-            userResponse.add(0,
+        for (i in response.result.indices) {
+            userResponse.add(
                 UserResult(
                     response.result[i].nickname,
-                    response.result[i].profileImageUrl
+                    response.result[i].profileImageUrl,
+                    response.result[i].userInfoIdx
                 )
             )
 
@@ -87,4 +93,5 @@ class ProductSearchUserFragment :
 
     override fun onGetUserSearchFailure(message: String) {
     }
+
 }

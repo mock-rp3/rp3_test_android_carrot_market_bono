@@ -66,7 +66,8 @@ class ProductSaleListCompFragment : BaseFragment<FragmentProductSaleListCompBind
                     response.result[i].regionNameTown,
                     response.result[i].title,
                     response.result[i].updatedAt,
-                    response.result[i].status
+                    response.result[i].status,
+                    response.result[i].productId
                 )
             )
         }

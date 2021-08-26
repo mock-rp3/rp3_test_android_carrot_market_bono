@@ -20,8 +20,7 @@ class DealAdapter(
     private var responseSearchDeal: ArrayList<ResultSearchDeal>
 //    private var productArrayList: ArrayList<Product>,
 ) :
-    RecyclerView.Adapter<DealAdapter.ViewHolder>(),
-    ProductSearchDealView {
+    RecyclerView.Adapter<DealAdapter.ViewHolder>() {
 
 //    var productDataList: ArrayList<Product> = productArrayList
 
@@ -60,12 +59,8 @@ class DealAdapter(
         holder.binding.homeItemPrice.text = "$priceDecimalFormat 원"
         holder.binding.homeItemImage.background = context.resources.getDrawable(R.drawable.image_rounding)
         holder.binding.homeItemImage.clipToOutline = true
-        holder.binding.count.text=productDataList[position].price.toString()
+        holder.binding.count.text=productDataList[position].wishCount.toString()
 
-
-        val search =bundle.getString("search")
-
-        ProductSearchDealService(this).tryGetDealSearch(search!!)
 
 
 //        holder.binding.homeItemPrice.setText(productDataList[position].price)
@@ -84,11 +79,5 @@ class DealAdapter(
         return productDataList.size
     }
 
-
-    override fun onGetDealSearchSuccess(response: ResponseSearchDeal) {
-    }
-
-    override fun onGetDealSearchFailure(message: String) {
-    }
 
 }

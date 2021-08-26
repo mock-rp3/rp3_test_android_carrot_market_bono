@@ -19,7 +19,7 @@ data class ResultDetail(
     val title: String,
     val viewCount: String,
     val userInfoIdx: Int,
-//    val wishCount: Int
+    val wishCount: Int
 )
 
 //data class Image(

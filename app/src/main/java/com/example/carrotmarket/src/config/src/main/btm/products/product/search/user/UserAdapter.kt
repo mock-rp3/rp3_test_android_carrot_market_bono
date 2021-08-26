@@ -42,6 +42,7 @@ class UserAdapter(private val context: Context, private var userArrayList:ArrayL
             .load(userDataList[position].profileImageUrl)
             .into(holder.binding.userImgProfile)
         holder.binding.userTxtName.text= userDataList[position].nickname
+        holder.binding.hash.text="#"+userDataList[position].userInfoIdx.toString()
     }
 
     override fun getItemCount(): Int =userDataList.size

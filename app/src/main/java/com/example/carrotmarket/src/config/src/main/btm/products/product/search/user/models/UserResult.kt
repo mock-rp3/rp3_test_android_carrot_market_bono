@@ -6,5 +6,5 @@ data class UserResult(
 //    val phoneNumber: String,
     val profileImageUrl: String,
 //    val status: String,
-//    val userInfoIdx: Int
+    val userInfoIdx: Int
 )

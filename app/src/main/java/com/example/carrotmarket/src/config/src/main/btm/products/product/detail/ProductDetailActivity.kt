@@ -20,6 +20,8 @@ import com.example.carrotmarket.databinding.ActivityProductDetailsBinding
 import com.example.carrotmarket.src.config.src.main.MainActivity
 import com.example.carrotmarket.src.config.src.main.btm.products.product.detail.edit.EditActivity
 import com.example.carrotmarket.src.config.src.main.btm.products.product.detail.models.*
+import com.example.carrotmarket.src.config.util.CustomToast
+import com.google.android.material.appbar.AppBarLayout
 import java.text.DecimalFormat
 
 
@@ -47,18 +49,15 @@ class ProductDetailActivity :
         ProductDetailService(this).tryGetProductDetail(productIdx)
         ProductDetailService(this).tryPatchViews(productIdx)
 
-//        //스크롤 시 색상 변경
-//        binding.detailAppBar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener {
-//            appBarLayout, verticalOffset ->
-//            if (kotlin.math.abs(verticalOffset) - appBarLayout.totalScrollRange ==0){
-//                binding.detailAppBar.setBackgroundColor(ContextCompat.getColor(this, R.color.black))
-//                binding.nsv.visibility=View.VISIBLE
-//
-//            }else{
-//                binding.detailAppBar.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-//                binding.nsv.visibility=View.GONE
-//            }
-//        })
+//스크롤 시 색상 변경
+        binding.appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+            if (kotlin.math.abs(verticalOffset) - appBarLayout.totalScrollRange == 0) {
+                binding.toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+            } else {
+                binding.toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.black))
+            }
+        })
+
 
         // 이미지 둥글게
         binding.detailImgUserProfile.background =
@@ -147,7 +146,7 @@ class ProductDetailActivity :
 
         val seller = response.result[0][0].userInfoIdx
 
-        ProductDetailService(this).tryGetSellerProduct("normal",seller)
+        ProductDetailService(this).tryGetSellerProduct("normal", seller)
 
         dismissLoadingDialog()
 
@@ -156,8 +155,8 @@ class ProductDetailActivity :
         binding.productDetailVp2.adapter = productDetailImageSliderAdapter
 
         //1 0 , 1 1
-        for (i in 0 .. response.result[1].size-1) {
-            Log.e("size",response.result[1].size.toString())
+        for (i in 0..response.result[1].size - 1) {
+            Log.e("size", response.result[1].size.toString())
             imageArrayList.add(
                 ResultDetail(
                     response.result[0][0].priceProposal,
@@ -173,7 +172,8 @@ class ProductDetailActivity :
                     response.result[0][0].regionNameTown,
                     response.result[0][0].title,
                     response.result[0][0].viewCount,
-                    response.result[0][0].userInfoIdx
+                    response.result[0][0].userInfoIdx,
+                    response.result[0][0].wishCount
 
                 )
             )
@@ -192,6 +192,7 @@ class ProductDetailActivity :
         binding.productDetailCate.text = response.result[0][0].cate
         binding.homeItemTime.text = response.result[0][0].pulledAt
         binding.viewCount.text = response.result[0][0].viewCount
+        binding.heartCount.text = response.result[0][0].wishCount.toString()
 
         val decimalFormat = DecimalFormat("###,###")
         val priceDecimalFormat = decimalFormat.format(response.result[0][0].price)
@@ -229,11 +230,17 @@ class ProductDetailActivity :
         }
         binding.detailImgHeart.setOnClickListener {
             if (binding.detailImgHeart.tag.toString() == "true") {
+                binding.detailImgHeart.tag = "false"
+                binding.detailImgHeart.setImageResource(R.drawable.heart_icon)
 
                 ProductDetailService(this).tryDeleteWishProduct(requestWishDel)
 
+
             } else {
+                binding.detailImgHeart.tag = "true"
+                binding.detailImgHeart.setImageResource(R.drawable.heart_on_icon)
                 ProductDetailService(this).tryPostWishProduct(requestWish)
+
 
             }
         }
@@ -249,7 +256,7 @@ class ProductDetailActivity :
                     R.id.edit -> {
                         intent = Intent(this@ProductDetailActivity, EditActivity::class.java)
                         intent.putExtra("image", response.result[1][0].imageUrl)
-                        Log.e("imge",response.result[1][0].imageUrl.toString())
+                        Log.e("imge", response.result[1][0].imageUrl.toString())
                         intent.putExtra("productIdx", response.result[0][0].productIdx)
                         intent.putExtra("title", binding.productDetailCate.text)
                         intent.putExtra("proposal", binding.productDetailTxtPriceProposal.text)
@@ -271,7 +278,6 @@ class ProductDetailActivity :
             }
             p.show()
         }
-
 
 
     }
@@ -318,7 +324,7 @@ class ProductDetailActivity :
     }
 
     override fun onDeleteProductSuccess(response: BaseResponse) {
-        intent = Intent(this,MainActivity::class.java)
+        intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()
     }
@@ -327,6 +333,7 @@ class ProductDetailActivity :
     }
 
     override fun onPatchViewsSuccess(response: BaseResponse) {
+
     }
 
     override fun onPatchViewsFailure(message: String) {
@@ -351,9 +358,11 @@ class ProductDetailActivity :
     }
 
     override fun onPostWishSuccess(response: BaseResponse) {
+        CustomToast.createToast(this, "관심 목록에 추가되었어요.")?.show()
 
-        binding.detailImgHeart.tag="false"
-        binding.detailImgHeart.setImageResource(R.drawable.heart_on_icon)
+
+//        binding.detailImgHeart.tag="false"
+//        binding.detailImgHeart.setImageResource(R.drawable.heart_on_icon)
 
     }
 
@@ -361,8 +370,7 @@ class ProductDetailActivity :
     }
 
     override fun onDeleteWishSuccess(response: BaseResponse) {
-        binding.detailImgHeart.tag="true"
-        binding.detailImgHeart.setImageResource(R.drawable.heart_icon)
+
     }
 
     override fun onDeleteWishFailure(message: String) {

@@ -9,6 +9,10 @@
     <string name="modify_product">중고거래 수정하기</string>
     <string name="user_hide">이 사용자의 글 보지 않기</string>
     <string name="X">X</string>
+    <string name="user_nick_2">쪼꼬에몽</string>
+    <string name="my_page_user_name">고양이</string>
+    <string name="heart">관심</string>
+
 
     <!-- custom_toast -->
     <string name="toast">인증번호가 문자로 전송됐습니다. (최대 20초 소요)</string>
@@ -33,7 +37,7 @@
 
     <!-- login_location_item -->
     <string name="login_location_item_main">근처동네</string>
-    <string name="login_location_item_sub">서울 강동구 명일제1동</string>
+    <string name="login_location_item_sub">서울 광진구 화양제1동</string>
 
     <!-- login_main -->
     <string name="login_main_top_txt">로그인</string>
@@ -61,15 +65,15 @@
 
     <!-- home_fragment -->
     <string name="home_cv_main_txt">따뜻한 거래를 시작해보세요!</string>
-    <string name="home_cv_sub_txt">지금 동네인증을 하고 천호제1동 근처 이웃 398,042명과 거래하세요.</string>
+    <string name="home_cv_sub_txt">지금 동네인증을 하고 화양제1동 근처 이웃 398,042명과 거래하세요.</string>
     <string name="home_cv_btn_title">동네인증하고 시작하기</string>
-    <string name="home_top_txt">천호제1동</string>
+    <string name="home_top_txt">화양제1동</string>
     <string name="home_fab_title_1">동네홍보</string>
     <string name="home_fab_title_2">중고거래</string>
 
     <!-- home_item -->
     <string name="home_item_name">캉골 반팔티</string>
-    <string name="home_item_location">천호제3동</string>
+    <string name="home_item_location">화양제3동</string>
     <string name="home_item_time">1분 전</string>
     <string name="home_item_price">15,000</string>
     <string name="home_item_location_and_time"> · </string>
@@ -88,7 +92,7 @@
     <string name="product_detail_contents">전체적으로 깨끗해요~~ 보시고 결정하셔도 돼요~</string>
     <string name="product_detail_views_txt">조회</string>
     <string name="product_detail_views">15</string>
-    <string name="product_detail_ad">책상 옮기기 무거우시죠? 명일제1동 근처 용달 보기</string>
+    <string name="product_detail_ad">책상 옮기기 무거우시죠? 화양제1동 근처 용달 보기</string>
     <string name="product_detail_post_report">이 게시글 신고하기</string>
     <string name="product_detail_user_other">님의 판매상품</string>
     <string name="product_detail_user_other_more">모두보기</string>
@@ -117,8 +121,7 @@
     <string name="my_page_noti">공지사항</string>
     <string name="my_page_ask">자주 묻는 질문</string>
     <string name="my_page_app_setting">앱 설정</string>
-    <string name="my_page_user_name">혜원혜원</string>
-    <string name="my_page_user_location">명일제1동</string>
+    <string name="my_page_user_location">화양제1동</string>
 
 
     <!-- product_sale_list -->
@@ -143,7 +146,7 @@
     <string name="product_write_cate">카테고리</string>
     <string name="product_write_price">가격 (선택사항)</string>
     <string name="product_write_price_pro">가격제안 받기</string>
-    <string name="product_write_contents">천호제1동에 올릴 게시글 내용을 작성해주세요. 가품 및 판매금지품목은 게시가 제한될 수 있어요.</string>
+    <string name="product_write_contents">화양제1동에 올릴 게시글 내용을 작성해주세요. 가품 및 판매금지품목은 게시가 제한될 수 있어요.</string>
     <string name="product_write_ph">자주 쓰는 문구</string>
     <string name="product_write_set_loca">보여줄 동네 설정</string>
 
@@ -232,7 +235,7 @@
     <string name="home_search_popular9">골프</string>
     <string name="home_search_popular10">모니터</string>
     <string name="home_search_popular11">식물</string>
-    <string name="home_search_local">천호제1동</string>
+    <string name="home_search_local">화양제1동</string>
     <string name="home_search_local_popular"> 인기매물</string>
     <string name="home_search_local_sug">추천 검색어</string>
 
@@ -240,6 +243,14 @@
     <string name="home_search_user_sub">• 닉네임으로 검색해보세요.</string>
     <string name="home_search_user_sub2">• 사용자 프로필의 닉네임 옆 #숫자로도 검색할 수 있어요.(예: 당근이 #10000)</string>
 
+    <string name="life_top1">우리동네질문</string>
+    <string name="life_top2">동네맛집</string>
+    <string name="life_top3">동네소식</string>
+    <string name="life_top4">분실/실종센터</string>
+    <string name="life_top5">우리동네질문</string>
+    <string name="life_top6">동네사건사고</string>
+    <string name="life_btm1">궁금해요</string>
+    <string name="life_btm2">댓글쓰기</string>
 
 </resources>
 

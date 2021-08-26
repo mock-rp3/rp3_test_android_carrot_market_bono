@@ -19,7 +19,7 @@ import com.example.carrotmarket.src.config.src.main.btm.products.product.search.
 
 class ProductSearchDealFragment:
     BaseFragment<FragmentSearchDealBinding>(FragmentSearchDealBinding::bind,
-        R.layout.fragment_search_deal), ProductSearchDealFragmentView {
+        R.layout.fragment_search_deal), ProductSearchDealFragmentView,ProductSearchDealView {
     var homeCategoryData = ArrayList<HomeCategoryData>()
     var responseArrayList = ArrayList<ResultSearchDeal>()
     var otherArrayList = ArrayList<ResultSellerProduct>()
@@ -33,6 +33,21 @@ class ProductSearchDealFragment:
         super.onViewCreated(view, savedInstanceState)
         showLoadingDialog(requireContext())
         ProductSearchService(this).tryGetSuggest()
+
+//        val bundle = Bundle()
+
+        val search =arguments?.getString("search",null)
+
+        Log.e("qq",search.toString())
+        if (search==null){
+
+        }else{
+//            showLoadingDialog(requireContext())
+            ProductSearchDealService(this).tryGetDealSearch(search)
+            binding.searchDealRv.visibility = View.VISIBLE
+            binding.searchDealNv.visibility=View.GONE
+//            binding.searchDealCl.visibility=View.GONE
+        }
 
         ApplicationClass.sSharedPreferences = requireActivity().getSharedPreferences("nickName", AppCompatActivity.MODE_PRIVATE)
 
@@ -64,20 +79,30 @@ class ProductSearchDealFragment:
 
 //        val search = arguments?.getString("search")
 
-        binding.searchTxtCate.setOnClickListener {
-//            Log.e("title3", search.toString())
-            showLoadingDialog(requireActivity())
-//            ProductSearchService(this).tryGetDealSearch(search!!)
-            binding.searchDealRv.visibility = View.VISIBLE
-            binding.searchDealLl.visibility = View.GONE
 
-//            var editor = ApplicationClass.sSharedPreferences.edit()
-//            editor.remove("title").commit()
-        }
 
 
 //        val title =requireActivity().intent.getStringExtra("title")
 
+//            Log.e("title3", search.toString())
+//            showLoadingDialog(requireActivity())
+//            ProductSearchService(this).tryGetDealSearch(search!!)
+
+
+//            var editor = ApplicationClass.sSharedPreferences.edit()
+//            editor.remove("title").commit()
+//        binding.searchTxtCate.setOnClickListener {
+//
+//
+////            ProductSearchDealService(this).tryGetDealSearch(search!!)
+//
+//        }
+
+
+//        if (search==null){
+//
+//        }else{
+//        }
 
         homeCategoryData.add(
             HomeCategoryData(
@@ -138,31 +163,33 @@ class ProductSearchDealFragment:
 
     }
 
-//    override fun onGetDealSearchSuccess(response: ResponseSearchDeal) {
-//
+    override fun onGetDealSearchSuccess(response: ResponseSearchDeal) {
+
 //        dismissLoadingDialog()
-//        for (i in 0 until response.result.size) {
-//            responseArrayList.add(0,
-//                ResultSearchDeal(
-//                    response.result[i].imageUrl,
-//                    response.result[i].price,
-//                    response.result[i].productIdx,
-//                    response.result[i].pulledAt,
-//                    response.result[i].regionNameTown,
-//                    response.result[i].title,
-//                    response.result[i].wishCount
-//                )
-//            )
-//
-//        }
-//        dealAdapter.notifyDataSetChanged()
-//    }
-//
-//    override fun onGetDealSearchFailure(message: String) {
-//    }
+        for (i in 0 until response.result.size) {
+            responseArrayList.add(0,
+                ResultSearchDeal(
+                    response.result[i].imageUrl,
+                    response.result[i].price,
+                    response.result[i].productIdx,
+                    response.result[i].pulledAt,
+                    response.result[i].regionNameTown,
+                    response.result[i].title,
+                    response.result[i].wishCount
+                )
+            )
+
+        }
+        dealAdapter.notifyDataSetChanged()
+    }
+
+    override fun onGetDealSearchFailure(message: String) {
+    }
 
     override fun onGetSuggestSuccess(response: ResponseSug) {
         dismissLoadingDialog()
+
+        Log.e("response.result.size", response.result.size.toString())
 
         for (i in 0 until  response.result.size) {
             otherArrayList.add(
@@ -180,5 +207,8 @@ class ProductSearchDealFragment:
     override fun onGetSuggestFailure(message: String) {
 
     }
+
+
+
 
 }

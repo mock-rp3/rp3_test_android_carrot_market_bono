@@ -21,7 +21,7 @@ object CustomToast {
 
         return Toast(context).apply {
 //            setGravity(Gravity.BOTTOM or Gravity.CENTER,0, 16.toPx())
-            duration=Toast.LENGTH_LONG
+            duration=Toast.LENGTH_SHORT
             view = binding.root
 
         }

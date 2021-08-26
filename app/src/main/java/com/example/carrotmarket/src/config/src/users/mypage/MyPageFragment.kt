@@ -89,6 +89,7 @@ class MyPageFragment :
         editor.putString("nickName",response.result.nickname.toString())
         editor.commit()
 
+        binding.hash.text="#"+response.result.userInfoIdx.toString()
 
 
 

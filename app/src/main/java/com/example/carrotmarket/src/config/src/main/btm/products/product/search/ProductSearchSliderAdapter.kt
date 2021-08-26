@@ -8,22 +8,22 @@ import com.example.carrotmarket.src.config.src.main.btm.products.product.search.
 import com.example.carrotmarket.src.config.src.main.btm.products.product.search.user.ProductSearchUserFragment
 
 
-class ProductSearchSliderAdapter(fragmentActivity: FragmentActivity) :
-    FragmentStateAdapter(fragmentActivity) {
-
-    override fun createFragment(position: Int): Fragment {
-
-            return when (position) {
-                0 -> ProductSearchDealFragment()
-                1 -> ProductSearchLocalFragment()
-                2 -> ProductSearchUserFragment()
-                else -> ProductSearchDealFragment()
-            }
-
-
-    }
-
-    override fun getItemCount(): Int {
-        return 3
-    }
-}
+//class ProductSearchSliderAdapter(fragmentActivity: FragmentActivity) :
+//    FragmentStateAdapter(fragmentActivity) {
+//
+//    override fun createFragment(position: Int): Fragment {
+//
+//            return when (position) {
+//                0 -> ProductSearchDealFragment()
+//                1 -> ProductSearchLocalFragment()
+//                2 -> ProductSearchUserFragment()
+//                else -> ProductSearchDealFragment()
+//            }
+//
+//
+//    }
+//
+//    override fun getItemCount(): Int {
+//        return 3
+//    }
+//}

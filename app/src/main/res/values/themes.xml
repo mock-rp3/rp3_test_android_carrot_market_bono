@@ -31,4 +31,9 @@
         <item name="android:textSelectHandle">@color/mainColor</item>
 
     </style>
+
+    <style name="nonStatusBar" parent="Theme.CarrotMarket">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
 </resources>

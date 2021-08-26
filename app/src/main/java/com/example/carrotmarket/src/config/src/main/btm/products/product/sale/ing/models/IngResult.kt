@@ -10,6 +10,6 @@ data class IngResult(
     val title: String,
     val updatedAt: String,
     var status: String,
-//    val productId:Int
+    val productId:Int
 
     )

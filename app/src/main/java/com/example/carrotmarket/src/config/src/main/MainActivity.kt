@@ -10,7 +10,7 @@ import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivityMainBinding
 import com.example.carrotmarket.src.config.src.main.btm.AroundFragment
 import com.example.carrotmarket.src.config.src.main.btm.ChatFragment
-import com.example.carrotmarket.src.config.src.main.btm.LifeFragment
+import com.example.carrotmarket.src.config.src.main.btm.community.LifeFragment
 import com.example.carrotmarket.src.config.src.main.btm.products.product.writing.ProductWritingActivity
 import com.example.carrotmarket.src.config.src.users.mypage.MyPageFragment
 import com.example.carrotmarket.src.home.HomeFragment

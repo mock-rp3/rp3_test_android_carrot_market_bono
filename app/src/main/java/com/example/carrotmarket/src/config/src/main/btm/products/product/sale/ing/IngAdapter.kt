@@ -2,6 +2,7 @@ package com.example.carrotmarket.src.home
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,12 +14,14 @@ import com.example.carrotmarket.databinding.HomeItemBinding
 import com.example.carrotmarket.databinding.SaleItemBinding
 import com.example.carrotmarket.src.config.src.main.btm.products.models.ResultHome
 import com.example.carrotmarket.src.config.src.main.btm.products.product.detail.ProductDetailActivity
+import com.example.carrotmarket.src.config.src.main.btm.products.product.sale.ProductSaleListActivity
 import com.example.carrotmarket.src.config.src.main.btm.products.product.sale.ing.AdapterService
 import com.example.carrotmarket.src.config.src.main.btm.products.product.sale.ing.AdapterView
 import com.example.carrotmarket.src.config.src.main.btm.products.product.sale.ing.IngService
 import com.example.carrotmarket.src.config.src.main.btm.products.product.sale.ing.ProductSaleListIngFragment
 import com.example.carrotmarket.src.config.src.main.btm.products.product.sale.ing.models.IngResult
 import com.example.carrotmarket.src.config.src.main.btm.products.product.sale.models.StatusRequest
+import com.example.carrotmarket.src.config.src.main.btm.products.product.search.user.ProductSearchUserFragment
 import java.text.DecimalFormat
 
 
@@ -26,7 +29,7 @@ class IngAdapter(
     private val context: Context,
     private var responseHome: ArrayList<IngResult>
 ) :
-    RecyclerView.Adapter<IngAdapter.ViewHolder>(), AdapterView {
+    RecyclerView.Adapter<IngAdapter.ViewHolder>() {
 
     var productDataList: ArrayList<IngResult> = responseHome
 
@@ -62,36 +65,20 @@ class IngAdapter(
         holder.binding.saleImg.clipToOutline = true
 
 
-//        val statusIngRequest = StatusRequest(
-//
-//            productId =productDataList[position].productId,
-//            status = "reserved"
-//        )
-//        val statusCompRequest = StatusRequest(
-//
-//            productId =productDataList[position].productId,
-//            status = "traded"
-//        )
-
 //        holder.binding.productSaleListChangeIng.setOnClickListener {
-//            AdapterService(this).tryPatchStatus(statusIngRequest)
+//            productDataList[position].status="reserved"
+//
 //        }
+//
 //        holder.binding.productSaleListChangeComp.setOnClickListener {
-//            AdapterService(this).tryPatchStatus(statusCompRequest)
+//            productDataList[position].status="traded"
+////traded
 //        }
-
     }
 
 
     override fun getItemCount(): Int {
         return productDataList.size
-    }
-
-    override fun onPatchStatusSuccess(response: BaseResponse) {
-
-    }
-
-    override fun onPatchStatusFailure(message: String) {
     }
 
 }
