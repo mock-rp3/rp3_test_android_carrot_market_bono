@@ -38,8 +38,8 @@
 - [x] 새로 작성된 회원가입 API >> 서버가 열리면 테스트 하기 **_( 08/18 )_**
 - [x] 새로 작성된 로그인 API **_( 08/19 )_**
 - [x] 전체 게시글 조회 API >> 서버가 열리면 테스트 하기 **_( 08/21 )_**
-- [x] 상품 디테일 화면 API  _( 08/22 )_ >> Image를 vp2에 연결시키는 방법을 모르겠음 
-- [x] 판매글 작성 API >> 메인화면에 반영되게하는 방법을 모르겠음 >> 서버 문제 >> 서버에 수정요청 후 정상 반영
+- [x] 상품 디테일 화면 API  _( 08/22 )_ >> Image를 vp2에 연결시키는 방법을 모르겠음 **( 08/26 )**
+- [x] 판매글 작성 API >> 메인화면에 반영되게하는 방법을 모르겠음 >> 서버 문제 >> 서버에 수정요청 후 정상 반영 **( 08/23 )**
 - [x] 특정 유저 닉네임으로 검색 API  **_( 08/23 )_**
 - [x] 게시글 제목으로 검색 API  **_( 08/23 )_**
 
@@ -136,6 +136,7 @@
 - 회원가입 화면 다시 구현하기 **( 100% ✔)** >> editText 디테일 신경쓰기
   - 코틀린에서 제공하는 Timer 사용
   - 글자 지우면 다시 원래 상태로 돌아가게 + 글자 수 충족 못하면 다음으로 못 넘어가게~
+  - 커스텀 토스트
 
 - 회원가입 API 다시 엮기  **( 100% ✔)**
 - 상품 디테일 화면 디테일 신경쓰기 **( 100% ✔)**
@@ -195,7 +196,7 @@
 
 - 이미지들 둥근 모서리로 만들기
 - 상품 디테일 화면 API  **( 90% ✔)**
-  - 이미지는 하나씩 오는데, vp2에 이미지를 어떻게 넣어줘야될지 모르겠음
+  - 이미지는 하나씩 오는데, vp2에 이미지를 어떻게 넣어줘야될지 모르겠음 ( 완료 ✔ )
   - 유저 온도마다 temIcon 바꾸기 // 아직
 - 전체 게시글 조회 API  **( 100% ✔)**
   - **[Q]** ~ 초전, ~ 분전 타임스탬프로 계산된 상태인 데이터를 넘겨주실 수 있는지 여쭤봄 //클라에서도 처리할 수 있으나 서버가 데이터를 가지고 있는게 맞는거 같아서
@@ -263,11 +264,17 @@
 - 상품 게시글 관심 해제 API  **( 100% ✔)** >> tag 값으로 둘이 상태 변경
   -  Non-body HTTP method cannot contain @Body. 에러 발생 >> ( 완료 ✔ )
 -  판매 게시글 상태 변경 API **( 100% ✔)**
-  - **[Q]** 판매중 조회 API에 productId가 response 되도록 요청드림
+   - **[Q]** 판매중 조회 API에 productId가 response 되어야 이 API를 엮을 수 있어서 요청드림
 
 
 ## 2021년 08월 26일 🌞
-
+> 미뤄뒀던 것들 해결해놓기    
+- vp2에 이미지 연결 
+- 프로필 변경 시 에러가 뜨고 앱이 꺼지는 문제 해결 
+- 갤러리에서 이미지 가져와야 하는 페이지에 파이어스토어 다 연결해주기
+- 판매하기/수정하기 레이아웃 디테일 수정하기
+- 바텀 네비게이션 디테일
+- 
 
 
 ## 2021년 08월 27일 (PM 12:00) 🌞
@@ -463,8 +470,8 @@
      ```
 ### 16. 카테고리 선택
  - **문제 🤦🏻‍♀ |** 카테고리 idx를 adapter에 포지션 별로 어떻게 매칭 시켜줘야하는지 
- - **해결 🙆🏻‍♀️ |** position과 categotyIdx를 매칭시켜서 전달시킨다.
-        ```
+ - **해결 🙆🏻‍♀️ |** position과 categotyIdx를 매칭시켜서 전달시킨다.    
+   ```
    [Adapter] HomeCategoryAdapter.kt
    
         holder.binding.homeCategoryItemLl.setOnClickListener {
@@ -478,7 +485,7 @@
      ```
 ### 17. Non-body HTTP method cannot contain @Body.
   - **원인 💁🏻‍♀️ |** DELETE는 BODY 값을 포함 하지않는다고 한다.
-  - **해결 🙆🏻‍♀️ |** 
+  - **해결 🙆🏻‍♀️ |**     
 ```
 [Interface] ProductsRetrofitInterface
 
@@ -504,6 +511,9 @@
             }
         }
   ```
+  ### 19 java.lang.SecurityException: com.example.carrotmarket has no access to content://media/external/images/media/12196
+ - **문제 🤦🏻‍♀ |** 퍼미션 문제인거 같아서 퍼미션 요청까지 넣었는데, 코드가 중복으로 이상하게 입력되서 나타난 문제였다. 없애주니 해결 됨
+ - **증상 🤦🏻‍♀ |** 프로필은 정상 변경되고, 파이어스토어에도 정상 저장되었으나 앱이 팅겼다.
    
    
  <br />
@@ -533,3 +543,4 @@
 - [퍼미션](https://dnight.tistory.com/entry/MediaStore-File-%EB%8B%A4%EB%A3%A8%EA%B8%B0-Android-ScopedStorage)
 - [안드로이드 firebase glide 안보임 현상](https://okky.kr/article/618085)
 - [DELETE에 BODY 값 넣기](https://logcdn.com/general/2909/delete-method-is-not-supportingnon-body-http-method-cannot-contain-body-or-typedoutput)
+- [바텀 네비게이션 아이콘 변경](https://lcw126.tistory.com/330)
