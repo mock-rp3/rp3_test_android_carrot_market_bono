@@ -33,6 +33,7 @@
 - [x] 앱 설정 _( 08/20 )_
 - [x] 회원가입 화면 다시 구현하기 **_( 08/18 )_**
 - [x] 자동 로그인
+
 > API
 - [x] 나의 당근 페이지 API  _**( 08/19 )**_
 - [x] 새로 작성된 회원가입 API >> 서버가 열리면 테스트 하기 **_( 08/18 )_**
@@ -69,7 +70,8 @@
 - [x] 판매중 조회 API
 - [x] 상품 게시글 관심 설정 API 
 - [x] 상품 게시글 관심 해제 API
-- [x] 판매 게시글 상태 변경 API
+- [ ] 판매 게시글 상태 변경 API >> 엮긴 했는데 변경이 안되서 포기함
+- [x] 동네생활 조회 API
 
 
 <br />
@@ -437,16 +439,19 @@
   - **문제 🤦🏻‍♀ |**  헤더에 토큰 넣어주는게 간단한거 같은데 자꾸 jwt 값이 없다해서 스트레스 받았다.
   - **해결 🙆🏻‍♀️ |**  로그를 찍어보며 원인을 찾았다. 정말 간단하고 시간 투자할 일이 아닌데 멀리 돌아간 것 같다. 다신 같은 삽질을 하지 않아야 겠다!
   ```
-       [Data class] RequestMyPage.kt
+       [Interface] ProductsRetrofitInterface.kt
   
-            data class RequestMyPage (
-            @SerializedName("userInfoIdx") val userInfoIdx: Int,
-            @Header("x-access-token") val X_ACCESS_TOKEN:String
-            )
+       //판매내역 조회 API
+        @GET("/app/products/status")
+        fun getIng(
+          @Header("x-access-token") X_ACCESS_TOKEN:String,
+          @Query("status") status:String,
+          @Query("sellerId") sellerId: Int
+        ):Call<IngResponse>
     
        [Service] MyPageService.kt
     
-           fun tryGetMyPage(X_ACCESS_TOKEN:String ,userInfoIdx: Int){
+           fun tryGetMyPage(X_ACCESS_TOKEN:String ,userInfoIdx: Int){ //판매내역 조회라면 status도 넣어주면됨
            val myPageRetrofitInterface =
                 ApplicationClass.sRetrofit.create(UsersRetrofitInterface::class.java)
            myPageRetrofitInterface.getMyPage(X_ACCESS_TOKEN,userInfoIdx).enqueue(object:
@@ -547,8 +552,7 @@
 - [다이얼로그 리스트로 보여주는 방법](https://aries574.tistory.com/109) (o)
 - [Activity, Fragment 간 데이터 주고받기](https://velog.io/@jinny_0422/Android-Fragment-Activity%EA%B0%84-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%84%EB%8B%AC) //Bundle
 - [Activity -> Fragment 데이터 전달](https://juahnpop.tistory.com/225)
-- [키보드 올라올 때 뷰도 같이 올라가도록 하기](https://inma06.tistory.com/68) 
-- //Manifest android:windowSoftInputMode="adjustResize"
+- [키보드 올라올 때 뷰도 같이 올라가도록 하기](https://inma06.tistory.com/68) //Manifest android:windowSoftInputMode="adjustResize"
 - [파이어베이스에 사진 저장 후 불러오기](https://okky.kr/article/538035?note=1598743)
 - [유저 퍼미션 요청](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=chandong83&logNo=221616557088)
 - [나중에 볼 퍼미션 요청](https://github.com/ParkSangGwon/TedPermission)
