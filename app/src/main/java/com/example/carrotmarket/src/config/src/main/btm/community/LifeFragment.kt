@@ -41,6 +41,7 @@ class LifeFragment :
             communityResponse.add(
                 CommunityResult(
                     response.result[i].commentCount,
+                    response.result[i].communityIdx,
                     response.result[i].createdAt,
                     response.result[i].description,
                     response.result[i].name,

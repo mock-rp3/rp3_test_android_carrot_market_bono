@@ -26,6 +26,16 @@
         app:layout_constraintBottom_toBottomOf="@+id/life_vi_top"
         app:layout_constraintLeft_toLeftOf="@+id/life_vi_top"
         app:layout_constraintTop_toTopOf="@id/life_vi_top" />
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="3dp"
+        android:src="@drawable/location_more_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/life_txt_location"
+        app:layout_constraintLeft_toRightOf="@+id/life_txt_location"
+        app:layout_constraintTop_toTopOf="@+id/life_txt_location" />
+
 
     <LinearLayout
         android:layout_width="wrap_content"

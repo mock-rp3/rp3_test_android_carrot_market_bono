@@ -33,7 +33,7 @@
     </style>
 
     <style name="nonStatusBar" parent="Theme.CarrotMarket">
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@color/nullColor</item>
     </style>
 
 </resources>

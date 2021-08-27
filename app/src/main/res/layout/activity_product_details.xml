@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content">
 
                 <androidx.viewpager2.widget.ViewPager2
+                    android:background="@color/white"
                     android:id="@+id/product_detail_vp2"
                     layout_collapseMode="parallax"
                     android:layout_width="match_parent"
@@ -76,8 +77,8 @@
                         app:tint="@color/white" />
 
                     <ImageView
+                        android:id="@+id/detail_img_top_home"
                         android:layout_width="27dp"
-
                         android:layout_height="0dp"
                         android:layout_marginLeft="10dp"
                         android:src="@drawable/bottom_home_off"
@@ -99,6 +100,7 @@
                         app:tint="@color/white" />
 
                     <ImageView
+                        android:id="@+id/detail_img_top_share"
                         android:layout_width="30dp"
 
                         android:layout_height="0dp"
@@ -200,6 +202,7 @@
                         android:textStyle="bold" />
 
                     <ProgressBar
+                        android:id="@+id/progress"
                         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

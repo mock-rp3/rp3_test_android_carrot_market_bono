@@ -1,5 +1,6 @@
 package com.example.carrotmarket.src.login
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.carrotmarket.databinding.LoginLocationListItemBinding
 import com.example.carrotmarket.src.config.src.users.signup.SignUpMainActivity
+
 
 class LoginLocationAdapter(
     private val context: Context,
@@ -39,6 +41,7 @@ class LoginLocationAdapter(
         holder.binding.aroundSub.setOnClickListener {
             var intent = Intent(context, SignUpMainActivity::class.java)
             context.startActivity(intent)
+            (context as Activity).finish()
         }
 
     }

@@ -128,6 +128,9 @@ class SignUpProfileActivity :
             ref.putFile(uri!!).addOnSuccessListener { taskSnapshot ->
                 taskSnapshot.storage.downloadUrl.addOnSuccessListener { uri ->
                     val postRequest = PostSignUpRequest(
+                        "서울시",
+                        "광진구",
+                        "화양동",
                         phoneNumber = phoneNumber!!,
                         password = password!!,
                         nickname = nickname,
@@ -149,7 +152,8 @@ class SignUpProfileActivity :
         // 토큰 값 넣어주기
         ApplicationClass.sSharedPreferences = getSharedPreferences(ApplicationClass.X_ACCESS_TOKEN, MODE_PRIVATE)
         var editor = ApplicationClass.sSharedPreferences.edit()
-        editor.putString(ApplicationClass.X_ACCESS_TOKEN, response.result.jwt)
+        editor.putString(ApplicationClass.X_ACCESS_TOKEN, response.result.authJwt)
+//        editor.remove(ApplicationClass.X_ACCESS_TOKEN)
         editor.commit()
 
 
@@ -159,7 +163,7 @@ class SignUpProfileActivity :
         editor2.putInt("userIdx", response.result.userInfoIdx)
         editor2.commit()
 
-        Log.e("jwt123", editor.putString(X_ACCESS_TOKEN, response.result.jwt).toString())
+        Log.e("jwt123", editor.putString(X_ACCESS_TOKEN, response.result.authJwt).toString())
 
 
         response.message?.let { showCustomToast("회원가입 성공!") }

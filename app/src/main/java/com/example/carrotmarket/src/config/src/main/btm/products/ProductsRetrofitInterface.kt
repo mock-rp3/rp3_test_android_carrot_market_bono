@@ -2,6 +2,8 @@ package com.example.carrotmarket.src.config.src.main.btm.products
 
 import com.example.carrotmarket.config.BaseResponse
 import com.example.carrotmarket.src.config.src.main.btm.community.models.CommunityResponse
+import com.example.carrotmarket.src.config.src.main.btm.community.write.models.CWritingRequest
+import com.example.carrotmarket.src.config.src.main.btm.community.write.models.CWritingResponse
 import com.example.carrotmarket.src.config.src.main.btm.products.category.select.models.CategorySelectResponse
 import com.example.carrotmarket.src.config.src.main.btm.products.models.ResponseHome
 import com.example.carrotmarket.src.config.src.main.btm.products.product.detail.edit.models.EditRequest
@@ -110,5 +112,10 @@ interface ProductsRetrofitInterface {
 
     @GET("/app/community")
     fun getCommunity():Call<CommunityResponse>
+
+    @POST("/app/community")
+    fun postCommunity(
+        @Body params: CWritingRequest
+    ):Call<CWritingResponse>
 
 }

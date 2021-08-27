@@ -11,6 +11,7 @@ import com.example.carrotmarket.databinding.ActivityMainBinding
 import com.example.carrotmarket.src.config.src.main.btm.AroundFragment
 import com.example.carrotmarket.src.config.src.main.btm.ChatFragment
 import com.example.carrotmarket.src.config.src.main.btm.community.LifeFragment
+import com.example.carrotmarket.src.config.src.main.btm.community.write.CommunityWritingActivity
 import com.example.carrotmarket.src.config.src.main.btm.products.product.writing.ProductWritingActivity
 import com.example.carrotmarket.src.config.src.users.mypage.MyPageFragment
 import com.example.carrotmarket.src.home.HomeFragment
@@ -139,7 +140,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             if (fabState == 1) {
                 toggleFab()
             } else if (fabState == 2) {
-                intent = Intent(this, ProductWritingActivity::class.java)
+                intent = Intent(this, CommunityWritingActivity::class.java)
                 startActivity(intent)
                 finish()
             }

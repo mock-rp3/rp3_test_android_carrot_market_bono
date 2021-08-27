@@ -32,10 +32,15 @@ class EditActivity : BaseActivity<ActivityEditProductBinding>(ActivityEditProduc
             .load(intent.getStringExtra("image"))
             .into(binding.productImg)
 
+
+//        var a = binding.editProductTitle.text.toString()
+//        a = intent.getStringExtra("title", null)
+
+
         binding.productImg.background =
             resources.getDrawable(R.drawable.image_rounding)
-       binding.productImg.clipToOutline = true
-        Log.e("int",intent.getStringExtra("image").toString())
+        binding.productImg.clipToOutline = true
+        Log.e("int", intent.getStringExtra("image").toString())
 
         binding.editProductClCate.setOnClickListener {
             showDialog()

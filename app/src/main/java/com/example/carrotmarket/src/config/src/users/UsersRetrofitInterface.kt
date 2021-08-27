@@ -10,7 +10,10 @@ import retrofit2.http.*
 
 interface UsersRetrofitInterface {
 
-    @POST("/app/users")
+//    @POST("/app/users")
+//    fun postSignUp(@Body params: PostSignUpRequest): Call<SignUpResponse>
+
+    @POST("/app/join-login")
     fun postSignUp(@Body params: PostSignUpRequest): Call<SignUpResponse>
 
 

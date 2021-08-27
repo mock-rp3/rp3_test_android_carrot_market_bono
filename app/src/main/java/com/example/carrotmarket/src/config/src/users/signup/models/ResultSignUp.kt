@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ResultSignUp (
 
-    @SerializedName("jwt") val jwt: String,
+    @SerializedName("authJwt") val authJwt: String,
     @SerializedName("userInfoIdx") val userInfoIdx: Int
 
 )

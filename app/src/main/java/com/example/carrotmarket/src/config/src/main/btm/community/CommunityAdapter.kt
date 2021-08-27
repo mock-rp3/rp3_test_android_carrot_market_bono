@@ -49,6 +49,8 @@ class CommunityAdapter(
         if(communityResponse[position].commentCount==0){
             holder.binding.comment.text="댓글쓰기"
         }
+
+
     }
 
 

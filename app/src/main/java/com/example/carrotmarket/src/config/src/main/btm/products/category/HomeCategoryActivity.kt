@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.carrotmarket.R
 import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivityHomeCategoryBinding
+import com.example.carrotmarket.src.config.src.main.MainActivity
 import com.example.carrotmarket.src.config.src.main.btm.products.category.models.HomeCategoryData
 import com.example.carrotmarket.src.home.HomeFragment
 
@@ -26,7 +27,7 @@ class HomeCategoryActivity:BaseActivity<ActivityHomeCategoryBinding>(ActivityHom
 
 
         binding.homeCategoryImgBack.setOnClickListener {
-            intent= Intent(this,HomeFragment::class.java)
+            intent= Intent(this,MainActivity::class.java)
             startActivity(intent)
             finish()
         }

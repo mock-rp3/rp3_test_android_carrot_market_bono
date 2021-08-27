@@ -34,68 +34,60 @@ class LoginLocationActivity :
 
         locationArrayList.add(
             Location(
-                "서울 강동구 명일제1동"
+                "서울 광진구 화양제1동"
             )
         )
         locationArrayList.add(
             Location(
-                "서울 강동구 명일제1동"
+                "서울 광진구 화양제1동"
+            )
+        )
+        locationArrayList.add(
+            Location(
+                "서울 광진구 화양제1동"
+            )
+        )
+        locationArrayList.add(
+            Location(
+                "서울 광진구 화양제1동"
+            )
+        )
+        locationArrayList.add(
+            Location(
+                "서울 광진구 화양제1동"
+            )
+        )
+        locationArrayList.add(
+            Location(
+                "서울 광진구 화양제1동"
+            )
+        )
+        locationArrayList.add(
+            Location(
+                "서울 광진구 화양제1동"
+            )
+        )
+        locationArrayList.add(
+            Location(
+                "서울 광진구 화양제1동"
+            )
+        )
+        locationArrayList.add(
+            Location(
+                "서울 광진구 화양제1동"
+            )
+        )
+        locationArrayList.add(
+            Location(
+                "서울 광진구 화양제1동"
+            )
+        )
+        locationArrayList.add(
+            Location(
+                "서울 광진구 화양제1동"
             )
         )
 
-        locationArrayList.add(
-            Location(
-                "서울 강동구 명일제1동"
-            )
-        )
-        locationArrayList.add(
-            Location(
-                "서울 강동구 명일제1동"
-            )
-        )
-        locationArrayList.add(
-            Location(
-                "서울 강동구 명일제1동"
-            )
-        )
-
-        locationArrayList.add(
-            Location(
-                "서울 강동구 명일제1동"
-            )
-        )
-        locationArrayList.add(
-            Location(
-                "서울 강동구 명일제1동"
-            )
-        )
-        locationArrayList.add(
-            Location(
-                "서울 강동구 명일제1동"
-            )
-        )
-
-        locationArrayList.add(
-            Location(
-                "서울 강동구 명일제1동"
-            )
-        )
-        locationArrayList.add(
-            Location(
-                "서울 강동구 명일제1동"
-            )
-        )
-        locationArrayList.add(
-            Location(
-                "서울 강동구 명일제1동"
-            )
-        )
-
-        locationArrayList.add(
-            Location(
-                "서울 강동구 명일제1동"
-            )
-        )
     }
 
 

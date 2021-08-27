@@ -215,6 +215,27 @@
         <item>삽니다</item>
     </string-array>
 
+    <!-- Dialog2 -->
+    <string-array name="write_cate2">
+        <item>우리동네질문</item>
+        <item>동네맛집</item>
+        <item>동네소식</item>
+        <item>분실/실종센터</item>
+        <item>동네사건사고</item>
+        <item>일상</item>
+        <item>해주세요</item>
+        <item>취미생활</item>
+        <item>고양이</item>
+        <item>강아지</item>
+        <item>건강</item>
+        <item>살림</item>
+        <item>인테리어</item>
+        <item>교육/학원</item>
+        <item>동네사진전</item>
+        <item>출산/육아</item>
+        <item>기타</item>
+    </string-array>
+
     <!-- home_search -->
     <string name="home_search_more">더보기</string>
     <string name="home_search_et_hint">검색어를 입력하세요.</string>
@@ -247,10 +268,18 @@
     <string name="life_top2">동네맛집</string>
     <string name="life_top3">동네소식</string>
     <string name="life_top4">분실/실종센터</string>
-    <string name="life_top5">우리동네질문</string>
+    <string name="life_top5">일상</string>
     <string name="life_top6">동네사건사고</string>
     <string name="life_btm1">궁금해요</string>
     <string name="life_btm2">댓글쓰기</string>
+
+    <!-- community write-->
+    <string name="community_top">동네생활 글쓰기</string>
+    <string name="community_cate">게시글의 주제를 선택해주세요</string>
+    <string name="community_alert">글 작성하기 전에 알려드려요.</string>
+    <string name="community_alert_sub">중고거래 관련, 명예훼손 글은 올리실 수 없어요.\n또한, 광고/홍보 목적의 글은 동네 홍보 게시판은 이용해주세요.</string>
+    <string name="community_hint">화양제1동 근처 이웃과 우리 동네 관련된 질문이나 이야기를 해보세요.</string>
+    <string name="community_cert">동네생활 운영정책 보러가기</string>
 
 </resources>
 

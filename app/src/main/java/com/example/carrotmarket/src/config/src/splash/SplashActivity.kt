@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import com.example.carrotmarket.config.ApplicationClass
 import com.example.carrotmarket.config.ApplicationClass.Companion.X_ACCESS_TOKEN
 import com.example.carrotmarket.config.ApplicationClass.Companion.sSharedPreferences
 import com.example.carrotmarket.config.BaseActivity
@@ -17,8 +18,12 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
         super.onCreate(savedInstanceState)
 
 
-
-        sSharedPreferences = getSharedPreferences(X_ACCESS_TOKEN, MODE_PRIVATE)
+        ApplicationClass.sSharedPreferences = getSharedPreferences(ApplicationClass.X_ACCESS_TOKEN, MODE_PRIVATE)
+        var editor = ApplicationClass.sSharedPreferences.edit()
+//        editor.putString(ApplicationClass.X_ACCESS_TOKEN, response.result.authJwt)
+        editor.remove(ApplicationClass.X_ACCESS_TOKEN)
+        editor.commit()
+//        sSharedPreferences = getSharedPreferences(X_ACCESS_TOKEN, MODE_PRIVATE)
 
         val jwt = sSharedPreferences.getString(X_ACCESS_TOKEN, null)
 

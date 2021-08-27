@@ -6,6 +6,7 @@ import com.example.carrotmarket.config.BaseActivity
 import com.example.carrotmarket.databinding.ActivityUsersSettingBinding
 import com.example.carrotmarket.src.StartActivity
 import com.example.carrotmarket.src.config.src.main.MainActivity
+import com.example.carrotmarket.src.config.src.users.signup.SignUpMainActivity
 import com.example.carrotmarket.src.login.LoginMainActivity
 
 class UsersSettingActivity:BaseActivity<ActivityUsersSettingBinding>(ActivityUsersSettingBinding::inflate) {
@@ -21,7 +22,7 @@ class UsersSettingActivity:BaseActivity<ActivityUsersSettingBinding>(ActivityUse
         }
 
         binding.userSettingLogout.setOnClickListener {
-            intent = Intent(this, LoginMainActivity::class.java)
+            intent = Intent(this, StartActivity::class.java)
             startActivity(intent)
             finish()
         }

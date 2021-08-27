@@ -1,8 +1,8 @@
 package com.example.carrotmarket.src.config.src.main.btm.products.category
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -44,6 +44,7 @@ RecyclerView.Adapter<HomeCategoryAdapter.ViewHolder>(){
             var category:Int = position+1
             intent.putExtra("category",category)
             context.startActivity(intent)
+            (context as Activity).finish()
         }
 
 

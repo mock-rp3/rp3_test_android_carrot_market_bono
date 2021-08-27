@@ -1,6 +1,7 @@
 package com.example.carrotmarket.src.config.src.main.btm.products.product.detail
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Html
@@ -49,12 +50,25 @@ class ProductDetailActivity :
         ProductDetailService(this).tryGetProductDetail(productIdx)
         ProductDetailService(this).tryPatchViews(productIdx)
 
-//스크롤 시 색상 변경
+        //스크롤 시 색상 변경
         binding.appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
             if (kotlin.math.abs(verticalOffset) - appBarLayout.totalScrollRange == 0) {
-                binding.toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+
+                binding.detailImgTopBack.setColorFilter(Color.parseColor("#FF000000"))
+                binding.detailImgTopMenu.setColorFilter(Color.parseColor("#FF000000"))
+                binding.detailImgTopHome.setColorFilter(Color.parseColor("#FF000000"))
+                binding.detailImgTopShare.setColorFilter(Color.parseColor("#FF000000"))
+//                binding.toolbar.setBackgroundColor(Color.parseColor("#FFFFFFFF"))
+
+//                binding.toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+//                binding.detailImgTopBack
             } else {
-                binding.toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.black))
+                binding.detailImgTopBack.setColorFilter(Color.parseColor("#FFFFFFFF"))
+                binding.detailImgTopMenu.setColorFilter(Color.parseColor("#FFFFFFFF"))
+                binding.detailImgTopHome.setColorFilter(Color.parseColor("#FFFFFFFF"))
+                binding.detailImgTopShare.setColorFilter(Color.parseColor("#FFFFFFFF"))
+                binding.toolbar.setBackgroundColor(Color.parseColor("#00000000"))
+//                binding.toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.nullColor))
             }
         })
 
@@ -194,6 +208,16 @@ class ProductDetailActivity :
         binding.viewCount.text = response.result[0][0].viewCount
         binding.heartCount.text = response.result[0][0].wishCount.toString()
 
+
+        if(response.result[0][0].mannerGrade==35 || response.result[0][0].mannerGrade<35){
+            binding.productDetailUserTem.setTextColor(Color.parseColor("#58ab75"))
+            binding.productDetailImgUserTemIcon.setColorFilter(Color.parseColor("#58ab75"))
+            binding.progress.progressTintList = ColorStateList.valueOf(Color.parseColor("#58ab75"))
+        }else if(response.result[0][0].mannerGrade==40 || response.result[0][0].mannerGrade>40){
+            binding.productDetailUserTem.setTextColor(Color.parseColor("#e77d3f"))
+            binding.productDetailImgUserTemIcon.setColorFilter(Color.parseColor("#e77d3f"))
+            binding.progress.progressTintList = ColorStateList.valueOf(Color.parseColor("#e77d3f"))
+        }
         val decimalFormat = DecimalFormat("###,###")
         val priceDecimalFormat = decimalFormat.format(response.result[0][0].price)
         binding.detailPrice.text = "$priceDecimalFormat 원"
@@ -256,7 +280,6 @@ class ProductDetailActivity :
                     R.id.edit -> {
                         intent = Intent(this@ProductDetailActivity, EditActivity::class.java)
                         intent.putExtra("image", response.result[1][0].imageUrl)
-                        Log.e("imge", response.result[1][0].imageUrl.toString())
                         intent.putExtra("productIdx", response.result[0][0].productIdx)
                         intent.putExtra("title", binding.productDetailCate.text)
                         intent.putExtra("proposal", binding.productDetailTxtPriceProposal.text)
