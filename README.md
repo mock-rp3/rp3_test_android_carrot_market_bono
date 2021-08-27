@@ -1,6 +1,13 @@
 # 📌 API Sheet
 > ### [Carrot Market API](https://docs.google.com/spreadsheets/d/1AN8mMcLtqntN6YwmVyS9J1ptAL1yD-AK/edit#gid=990061567)    
 
+# 📌 일부 화면 Preview
+![1](https://user-images.githubusercontent.com/73240332/131107893-dff930b5-4a81-49c5-9cd7-d9a569fd8bcb.PNG)
+![2](https://user-images.githubusercontent.com/73240332/131107900-084d7119-9455-44ee-8557-0e50877cf49c.PNG)
+![3](https://user-images.githubusercontent.com/73240332/131107908-e421432c-7f38-4fad-88f7-8b5dea46c3a8.PNG)
+![4](https://user-images.githubusercontent.com/73240332/131107911-5c350162-e039-4645-9dad-49e3d7f4922a.PNG)
+
+
 
 <br />
 
@@ -251,7 +258,7 @@
 - 갤러리에서 불러온 사진 firestore에 저장하기 ( 완료 ✔ )
  
 - 유저 프로필 변경 API **( 100% ✔)**
-- - 판매글 수정 API 연동 **( 100% ✔)**
+- 판매글 수정 API 연동 **( 100% ✔)**
   - **[Q]** 사진 변경은 원래 안되는지? 
     - **[A]** 사진 변경방법은 쿼리문이 꼬여서 안된다하심
 - 판매글 삭제 API 연동 **( 100% ✔)** >> 이지만 서버에서 게시글마다 status 값을 주지 않아 삭제된 상태인 게시물도 앱 상에서 보이게 된다. 
@@ -340,7 +347,7 @@
    ```
   - **뻘짓 🙅🏻‍♀️ |**  [1] this를 어떻게든 사용하기 위해 @를 사용해보았다.   [2] 자바에서 처럼 getActivity를 사용해보았다.    [3] Activity()를 사용해보았다.
   - **원인 💁🏻‍♀️ |**  이 부분을 Activity에 작성할 경우 getActivity()를 this로 작성할 수 있는데, 이 클래스는 Fragment를 상속받으므로 해당 Fragment를 관리하는 Activity를 리턴하는 함수(getActivity())를 매개변수로 넘겨야 한다. 
-  - **해결 🙆🏻‍♀️ |** 코틀린의 경우 Activity를 를 이용하여 부모 액티비티의 context 값을 가져와 사용할 수 있다. null 값의 예외처리를 보장하려면 requireActivity() 를 사용해야하므로, **requireActivity()** 사용이 권장된다고 한다. (requireContext()도 해봤는데 됐다!)  //DividerItemDecoration에서 this 값에도 사용하였다. 
+  - **해결 🙆🏻‍♀️ |** 코틀린의 경우 Activity를 이용하여 부모 액티비티의 context 값을 가져와 사용할 수 있다. null 값의 예외처리를 보장하려면 requireActivity() 를 사용해야하므로, **requireActivity()** 사용이 권장된다고 한다. (requireContext()도 해봤는데 됐다!)  //DividerItemDecoration에서 this 값에도 사용하였다. 
    ```
    [Fragment] HomeFragment.kt
    
@@ -529,11 +536,11 @@
             if (binding.detailImgHeart.tag.toString() == "true") {
                 binding.detailImgHeart.setImageResource(R.drawable.heart_icon)
                 ProductDetailService(this).tryDeleteWishProduct(requestWishDel)
-                binding.detailImgHeart.tag="true"
+                binding.detailImgHeart.tag="false"
             } else {
                 binding.detailImgHeart.setImageResource(R.drawable.heart_on_icon)
                 ProductDetailService(this).tryPostWishProduct(requestWish)
-                binding.detailImgHeart.tag="false"
+                binding.detailImgHeart.tag="true"
             }
         }
   ```
@@ -570,3 +577,4 @@
 - [DELETE에 BODY 값 넣기](https://logcdn.com/general/2909/delete-method-is-not-supportingnon-body-http-method-cannot-contain-body-or-typedoutput)
 - [바텀 네비게이션 아이콘 변경](https://lcw126.tistory.com/330)
 - [Collapsing Tool bar](https://black-jin0427.tistory.com/16)
+= [이미지뷰에 색상 넣기 잘 정리됨](https://leveloper.tistory.com/166)
