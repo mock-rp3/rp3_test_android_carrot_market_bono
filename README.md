@@ -1,6 +1,9 @@
 # 📌 API Sheet
 > ### [Carrot Market API](https://docs.google.com/spreadsheets/d/1AN8mMcLtqntN6YwmVyS9J1ptAL1yD-AK/edit#gid=990061567)    
 
+# 📌 앱 동영상
+> ### https://youtu.be/r-HE3hBTgbE
+> 
 # 📌 일부 화면 Preview
 ![1](https://user-images.githubusercontent.com/73240332/131107893-dff930b5-4a81-49c5-9cd7-d9a569fd8bcb.PNG)
 ![2](https://user-images.githubusercontent.com/73240332/131107900-084d7119-9455-44ee-8557-0e50877cf49c.PNG)
